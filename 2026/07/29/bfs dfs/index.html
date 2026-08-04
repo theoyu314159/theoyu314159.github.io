@@ -1,0 +1,353 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <link rel='stylesheet' href='https://chinese-fonts-cdn.deno.dev/packages/lxgwwenkai/dist/LXGWWenKai-Bold/result.css' />
+  <link rel='stylesheet' href='https://chinese-fonts-cdn.deno.dev/packages/jhlst/dist/%E4%BA%AC%E8%8F%AF%E8%80%81%E5%AE%8B%E4%BD%93v2_002/result.css' />  
+  
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>bfs dfs [ yuyoru的程式小窩 ]</title>
+
+  <link rel="icon" href="https://i.meee.com.tw/advB1xa.png">
+
+
+    <meta name="author" content="yuyoru">
+
+
+    <meta name="subtitle" content="theoyu314159">
+
+
+    <meta name="Description" content="程式, 筆記與技術分享">
+
+
+    <meta name="keywords" content=",程式, linux, hexo">
+
+
+  <link rel="alternate" href="/atom.xml " title="yuyoru的程式小窩" type="application/atom+xml">
+
+
+  
+    <link rel="stylesheet" href="/css/main.css">
+  
+
+
+<script defer>
+  document.addEventListener('visibilitychange', function () {
+  if (document.visibilityState == 'hidden') {
+      normal_title = document.title;
+      document.title = '点一下';
+  } else document.title = normal_title;
+});
+
+</script>
+  <body data-theme="light" class="notransition">
+    <script defer>
+      const body = document.body;
+      const data = body.getAttribute("data-theme");
+      const initTheme = (state) => {
+        if (state === "dark") {
+          body.setAttribute("data-theme", "dark");
+        } else if (state === "light") {
+          body.removeAttribute("data-theme");
+        } else {
+          localStorage.setItem("theme", data);
+        }
+      };
+   
+      initTheme(localStorage.getItem("theme"));
+      
+      setTimeout(() => body.classList.remove("notransition"), 75);
+    </script>
+  <div class="navbar" role="navigation">
+    <nav class="menu">
+      <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+      <label for="menu-trigger">
+        <span class="menu-icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 512 512"
+          >
+            <path
+              d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z"
+            />
+          </svg>
+        </span>
+      </label>
+      <a id="mode">
+        <svg
+          class="mode-sunny"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 512 512"
+        >
+          <title>LIGHT</title>
+          <line
+            x1="256"
+            y1="48"
+            x2="256"
+            y2="96"
+            style="stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"
+          />
+          <line
+            x1="256"
+            y1="416"
+            x2="256"
+            y2="464"
+            style="stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"
+          />
+          <line
+            x1="403.08"
+            y1="108.92"
+            x2="369.14"
+            y2="142.86"
+            style="stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"
+          />
+          <line
+            x1="142.86"
+            y1="369.14"
+            x2="108.92"
+            y2="403.08"
+            style="stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"
+          />
+          <line
+            x1="464"
+            y1="256"
+            x2="416"
+            y2="256"
+            style="stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"
+          />
+          <line
+            x1="96"
+            y1="256"
+            x2="48"
+            y2="256"
+            style="stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"
+          />
+          <line
+            x1="403.08"
+            y1="403.08"
+            x2="369.14"
+            y2="369.14"
+            style="stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"
+          />
+          <line
+            x1="142.86"
+            y1="142.86"
+            x2="108.92"
+            y2="108.92"
+            style="stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"
+          />
+          <circle
+            cx="256"
+            cy="256"
+            r="80"
+            style="stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"
+          />
+        </svg>
+        <svg
+          class="mode-moon"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 512 512"
+        >
+          <title>DARK</title>
+          <line
+            x1="256"
+            y1="48"
+            x2="256"
+            y2="96"
+            style="stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"
+          />
+          <line
+            x1="256"
+            y1="416"
+            x2="256"
+            y2="464"
+            style="stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"
+          />
+          <line
+            x1="403.08"
+            y1="108.92"
+            x2="369.14"
+            y2="142.86"
+            style="stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"
+          />
+          <line
+            x1="142.86"
+            y1="369.14"
+            x2="108.92"
+            y2="403.08"
+            style="stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"
+          />
+          <line
+            x1="464"
+            y1="256"
+            x2="416"
+            y2="256"
+            style="stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"
+          />
+          <line
+            x1="96"
+            y1="256"
+            x2="48"
+            y2="256"
+            style="stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"
+          />
+          <line
+            x1="403.08"
+            y1="403.08"
+            x2="369.14"
+            y2="369.14"
+            style="stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"
+          />
+          <line
+            x1="142.86"
+            y1="142.86"
+            x2="108.92"
+            y2="108.92"
+            style="stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"
+          />
+          <circle
+            cx="256"
+            cy="256"
+            r="80"
+            style="stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"
+          />
+        </svg>
+      </a>
+      <div class="trigger">
+        <div class="trigger-container">
+          
+            
+            
+            
+            
+            
+            
+            <a class="menu-link " href="/"> 首頁</a>
+          
+            
+            
+            
+            
+            
+            
+            <a class="menu-link " href="/archives/"> 文章</a>
+          
+            
+            
+            
+            
+            
+            
+            <a class="menu-link " href="/about/"> 關於</a>
+          
+        </div>
+      </div>
+    </nav>
+  </div>
+  <button id="toTopBtn"><i class="fa-solid fa-hand-point-up " ></i></button>
+<button id="toggleButton"><i class="fa-solid fa-chart-bar " ></i></button>
+<div id="overlay" class="overlay">
+  <div class="content">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#bfs-dfs"><span class="toc-text">bfs dfs</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-text">概念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AF%84%E4%BE%8B"><span class="toc-text">範例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E9%A1%8C"><span class="toc-text">例題</span></a></li></ol></li></ol>
+    <button id="closeButton"><i class="fa-solid fa-circle-xmark"></i></button>
+  </div>
+</div>
+<div class="wrapper post">
+  <head>
+    <!-- 引入 Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta name="generator" content="Hexo 8.1.2"></head>
+
+
+
+  <main class="page-content" aria-label="Content">
+      <header class="header">
+        
+          <div class="tags">
+            
+          </div>
+        
+        <h1 class="header-title" itemprop="headline">bfs dfs</h1>
+          <div class="post-meta">
+            最后更新: <time>4月 05, 2025</time>
+            作者: <span itemprop="author">
+              <span itemprop="name">yuyoru</span>
+            </span>
+            字数: <span class="post-count">562</span>
+            预计阅读时间: <span class="post-count">2min</span> 
+          </div>       
+        </header>
+          <div class="page-content"><h1 id="bfs-dfs"><a href="#bfs-dfs" class="headerlink" title="bfs dfs"></a>bfs dfs</h1><p>python</p>
+<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>bfs是用queue來存放鄰近的節點，並將每一層的節點走完再去走下一層這樣子去走訪，而dfs則是用stack來儲存，再從上面取出，也就是說他是走到底再返回。</p>
+<h2 id="範例"><a href="#範例" class="headerlink" title="範例"></a>範例</h2><p>如果想要走訪0 1, 0 2, 1 2, 1 3, 2 3, 2 4, 3 4, 3 5的圖形的話我們可以用bfs或dfs，那麼我們這邊先示範一下，而如我們所說的會用到queue所以要import deque，還有另外dfs會用到遞迴:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">from collections import deque</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def graph():</span><br><span class="line">    n = int(input())</span><br><span class="line">    e = int(input())</span><br><span class="line">    graph = [[] for i in range(n)]</span><br><span class="line">    for i in range(e):</span><br><span class="line">        k = list(map(int, input().split()))</span><br><span class="line">        graph[k[0]].append(k[1])</span><br><span class="line">        graph[k[1]].append(k[0])</span><br><span class="line">    return graph</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def bfs(graph, s):</span><br><span class="line">    dq = deque([])</span><br><span class="line">    dq.append(s)</span><br><span class="line">    seen = set()</span><br><span class="line">    seen.add(s)</span><br><span class="line"></span><br><span class="line">    while len(dq) &gt; 0:</span><br><span class="line">        v = dq.popleft()</span><br><span class="line">        for i in graph[v]:</span><br><span class="line">            if i not in seen:</span><br><span class="line">                dq.append(i)</span><br><span class="line">                seen.add(i)</span><br><span class="line">        print(v)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">bfs(graph(), 0)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">def graph():</span><br><span class="line">    n = int(input())</span><br><span class="line">    e = int(input())</span><br><span class="line">    graph = [[] for i in range(n)]</span><br><span class="line">    for i in range(e):</span><br><span class="line">        k = list(map(int, input().split()))</span><br><span class="line">        graph[k[0]].append(k[1])</span><br><span class="line">        graph[k[1]].append(k[0])</span><br><span class="line">    return graph</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def dfs(graph, s):</span><br><span class="line">    global seen</span><br><span class="line">    seen.add(s)</span><br><span class="line">    print(s)</span><br><span class="line">    for i in graph[s]:</span><br><span class="line">        if i not in seen:</span><br><span class="line">            seen.add(i)</span><br><span class="line">            dfs(graph, i)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">seen = set()</span><br><span class="line">dfs(graph(), 0)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://web.ntnu.edu.tw/~algo/Graph.html">上面的graph()是圖形的輸入</a></p>
+<h2 id="例題"><a href="#例題" class="headerlink" title="例題"></a>例題</h2><p><a target="_blank" rel="noopener" href="https://cses.fi/problemset/task/1192/">題目</a><br>沒有意外的話我們用python寫應該會超時，但沒關係，我們可以試試用dfs來寫，讓他每一次遇到一個.，如果是沒有遇過的狀況下，就進行dfs搜尋:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">import sys</span><br><span class="line">sys.setrecursionlimit(10**6)</span><br><span class="line"> </span><br><span class="line">def inp():</span><br><span class="line">    n, m = map(int, input().split())</span><br><span class="line">    graph = []</span><br><span class="line">    for i in range(n):</span><br><span class="line">        graph.append(input())</span><br><span class="line"> </span><br><span class="line">    return graph</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">def dfs(graph, v):</span><br><span class="line">    global seen</span><br><span class="line">    seen.add(v)</span><br><span class="line">    if (</span><br><span class="line">        v[0] - 1 &gt;= 0</span><br><span class="line">        and graph[v[0] - 1][v[1]] == &quot;.&quot;</span><br><span class="line">        and (v[0] - 1, v[1]) not in seen</span><br><span class="line">    ):</span><br><span class="line">        dfs(graph, (v[0]-1, v[1]))</span><br><span class="line"> </span><br><span class="line">    if (</span><br><span class="line">        v[0] + 1 &lt; len(graph)</span><br><span class="line">        and graph[v[0] + 1][v[1]] == &quot;.&quot;</span><br><span class="line">        and (v[0] + 1, v[1]) not in seen</span><br><span class="line">    ):</span><br><span class="line">        dfs(graph, (v[0]+1, v[1]))   </span><br><span class="line"> </span><br><span class="line">    if (</span><br><span class="line">        v[1] + 1 &lt; len(graph[0])</span><br><span class="line">        and graph[v[0]][v[1] + 1] == &quot;.&quot;</span><br><span class="line">        and (v[0], v[1] + 1) not in seen</span><br><span class="line">    ):</span><br><span class="line">        dfs(graph, (v[0], v[1] + 1))</span><br><span class="line"> </span><br><span class="line">    if (</span><br><span class="line">        v[1] - 1 &gt;= 0</span><br><span class="line">        and graph[v[0]][v[1] - 1] == &quot;.&quot;</span><br><span class="line">        and (v[0], v[1] - 1) not in seen</span><br><span class="line">    ):</span><br><span class="line">        dfs(graph, (v[0], v[1] - 1))</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">def main(graph):</span><br><span class="line">    global rooms</span><br><span class="line">    for i in range(len(graph)):</span><br><span class="line">        for j in range(len(graph[0])):</span><br><span class="line">            if graph[i][j] == &quot;.&quot; and (i, j) not in seen:</span><br><span class="line">                dfs(graph, (i, j))</span><br><span class="line">                rooms+=1</span><br><span class="line"> </span><br><span class="line">seen = set()</span><br><span class="line">rooms = 0</span><br><span class="line"> </span><br><span class="line">main(inp())</span><br><span class="line">print(rooms)</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>          
+          <nav class="post-nav">
+    
+    <a class="post-nav-item post-nav-prev" href="/2026/07/29/L10/">
+      <div class="nav-arrow">&lt;&nbsp;NEWER</div>
+      <span class="post-title">L10</span>
+    </a>
+    
+    
+    <a class="post-nav-item post-nav-next" href="/2026/07/29/contend%20aero%202/">
+      <div class="nav-arrow">OLDER&nbsp;&gt;</div>
+      <span class="post-title">contend aero 2</span>
+    </a>
+    
+  </nav>
+
+   </main>
+</div>
+
+  <footer class="footer">
+    <small class="footer_copyright">
+      <div id="bottom-inner">
+        © Site by yuyoru<br>
+        <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a> &
+        <a target="_blank" rel="noopener" href="https://github.com/g0dmao/hexo-theme-Klise-enhanced">Klise-enhanced</a>
+        <br>
+        <!--<a target="_blank" rel="noopener" href="https://chinese-font.netlify.app/zh-cn/fonts/jhlst/%E4%BA%AC%E8%8F%AF%E8%80%81%E5%AE%8B%E4%BD%93v2_002">京華老宋体</a> & <a target="_blank" rel="noopener" href="https://chinese-font.netlify.app/zh-cn/">中文网字支持计划</a>
+        <br>
+        始于2025.-->
+        
+      </div>
+    </small>
+  </footer>
+  
+  
+
+    
+      <script src="/js/main.js"></script>
+    
+  
+  <script>
+    window.FPConfig = {
+      delay: 0,
+      ignoreKeywords: [],
+      maxRPS: 3,
+      hoverDelay: 50,
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+  document.body.classList.add('loaded');
+});
+
+  </script>
+</body>
+</html>

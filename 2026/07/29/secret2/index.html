@@ -1,0 +1,353 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <link rel='stylesheet' href='https://chinese-fonts-cdn.deno.dev/packages/lxgwwenkai/dist/LXGWWenKai-Bold/result.css' />
+  <link rel='stylesheet' href='https://chinese-fonts-cdn.deno.dev/packages/jhlst/dist/%E4%BA%AC%E8%8F%AF%E8%80%81%E5%AE%8B%E4%BD%93v2_002/result.css' />  
+  
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>secret2 [ yuyoru的程式小窩 ]</title>
+
+  <link rel="icon" href="https://i.meee.com.tw/advB1xa.png">
+
+
+    <meta name="author" content="yuyoru">
+
+
+    <meta name="subtitle" content="theoyu314159">
+
+
+    <meta name="Description" content="程式, 筆記與技術分享">
+
+
+    <meta name="keywords" content=",程式, linux, hexo">
+
+
+  <link rel="alternate" href="/atom.xml " title="yuyoru的程式小窩" type="application/atom+xml">
+
+
+  
+    <link rel="stylesheet" href="/css/main.css">
+  
+
+
+<script defer>
+  document.addEventListener('visibilitychange', function () {
+  if (document.visibilityState == 'hidden') {
+      normal_title = document.title;
+      document.title = '点一下';
+  } else document.title = normal_title;
+});
+
+</script>
+  <body data-theme="light" class="notransition">
+    <script defer>
+      const body = document.body;
+      const data = body.getAttribute("data-theme");
+      const initTheme = (state) => {
+        if (state === "dark") {
+          body.setAttribute("data-theme", "dark");
+        } else if (state === "light") {
+          body.removeAttribute("data-theme");
+        } else {
+          localStorage.setItem("theme", data);
+        }
+      };
+   
+      initTheme(localStorage.getItem("theme"));
+      
+      setTimeout(() => body.classList.remove("notransition"), 75);
+    </script>
+  <div class="navbar" role="navigation">
+    <nav class="menu">
+      <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+      <label for="menu-trigger">
+        <span class="menu-icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 512 512"
+          >
+            <path
+              d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z"
+            />
+          </svg>
+        </span>
+      </label>
+      <a id="mode">
+        <svg
+          class="mode-sunny"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 512 512"
+        >
+          <title>LIGHT</title>
+          <line
+            x1="256"
+            y1="48"
+            x2="256"
+            y2="96"
+            style="stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"
+          />
+          <line
+            x1="256"
+            y1="416"
+            x2="256"
+            y2="464"
+            style="stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"
+          />
+          <line
+            x1="403.08"
+            y1="108.92"
+            x2="369.14"
+            y2="142.86"
+            style="stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"
+          />
+          <line
+            x1="142.86"
+            y1="369.14"
+            x2="108.92"
+            y2="403.08"
+            style="stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"
+          />
+          <line
+            x1="464"
+            y1="256"
+            x2="416"
+            y2="256"
+            style="stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"
+          />
+          <line
+            x1="96"
+            y1="256"
+            x2="48"
+            y2="256"
+            style="stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"
+          />
+          <line
+            x1="403.08"
+            y1="403.08"
+            x2="369.14"
+            y2="369.14"
+            style="stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"
+          />
+          <line
+            x1="142.86"
+            y1="142.86"
+            x2="108.92"
+            y2="108.92"
+            style="stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"
+          />
+          <circle
+            cx="256"
+            cy="256"
+            r="80"
+            style="stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"
+          />
+        </svg>
+        <svg
+          class="mode-moon"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 512 512"
+        >
+          <title>DARK</title>
+          <line
+            x1="256"
+            y1="48"
+            x2="256"
+            y2="96"
+            style="stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"
+          />
+          <line
+            x1="256"
+            y1="416"
+            x2="256"
+            y2="464"
+            style="stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"
+          />
+          <line
+            x1="403.08"
+            y1="108.92"
+            x2="369.14"
+            y2="142.86"
+            style="stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"
+          />
+          <line
+            x1="142.86"
+            y1="369.14"
+            x2="108.92"
+            y2="403.08"
+            style="stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"
+          />
+          <line
+            x1="464"
+            y1="256"
+            x2="416"
+            y2="256"
+            style="stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"
+          />
+          <line
+            x1="96"
+            y1="256"
+            x2="48"
+            y2="256"
+            style="stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"
+          />
+          <line
+            x1="403.08"
+            y1="403.08"
+            x2="369.14"
+            y2="369.14"
+            style="stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"
+          />
+          <line
+            x1="142.86"
+            y1="142.86"
+            x2="108.92"
+            y2="108.92"
+            style="stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"
+          />
+          <circle
+            cx="256"
+            cy="256"
+            r="80"
+            style="stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"
+          />
+        </svg>
+      </a>
+      <div class="trigger">
+        <div class="trigger-container">
+          
+            
+            
+            
+            
+            
+            
+            <a class="menu-link " href="/"> 首頁</a>
+          
+            
+            
+            
+            
+            
+            
+            <a class="menu-link " href="/archives/"> 文章</a>
+          
+            
+            
+            
+            
+            
+            
+            <a class="menu-link " href="/about/"> 關於</a>
+          
+        </div>
+      </div>
+    </nav>
+  </div>
+  <button id="toTopBtn"><i class="fa-solid fa-hand-point-up " ></i></button>
+<button id="toggleButton"><i class="fa-solid fa-chart-bar " ></i></button>
+<div id="overlay" class="overlay">
+  <div class="content">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8E%A5%E4%B8%8B%E4%BE%86%EF%BC%8C%E6%88%91%E8%A6%81%E4%BE%86%E8%AA%AA%E4%B8%80%E6%AE%B5%E9%97%9C%E6%96%BC%E6%88%91%E7%9A%84%E6%95%85%E4%BA%8B%E2%80%A6"><span class="toc-text">接下來，我要來說一段關於我的故事…</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%9C%E6%96%BC%E6%88%91%E7%9A%84%E6%95%85%E4%BA%8B"><span class="toc-text">關於我的故事</span></a></li></ol>
+    <button id="closeButton"><i class="fa-solid fa-circle-xmark"></i></button>
+  </div>
+</div>
+<div class="wrapper post">
+  <head>
+    <!-- 引入 Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta name="generator" content="Hexo 8.1.2"></head>
+
+
+
+  <main class="page-content" aria-label="Content">
+      <header class="header">
+        
+          <div class="tags">
+            
+          </div>
+        
+        <h1 class="header-title" itemprop="headline">secret2</h1>
+          <div class="post-meta">
+            最后更新: <time>3月 23, 2026</time>
+            作者: <span itemprop="author">
+              <span itemprop="name">yuyoru</span>
+            </span>
+            字数: <span class="post-count">1.1k</span>
+            预计阅读时间: <span class="post-count">3min</span> 
+          </div>       
+        </header>
+          <div class="page-content"><h1 id="接下來，我要來說一段關於我的故事…"><a href="#接下來，我要來說一段關於我的故事…" class="headerlink" title="接下來，我要來說一段關於我的故事…"></a>接下來，我要來說一段關於我的故事…</h1><p>theoyu314159</p>
+<h1 id="關於我的故事"><a href="#關於我的故事" class="headerlink" title="關於我的故事"></a>關於我的故事</h1><p>我現在是位於台灣北部競爭很大地區的會考生<br>下面的故事不會太開心 請大家見諒<br>也請大家不要嘴我 我很想找個地方好好講講這件事情<br>不是為了奪取關注 </p>
+<p>從去年暑假升上九年級後學校就開始暑輔 每天早上都會有考試 會出班排, 校排<br>暑輔四個星期成績 學校接近600人我大該都考在2xx左右<br>爸媽認為我的程度不只這樣(以前考過10x名 也沒多厲害我知道)<br>爸媽開始感受到了那會考逼近的壓力 然而爸爸看到成績單後就開始用言語攻擊, 威脅我<br>我這邊就不詳細說是甚麼了…<br>他不但言語攻擊我, 還會因這件事情也把我媽罵一頓<br>而媽媽可能因為不想被罵吧 所以也會教訓我<br>然而這些傷害並沒有成功讓我成績變好 反而害我變成了另一個樣子<br>成績沒進步多少 但我學會了自殘<br>我開始傷害自己 因為當時穿短袖只敢在手臂自殘<br>原版想說這樣應該就能滿足我了吧<br>沒想到似乎有點成癮了 我需要越來越多痕才能滿足我<br>等到開始穿長袖之後我也開始在手腕自殘<br>每天一進到房間看似在讀書 卻甚麼也讀不下去 只想自殘<br>我的睡眠時間被大量拉長<br>甚至連考試都無法專心考 一直想起爸爸那些攻擊我的話語以及媽媽被罵的畫面<br>一直思考死了會怎麼樣… 還寫了遺書<br>就這樣持續到了12月<br>後來在一次下課當中 被同學發現了手上有大量的傷口<br>班導找我去約談 然而我甚麼都不說<br>但我印象最深刻班導說的那句話是[你的心思很細膩]<br>這句話讓我有種…痾說不出的感覺 但我很高興他能這樣看我<br>下一節課我被叫去了輔導處 那邊的老師開始固定一段時間會陪我約談<br>其實我從國小發生過一些事情我就很喜歡待在輔導處了 沒想到國中還有緣分(之後再說)<br>後來他們也通報了父母 父母也帶我去看醫生 而父親也願意就診<br>醫生說我有一點躁鬱症 有幫我開了一點抗憂鬱劑<br>現在寫這篇文章時我已經在減藥了 並且我已經有半個多月沒有自殘了(偶爾還是會想啦…)</p>
+<p>當然我的生活還是有些改變<br>我還是需要很多睡眠 一直睡不飽<br>有時候真的話超多 雖然我本來就偏外向 但我不喜歡這樣的我<br>有時候真的變得很懶 衣櫃裡衣服一直都沒折 都直接塞進去 每天晚上都想著要折 但卻沒體力<br>人際關係也變得沒那麼好 甚至還把幾個同班很要好的朋友封鎖(我也不知道為甚麼 但來不及了…)<br>我變得很怕被別人孤立 很容易想太多 不喜歡別人孤立我 甚至我跟警衛打招呼他不回我都會害我很憂鬱<br>我變得有點怕生…<br>變得很容易自責<br>我有時候也會很容易發怒 變得很不耐煩 一直跟父母唱反調 但我根本不想<br>有時候前一秒還在嘻嘻哈哈 下一秒又開始憂鬱了…<br>有時候一整天都無精打采的 不知道在幹嘛<br>有時候在思考自己死了會怎麼樣 又想自殘<br>有時候…</p>
+<p>謝謝大家看完我的故事 我也不知道接下來的我是怎麼樣<br>也希望你能繼續觀看我其他文章<br>有事情歡迎私訓ig(主頁有)</p>
+<p>下面有幾篇我在其他網站匿名發的關於這些事情的文章(在那邊我叫冷掉的土司)<br><a target="_blank" rel="noopener" href="https://meteor.today/article/ivoIKM">#心情 關於我的故事…</a><br><a target="_blank" rel="noopener" href="https://meteor.today/article/WPWlTP">#討論 如果你身旁有自殘的好朋友…</a><br><a target="_blank" rel="noopener" href="https://meteor.today/article/f26srQ">#心情 冷掉的吐司日常</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.threads.com/@fusionwallvibe/post/DT8BpCsjrrP/hinata-hyuga-phone-pc-tablet-wallpaper">背景圖片來源 這是我很喜歡的日向雛田，她個性應該可以說是我理想型吧 看緣分囉</a></p>
+</div>          
+          <nav class="post-nav">
+    
+    <a class="post-nav-item post-nav-prev" href="/2026/07/29/bsc200s/">
+      <div class="nav-arrow">&lt;&nbsp;NEWER</div>
+      <span class="post-title">bsc200s</span>
+    </a>
+    
+    
+    <a class="post-nav-item post-nav-next" href="/2026/07/29/%E7%B6%B2%E9%A0%81%E5%B0%8F%E5%9C%96%E6%A8%99/">
+      <div class="nav-arrow">OLDER&nbsp;&gt;</div>
+      <span class="post-title">網頁小圖標</span>
+    </a>
+    
+  </nav>
+
+   </main>
+</div>
+
+  <footer class="footer">
+    <small class="footer_copyright">
+      <div id="bottom-inner">
+        © Site by yuyoru<br>
+        <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a> &
+        <a target="_blank" rel="noopener" href="https://github.com/g0dmao/hexo-theme-Klise-enhanced">Klise-enhanced</a>
+        <br>
+        <!--<a target="_blank" rel="noopener" href="https://chinese-font.netlify.app/zh-cn/fonts/jhlst/%E4%BA%AC%E8%8F%AF%E8%80%81%E5%AE%8B%E4%BD%93v2_002">京華老宋体</a> & <a target="_blank" rel="noopener" href="https://chinese-font.netlify.app/zh-cn/">中文网字支持计划</a>
+        <br>
+        始于2025.-->
+        
+      </div>
+    </small>
+  </footer>
+  
+  
+
+    
+      <script src="/js/main.js"></script>
+    
+  
+  <script>
+    window.FPConfig = {
+      delay: 0,
+      ignoreKeywords: [],
+      maxRPS: 3,
+      hoverDelay: 50,
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+  document.body.classList.add('loaded');
+});
+
+  </script>
+</body>
+</html>
