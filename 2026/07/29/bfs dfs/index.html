@@ -13,7 +13,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="bfs dfs - yuyoru的程式小窩">
-<meta property="og:description" content="程式, 筆記與技術分享">
+<meta property="og:description" content="一個喜歡寫程式的半宅男的部落格">
 <meta property="og:url" content="https://theoyu314159.github.io">
 <meta property="og:site_name" content="yuyoru的程式小窩">
 
@@ -27,7 +27,7 @@
     <meta name="subtitle" content="theoyu314159">
 
 
-    <meta name="Description" content="程式, 筆記與技術分享">
+    <meta name="Description" content="一個喜歡寫程式的半宅男的部落格">
 
 
     <meta name="keywords" content=",程式, linux, hexo, python, yuyoru, theoyu314159">
@@ -286,7 +286,7 @@
         
         <h1 class="header-title" itemprop="headline">bfs dfs</h1>
           <div class="post-meta">
-            最后更新: <time>4月 05, 2025</time>
+            最後更新: <time>4月 05, 2025</time>
             作者: <span itemprop="author">
               <span itemprop="name">yuyoru</span>
             </span>
@@ -304,9 +304,9 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">import sys</span><br><span class="line">sys.setrecursionlimit(10**6)</span><br><span class="line"> </span><br><span class="line">def inp():</span><br><span class="line">    n, m = map(int, input().split())</span><br><span class="line">    graph = []</span><br><span class="line">    for i in range(n):</span><br><span class="line">        graph.append(input())</span><br><span class="line"> </span><br><span class="line">    return graph</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">def dfs(graph, v):</span><br><span class="line">    global seen</span><br><span class="line">    seen.add(v)</span><br><span class="line">    if (</span><br><span class="line">        v[0] - 1 &gt;= 0</span><br><span class="line">        and graph[v[0] - 1][v[1]] == &quot;.&quot;</span><br><span class="line">        and (v[0] - 1, v[1]) not in seen</span><br><span class="line">    ):</span><br><span class="line">        dfs(graph, (v[0]-1, v[1]))</span><br><span class="line"> </span><br><span class="line">    if (</span><br><span class="line">        v[0] + 1 &lt; len(graph)</span><br><span class="line">        and graph[v[0] + 1][v[1]] == &quot;.&quot;</span><br><span class="line">        and (v[0] + 1, v[1]) not in seen</span><br><span class="line">    ):</span><br><span class="line">        dfs(graph, (v[0]+1, v[1]))   </span><br><span class="line"> </span><br><span class="line">    if (</span><br><span class="line">        v[1] + 1 &lt; len(graph[0])</span><br><span class="line">        and graph[v[0]][v[1] + 1] == &quot;.&quot;</span><br><span class="line">        and (v[0], v[1] + 1) not in seen</span><br><span class="line">    ):</span><br><span class="line">        dfs(graph, (v[0], v[1] + 1))</span><br><span class="line"> </span><br><span class="line">    if (</span><br><span class="line">        v[1] - 1 &gt;= 0</span><br><span class="line">        and graph[v[0]][v[1] - 1] == &quot;.&quot;</span><br><span class="line">        and (v[0], v[1] - 1) not in seen</span><br><span class="line">    ):</span><br><span class="line">        dfs(graph, (v[0], v[1] - 1))</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">def main(graph):</span><br><span class="line">    global rooms</span><br><span class="line">    for i in range(len(graph)):</span><br><span class="line">        for j in range(len(graph[0])):</span><br><span class="line">            if graph[i][j] == &quot;.&quot; and (i, j) not in seen:</span><br><span class="line">                dfs(graph, (i, j))</span><br><span class="line">                rooms+=1</span><br><span class="line"> </span><br><span class="line">seen = set()</span><br><span class="line">rooms = 0</span><br><span class="line"> </span><br><span class="line">main(inp())</span><br><span class="line">print(rooms)</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>          
           <nav class="post-nav">
     
-    <a class="post-nav-item post-nav-prev" href="/2026/07/29/L08/">
+    <a class="post-nav-item post-nav-prev" href="/2026/07/29/L10/">
       <div class="nav-arrow">&lt;&nbsp;NEWER</div>
-      <span class="post-title">L08</span>
+      <span class="post-title">L10</span>
     </a>
     
     
