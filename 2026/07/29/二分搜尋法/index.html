@@ -303,9 +303,9 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def searchInsert(self, nums: List[int], target: int) -&gt; int:</span><br><span class="line">        def search(arr, target):</span><br><span class="line">            low = 0</span><br><span class="line">            high = len(arr)-1</span><br><span class="line">            while low &lt;= high:</span><br><span class="line">                mid = (low+high)//2</span><br><span class="line">                if arr[mid] == target:</span><br><span class="line">                    return mid</span><br><span class="line">                elif arr[mid] &lt; target:</span><br><span class="line">                    low = mid + 1</span><br><span class="line">                else: </span><br><span class="line">                    high = mid -1 </span><br><span class="line">            return low</span><br><span class="line">        nums.sort()</span><br><span class="line">        return search(nums, target)</span><br></pre></td></tr></table></figure></div>          
           <nav class="post-nav">
     
-    <a class="post-nav-item post-nav-prev" href="/2026/07/29/yt%E8%BD%89mp3%E5%B7%A5%E5%85%B7/">
+    <a class="post-nav-item post-nav-prev" href="/2026/07/29/wsl%E6%9A%AB%E5%AD%98%E8%A8%98%E6%86%B6%E9%AB%94/">
       <div class="nav-arrow">&lt;&nbsp;NEWER</div>
-      <span class="post-title">yt轉mp3工具</span>
+      <span class="post-title">wsl暫存記憶體</span>
     </a>
     
     
