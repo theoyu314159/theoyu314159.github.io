@@ -9,10 +9,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="JLW1DOltKaPkHlTMrsJNG6SsKf9OR4FZB04PWEzYh44" />
-<title>文章列表 - yuyoru的程式小窩</title>
+<title>線段覆蓋長度 - yuyoru的程式小窩</title>
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="文章列表 - yuyoru的程式小窩">
+<meta property="og:title" content="線段覆蓋長度 - yuyoru的程式小窩">
 <meta property="og:description" content="一個喜歡寫程式的半宅男的部落格">
 <meta property="og:url" content="https://theoyu314159.github.io">
 <meta property="og:site_name" content="yuyoru的程式小窩">
@@ -261,163 +261,56 @@
       </div>
     </nav>
   </div>
-  
+  <button id="toTopBtn"><i class="fa-solid fa-hand-point-up " ></i></button>
+<button id="toggleButton"><i class="fa-solid fa-chart-bar " ></i></button>
+<div id="overlay" class="overlay">
+  <div class="content">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B7%9A%E6%AE%B5%E8%A6%86%E8%93%8B%E9%95%B7%E5%BA%A6"><span class="toc-text">線段覆蓋長度</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%8C%E7%9B%AE"><span class="toc-text">題目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E9%A1%8C"><span class="toc-text">解題</span></a></li></ol></li></ol>
+    <button id="closeButton"><i class="fa-solid fa-circle-xmark"></i></button>
+  </div>
+</div>
+<div class="wrapper post">
+  <head>
+    <!-- 引入 Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta name="generator" content="Hexo 8.1.2"></head>
 
 
-  <div class="wrapper">
-    <main class="page-content">
-    <header class="header">
-      <h1 class="header-title center">文章列表</h1>
-    </header>
-    <div class="archive-container">    
-      
-      
-      <div class="monthly-archives">
+
+  <main class="page-content" aria-label="Content">
+      <header class="header">
         
-          
-          <div class="archive-month-group">
-            <h2 class="archive-month-title">
-              2026年 八月
-              <span class="post-count">(10篇)</span>
-            </h2>
+          <div class="tags">
             
-            <ul class="archive-post-list">
-              
-                <li class="archive-post-item">
-                  <time class="post-date" datetime="2026-08-11T05:37:02.000Z">
-                    08-11
-                  </time>
-                  <a href="/2026/08/11/Python%E5%88%86%E6%B2%BB%E6%B3%95/" class="post-title">
-                    Python分治法
-                  </a>
-                  
-                  
-                </li>
-              
-                <li class="archive-post-item">
-                  <time class="post-date" datetime="2026-08-11T05:36:54.000Z">
-                    08-11
-                  </time>
-                  <a href="/2026/08/11/Python%E4%BD%87%E5%88%97%E8%88%87%E5%A0%86%E7%96%8A/" class="post-title">
-                    Python佇列與堆疊
-                  </a>
-                  
-                  
-                </li>
-              
-                <li class="archive-post-item">
-                  <time class="post-date" datetime="2026-08-11T05:35:26.000Z">
-                    08-11
-                  </time>
-                  <a href="/2026/08/11/Python%E5%87%BD%E5%BC%8F%20(1)/" class="post-title">
-                    Python函式
-                  </a>
-                  
-                  
-                </li>
-              
-                <li class="archive-post-item">
-                  <time class="post-date" datetime="2026-08-11T05:35:12.000Z">
-                    08-11
-                  </time>
-                  <a href="/2026/08/11/Python%E5%87%BD%E5%BC%8F/" class="post-title">
-                    Python函式
-                  </a>
-                  
-                  
-                </li>
-              
-                <li class="archive-post-item">
-                  <time class="post-date" datetime="2026-08-11T05:34:44.000Z">
-                    08-11
-                  </time>
-                  <a href="/2026/08/11/Python%E5%BA%8F%E5%88%97%E8%88%87%E8%BF%B4%E5%9C%88/" class="post-title">
-                    Python序列與迴圈
-                  </a>
-                  
-                  
-                </li>
-              
-                <li class="archive-post-item">
-                  <time class="post-date" datetime="2026-08-11T05:34:28.000Z">
-                    08-11
-                  </time>
-                  <a href="/2026/08/11/%E7%A8%8B%E5%BC%8F%E5%8A%A0%E9%80%9F%E5%B0%8F%E6%8A%80%E5%B7%A7/" class="post-title">
-                    程式加速小技巧
-                  </a>
-                  
-                  
-                </li>
-              
-                <li class="archive-post-item">
-                  <time class="post-date" datetime="2026-08-11T05:28:32.000Z">
-                    08-11
-                  </time>
-                  <a href="/2026/08/11/Python%E5%BA%8F%E5%88%97/" class="post-title">
-                    Python序列
-                  </a>
-                  
-                  
-                </li>
-              
-                <li class="archive-post-item">
-                  <time class="post-date" datetime="2026-08-11T05:28:16.000Z">
-                    08-11
-                  </time>
-                  <a href="/2026/08/11/Python%E8%BF%B4%E5%9C%88/" class="post-title">
-                    Python迴圈
-                  </a>
-                  
-                  
-                </li>
-              
-                <li class="archive-post-item">
-                  <time class="post-date" datetime="2026-08-11T05:27:54.000Z">
-                    08-11
-                  </time>
-                  <a href="/2026/08/11/Python%E6%A2%9D%E4%BB%B6%E5%88%A4%E6%96%B7/" class="post-title">
-                    Python條件判斷
-                  </a>
-                  
-                  
-                </li>
-              
-                <li class="archive-post-item">
-                  <time class="post-date" datetime="2026-08-09T06:22:46.000Z">
-                    08-09
-                  </time>
-                  <a href="/2026/08/09/COSCUP%202026%E6%B4%BB%E5%8B%95%E5%BF%83%E5%BE%97/" class="post-title">
-                    COSCUP 2026活動心得
-                  </a>
-                  
-                  
-                </li>
-              
-            </ul>
           </div>
         
-      </div>
-    </div>
-      <nav class="pagination">
-        <a class="extend prev" rel="prev" href="/archives/">上一頁</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="page-number" href="/archives/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/7/">7</a><a class="extend next" rel="next" href="/archives/page/3/">下一頁</a>
-      </nav>
-    </main>
-  </div>
-  
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const yearToggles = document.querySelectorAll('.year-toggle');
-      
-      yearToggles.forEach(toggle => {
-        toggle.addEventListener('click', function() {
-          const year = this.dataset.year;
-          const content = document.querySelector(`.year-content[data-year="${year}"]`);
-          content.classList.toggle('collapsed');
-          this.textContent = content.classList.contains('collapsed') ? '展开' : '折叠';
-        });
-      });
-    });
-    </script>
+        <h1 class="header-title" itemprop="headline">線段覆蓋長度</h1>
+          <div class="post-meta">
+            最後更新: <time>8月 21, 2026</time>
+            作者: <span itemprop="author">
+              <span itemprop="name">yuyoru</span>
+            </span>
+            字数: <span class="post-count">285</span>
+            预计阅读时间: <span class="post-count">1min</span> 
+          </div>       
+        </header>
+          <div class="page-content"><h1 id="線段覆蓋長度"><a href="#線段覆蓋長度" class="headerlink" title="線段覆蓋長度"></a>線段覆蓋長度</h1><p>APCS歷屆</p>
+<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p>來看看題目吧:<br><img src="https://i.meee.com.tw/sGrw4a7.png" alt="pic"><br>簡單來說就是變一排，然後看總共包到了幾個格子。</p>
+<h2 id="解題"><a href="#解題" class="headerlink" title="解題"></a>解題</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">def merge():</span><br><span class="line">    global list2</span><br><span class="line">    list2.append(list1[0])</span><br><span class="line">    for i in range(1, len(list1)):</span><br><span class="line">        first = list1[i]</span><br><span class="line">        last = list2[-1]</span><br><span class="line">        if first[0] &lt;= last[1]:</span><br><span class="line">            last[1] = max(last[1], first[1])</span><br><span class="line">        else:</span><br><span class="line">            list2.append(first)</span><br><span class="line"></span><br><span class="line">list1 = []</span><br><span class="line">n = int(input())</span><br><span class="line">#list1 = [[160, 180], [150, 200], [280, 300], [300, 330], [190, 210]] # - &gt;[[150, 200], [160, 180], [190, 210], [280, 300], [300, 330]]</span><br><span class="line">for i in range(n):</span><br><span class="line">    #a, b = list1[i][0], list1[i][1]</span><br><span class="line">    list1.append(list(map(int, input().split())))</span><br><span class="line">list1.sort(key = lambda x:x[0])</span><br><span class="line">#print(list1)</span><br><span class="line">list2 = []</span><br><span class="line">merge()</span><br><span class="line">ans = 0</span><br><span class="line">for i in range(len(list2)):</span><br><span class="line">    ans += list2[i][1] - list2[i][0]</span><br><span class="line">print(ans)</span><br></pre></td></tr></table></figure>
+<p>我的解法呢就是先將他們的第零位的東西都排序，然後將他們合併，怎麼合併呢?我們先用list2當暫存，接著我們把list1的第一個值存進去，然後依序算出list1的第i個值和list2的最後一個如果他的第零個&lt;&#x3D; 他的最後一個，那麼我們就判斷哪一個的最後一個比較大，意思就…要合併要先看頭有沒有對到，啊如果不符合我們就list2加上first(list1[i])。</p>
+</div>          
+          <nav class="post-nav">
+    
+    
+    <a class="post-nav-item post-nav-next" href="/2026/08/21/%E4%BA%A4%E9%8C%AF%E5%AD%97%E4%B8%B2/">
+      <div class="nav-arrow">OLDER&nbsp;&gt;</div>
+      <span class="post-title">交錯字串</span>
+    </a>
+    
+  </nav>
+
+   </main>
+</div>
 
   <footer class="footer">
     <small class="footer_copyright">
