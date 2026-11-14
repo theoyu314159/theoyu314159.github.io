@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>SQL injection | yuyoru的程式小窩</title>
+  
+    <link rel="icon" href="https://i.meee.com.tw/X0gxuzy.jpg">
+  
+  
+  
+  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body>
+<div class="Shell">
+    <aside class='SideBar'>
+    <section class='avatar' style="background-image: url(https://i.meee.com.tw/4oLJHjZ.jpg)">
+        <div class='av-pic' style="background-image: url(https://i.meee.com.tw/X0gxuzy.jpg)">
+        </div>
+    </section>
+    <section class='menu'>
+        <div>yuyoru的程式小窩</div>
+        
+            <div>yuyoru</div>
+        
+        <ul>
+          
+            <a href="/" class="Btn">
+              <li>主頁</li>
+            </a>  
+          
+            <a href="/archives/" class="Btn">
+              <li>文章</li>
+            </a>  
+          
+            <a href="/friends/" class="Btn">
+              <li>友鏈</li>
+            </a>  
+          
+            <a href="/about/" class="Btn">
+              <li>關於我</li>
+            </a>  
+          
+        </ul>
+    </section>
+    <section class="media">
+        
+    </section>
+</aside>
+
+    <div class="container">
+        <div data-pager-shell>
+            <div>
+  <article class='ContentView'>
+    <header class='PageTitle'>
+        <h1>SQL injection</h1>
+    </header>
+
+    <section>
+      <h1 id="SQL-injection"><a href="#SQL-injection" class="headerlink" title="SQL injection"></a>SQL injection</h1><p>SQL 注入</p>
+<h2 id="前情提要"><a href="#前情提要" class="headerlink" title="前情提要?"></a>前情提要?</h2><p>先說，這裡只是筆記講解，不要去亂駭別人。</p>
+<h2 id="大致上說一下"><a href="#大致上說一下" class="headerlink" title="大致上說一下"></a>大致上說一下</h2><p>簡單來說，很直譯他叫SQL注入，相信大家都知道甚麼是SQL，簡單說就是資料庫啦，那這個方法就是在騙電腦，通常你輸入密碼進去他會去驗證，如果驗證過就會回傳True，那反過來說呢，我們可以去破解他，反正我們只是要讓他回傳True而以對吧?</p>
+<h2 id="實作"><a href="#實作" class="headerlink" title="實作"></a>實作</h2><p>看到密碼輸入格時，給他輸入:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x27;or&#x27;1&#x27;=&#x27;1 </span><br></pre></td></tr></table></figure>
+<p>我們來看一下，’1’是不是’1’，沒錯對吧，所以就回傳True，背後格式會是這樣的:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Password=&#x27;&#x27;or&#x27;1&#x27;=&#x27;1&#x27;</span><br></pre></td></tr></table></figure>
+
+      
+
+    </section>
+    
+      <section class='ArticleMeta'>
+          <div>
+            发布于&nbsp;
+            <time datetime="2026-08-12T06:03:04.000Z" itemprop="datePublished">
+              2026-08-12
+            </time>
+          </div>
+          
+      </section>
+    
+    
+</article>
+
+  
+</div>
+
+            <footer>
+    <div>© 2026 - yuyoru </div>
+    <div>
+        <span>
+            Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
+        </span>
+        ,
+        <span>
+            Theme - <a target="_blank" rel="noopener" href="https://github.com/nameoverflow/hexo-theme-icalm">Icalm</a>
+        </span>
+    </div>
+</footer>
+
+        </div>
+    </div>
+</div>
+
+<script src="/js/pager/dist/singlepager.js"></script>
+
+<script>
+var sp = new Pager('data-pager-shell')
+
+</script>
+</body>
+</html>

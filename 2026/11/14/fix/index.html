@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>yuyoru的程式小窩</title>
+  
+    <link rel="icon" href="https://i.meee.com.tw/X0gxuzy.jpg">
+  
+  
+  
+  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body>
+<div class="Shell">
+    <aside class='SideBar'>
+    <section class='avatar' style="background-image: url(https://i.meee.com.tw/4oLJHjZ.jpg)">
+        <div class='av-pic' style="background-image: url(https://i.meee.com.tw/X0gxuzy.jpg)">
+        </div>
+    </section>
+    <section class='menu'>
+        <div>yuyoru的程式小窩</div>
+        
+            <div>yuyoru</div>
+        
+        <ul>
+          
+            <a href="/" class="Btn">
+              <li>主頁</li>
+            </a>  
+          
+            <a href="/archives/" class="Btn">
+              <li>文章</li>
+            </a>  
+          
+            <a href="/friends/" class="Btn">
+              <li>友鏈</li>
+            </a>  
+          
+            <a href="/about/" class="Btn">
+              <li>關於我</li>
+            </a>  
+          
+        </ul>
+    </section>
+    <section class="media">
+        
+    </section>
+</aside>
+
+    <div class="container">
+        <div data-pager-shell>
+            <div>
+  <article class='ContentView'>
+    <header class='PageTitle'>
+        <h1></h1>
+    </header>
+
+    <section>
+      const fs = require('fs');
+const path = require('path');
+
+// 指向你的 _posts 資料夾
+const postsDir = path.join(__dirname, 'source', '_posts'); 
+
+fs.readdir(postsDir, (err, files) => {
+  if (err) {
+    // 如果腳本是直接放在 _posts 資料夾內執行的備用路徑
+    return fixFiles(__dirname);
+  }
+  fixFiles(postsDir);
+});
+
+function fixFiles(dir) {
+  fs.readdirSync(dir).forEach(file => {
+    if (path.extname(file) !== '.md') return;
+
+    const filePath = path.join(dir, file);
+    let content = fs.readFileSync(filePath, 'utf8');
+    const stats = fs.statSync(filePath);
+    
+    // 取得檔案原本正確的修改時間 (mtime)
+    const mtime = stats.mtime;
+    const YYYY = mtime.getFullYear();
+    const MM = String(mtime.getMonth() + 1).padStart(2, '0');
+    const DD = String(mtime.getDate()).padStart(2, '0');
+    const hh = String(mtime.getHours()).padStart(2, '0');
+    const mm = String(mtime.getMinutes()).padStart(2, '0');
+    const ss = String(mtime.getSeconds()).padStart(2, '0');
+    
+    const formattedDate = `${YYYY}-${MM}-${DD} ${hh}:${mm}:${ss}`;
+
+    // 如果沒有 date: 標籤，就把修改時間寫進去
+    if (!content.includes('date:')) {
+      if (content.startsWith('---')) {
+        content = content.replace(/^---\n/, `---\ndate: ${formattedDate}\n`);
+      } else {
+        content = `---\ndate: ${formattedDate}\n---\n\n` + content;
+      }
+      fs.writeFileSync(filePath, content, 'utf8');
+      console.log(`✅ 已修正 ${file} -> date: ${formattedDate}`);
+    }
+  });
+}
+
+
+      
+
+    </section>
+    
+      <section class='ArticleMeta'>
+          <div>
+            发布于&nbsp;
+            <time datetime="2026-11-14T03:46:01.846Z" itemprop="datePublished">
+              2026-11-14
+            </time>
+          </div>
+          
+      </section>
+    
+    
+</article>
+
+  
+</div>
+
+            <footer>
+    <div>© 2026 - yuyoru </div>
+    <div>
+        <span>
+            Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
+        </span>
+        ,
+        <span>
+            Theme - <a target="_blank" rel="noopener" href="https://github.com/nameoverflow/hexo-theme-icalm">Icalm</a>
+        </span>
+    </div>
+</footer>
+
+        </div>
+    </div>
+</div>
+
+<script src="/js/pager/dist/singlepager.js"></script>
+
+<script>
+var sp = new Pager('data-pager-shell')
+
+</script>
+</body>
+</html>

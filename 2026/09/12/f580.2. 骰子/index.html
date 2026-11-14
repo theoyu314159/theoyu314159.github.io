@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>f580.2. 骰子 | yuyoru的程式小窩</title>
+  
+    <link rel="icon" href="https://i.meee.com.tw/X0gxuzy.jpg">
+  
+  
+  
+  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body>
+<div class="Shell">
+    <aside class='SideBar'>
+    <section class='avatar' style="background-image: url(https://i.meee.com.tw/4oLJHjZ.jpg)">
+        <div class='av-pic' style="background-image: url(https://i.meee.com.tw/X0gxuzy.jpg)">
+        </div>
+    </section>
+    <section class='menu'>
+        <div>yuyoru的程式小窩</div>
+        
+            <div>yuyoru</div>
+        
+        <ul>
+          
+            <a href="/" class="Btn">
+              <li>主頁</li>
+            </a>  
+          
+            <a href="/archives/" class="Btn">
+              <li>文章</li>
+            </a>  
+          
+            <a href="/friends/" class="Btn">
+              <li>友鏈</li>
+            </a>  
+          
+            <a href="/about/" class="Btn">
+              <li>關於我</li>
+            </a>  
+          
+        </ul>
+    </section>
+    <section class="media">
+        
+    </section>
+</aside>
+
+    <div class="container">
+        <div data-pager-shell>
+            <div>
+  <article class='ContentView'>
+    <header class='PageTitle'>
+        <h1>f580.2. 骰子</h1>
+    </header>
+
+    <section>
+      <h1 id="f580-2-骰子"><a href="#f580-2-骰子" class="headerlink" title="f580.2. 骰子"></a>f580.2. 骰子</h1><p>APCS歷屆</p>
+<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p>來看一下題目吧:<br><img src="https://i.meee.com.tw/UfNmDA3.png" alt="pic"><br>簡單來說呢，這一題就是叫你模擬骰子的操作，並且如果a, b都是正數就兩個骰子位子交換，不過要注意的是有點容易誤解意思，如果b &#x3D;&#x3D; -1，是只前面東西跑道下面，b &#x3D;&#x3D; -2，是只上面東西跑到右邊，然後他希望輸出上面的東西。</p>
+<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"># 用3*1d list去翻轉會不會很耗時間</span><br><span class="line"># 或是可以考慮使用兩個1d list 去紀錄idx</span><br><span class="line"># [上*4個] [旁邊的數字] [下面*4]</span><br><span class="line"># 每次移動就改idx值(跑中間list)</span><br><span class="line"># 前到下 後到上 上到前 下到後 也可以不用?</span><br><span class="line">from sys import stdin</span><br><span class="line">def up(a):</span><br><span class="line">    global idx, mid, back, front</span><br><span class="line">    old_back = back[a][0]</span><br><span class="line">    old_front = front[a][0]</span><br><span class="line">    front[a] = [mid[a][idx[a]] for i in range(4)]</span><br><span class="line">    if idx[a] + 2 &gt;3:</span><br><span class="line">        if idx[a] == 2:</span><br><span class="line">            back[a] = [mid[a][0] for i in range(4)]</span><br><span class="line">            mid[a][0] = old_front</span><br><span class="line">        if idx[a] == 3:</span><br><span class="line">            back[a] = [mid[a][1] for i in range(4)]</span><br><span class="line">            mid[a][1] = old_front</span><br><span class="line">    else:</span><br><span class="line">        back[a] = [mid[a][idx[a]+2] for i in range(4) ]</span><br><span class="line">        mid[a][idx[a] + 2] = old_front</span><br><span class="line">    mid[a][idx[a]] = old_back</span><br><span class="line">    # old_front到對面</span><br><span class="line"></span><br><span class="line">def right(a):</span><br><span class="line">    global idx</span><br><span class="line">    if idx[a] - 1 &lt; 0:</span><br><span class="line">        idx[a] = 3</span><br><span class="line">    else:</span><br><span class="line">        idx[a] -= 1</span><br><span class="line"></span><br><span class="line">#n, m = 1, 2</span><br><span class="line">#inp = [[1, -2], [1, -1]]</span><br><span class="line">#back = [3, 3, 3, 3]</span><br><span class="line">#mid = [1, 2, 6, 5]</span><br><span class="line">#front = [4, 4, 4, 4]</span><br><span class="line">#idx = 0 #跑在mid</span><br><span class="line">#right()</span><br><span class="line">#print(back)</span><br><span class="line">#print(mid)</span><br><span class="line">#print(front)</span><br><span class="line">#print(idx)</span><br><span class="line">#up()</span><br><span class="line">n, m = map(int, stdin.readline().split())</span><br><span class="line">idx = [0 for i in range(n)]</span><br><span class="line">back = [[3, 3, 3, 3] for i in range(n)]</span><br><span class="line">mid = [[1, 2, 6, 5] for i in range(n)]</span><br><span class="line">front = [[4, 4, 4, 4] for i in range(n)]</span><br><span class="line">for i in range(m):</span><br><span class="line">    a, b = map(int, stdin.readline().split())</span><br><span class="line">    if b == -1:</span><br><span class="line">        up(a - 1)</span><br><span class="line">    elif b == -2:</span><br><span class="line">        right(a - 1)</span><br><span class="line">    else:</span><br><span class="line">        #print(mid[2][idx[2]])</span><br><span class="line">        a -= 1</span><br><span class="line">        b -= 1</span><br><span class="line">        idx[a], idx[b] = idx[b], idx[a]</span><br><span class="line">        back[a], back[b] = back[b], back[a]</span><br><span class="line">        mid[a], mid[b] = mid[b], mid[a]</span><br><span class="line">        front[a], front[b] = front[b], front[a]</span><br><span class="line"></span><br><span class="line">#k = 0</span><br><span class="line">for i in range(len(idx)):</span><br><span class="line">    if i == 0:</span><br><span class="line">        print(mid[i][idx[i]], end = &quot;&quot;)</span><br><span class="line">    else:</span><br><span class="line">        print(f&quot; &#123;mid[i][idx[i]]&#125;&quot;, end = &quot;&quot;)</span><br></pre></td></tr></table></figure>
+<p>我的想法就是把上右左下以及前後各存一個list，並且設一個idx固定在上右左下中間跑，接著呢就是如果是b &#x3D;&#x3D; -2我就將idx-&#x3D;1(idx是上為基準)，如果b &#x3D;&#x3D; -1，我們就將上面往前面, 前面往下面, 下面往後面, 後面往上面去做調整。</p>
+
+
+      
+
+    </section>
+    
+      <section class='ArticleMeta'>
+          <div>
+            发布于&nbsp;
+            <time datetime="2026-09-12T09:50:47.000Z" itemprop="datePublished">
+              2026-09-12
+            </time>
+          </div>
+          
+      </section>
+    
+    
+</article>
+
+  
+</div>
+
+            <footer>
+    <div>© 2026 - yuyoru </div>
+    <div>
+        <span>
+            Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
+        </span>
+        ,
+        <span>
+            Theme - <a target="_blank" rel="noopener" href="https://github.com/nameoverflow/hexo-theme-icalm">Icalm</a>
+        </span>
+    </div>
+</footer>
+
+        </div>
+    </div>
+</div>
+
+<script src="/js/pager/dist/singlepager.js"></script>
+
+<script>
+var sp = new Pager('data-pager-shell')
+
+</script>
+</body>
+</html>

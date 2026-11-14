@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>編碼encoding | yuyoru的程式小窩</title>
+  
+    <link rel="icon" href="https://i.meee.com.tw/X0gxuzy.jpg">
+  
+  
+  
+  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body>
+<div class="Shell">
+    <aside class='SideBar'>
+    <section class='avatar' style="background-image: url(https://i.meee.com.tw/4oLJHjZ.jpg)">
+        <div class='av-pic' style="background-image: url(https://i.meee.com.tw/X0gxuzy.jpg)">
+        </div>
+    </section>
+    <section class='menu'>
+        <div>yuyoru的程式小窩</div>
+        
+            <div>yuyoru</div>
+        
+        <ul>
+          
+            <a href="/" class="Btn">
+              <li>主頁</li>
+            </a>  
+          
+            <a href="/archives/" class="Btn">
+              <li>文章</li>
+            </a>  
+          
+            <a href="/friends/" class="Btn">
+              <li>友鏈</li>
+            </a>  
+          
+            <a href="/about/" class="Btn">
+              <li>關於我</li>
+            </a>  
+          
+        </ul>
+    </section>
+    <section class="media">
+        
+    </section>
+</aside>
+
+    <div class="container">
+        <div data-pager-shell>
+            <div>
+  <article class='ContentView'>
+    <header class='PageTitle'>
+        <h1>編碼encoding</h1>
+    </header>
+
+    <section>
+      <h1 id="編碼encoding"><a href="#編碼encoding" class="headerlink" title="編碼encoding"></a>編碼encoding</h1><p>ASCII</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我是yuyoru，關於我最近對於資安相關有了興趣，所以稍微來學了一下資源編碼，未來可能會更新更多資安相關的內容。</p>
+<h2 id="ASCII"><a href="#ASCII" class="headerlink" title="ASCII"></a>ASCII</h2><p>他是一個固定的格式，數字可以轉成固定的數字編號，大概是這樣大家可以去網路上找找看對照表:<br><a target="_blank" rel="noopener" href="https://www.google.com/search?q=ascii+%E5%B0%8D%E7%85%A7+%E8%A1%A8&sca_esv=ead7d5579552a84e&udm=2&biw=1280&bih=678&sxsrf=APpeQntQi8ETLFZ_qD0ON9nwwJq3sclpFA:1785329720266&ei=OPhpauzlD6G6vr0P266I2Q8&ved=0ahUKEwjs4aG-9_eVAxUhna8BHVsXIvsQ4dUDCBE&uact=5&oq=ascii+%E5%B0%8D%E7%85%A7+%E8%A1%A8&gs_lp=Egtnd3Mtd2l6LWltZyIQYXNjaWkg5bCN54WnIOihqDIFEAAYgAQyBhAAGAgYHjIGEAAYCBgeMgYQABgIGB5InwNQAFgAcAB4AJABAJgBXKABXKoBATG4AQPIAQD4AQGYAgGgAmCYAwCSBwExoAeYAbIHATG4B2DCBwMwLjHIBwKACAE&sclient=gws-wiz-img">去搜尋看看</a><br>好的 那我們來用python實作:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#主要透過兩個function chr() &amp; ord()</span><br><span class="line">k = [121, 117, 121, 111, 114, 117]</span><br><span class="line">for i in range(len(k)):</span><br><span class="line">    print(chr(k[i]))</span><br><span class="line">k = yuyoru</span><br><span class="line">for i in range(len(k)):</span><br><span class="line">    print(chr(k[i]))</span><br></pre></td></tr></table></figure>
+<p>大家可以實作看看</p>
+
+
+      
+
+    </section>
+    
+      <section class='ArticleMeta'>
+          <div>
+            发布于&nbsp;
+            <time datetime="2026-07-29T05:42:32.000Z" itemprop="datePublished">
+              2026-07-29
+            </time>
+          </div>
+          
+      </section>
+    
+    
+</article>
+
+  
+</div>
+
+            <footer>
+    <div>© 2026 - yuyoru </div>
+    <div>
+        <span>
+            Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
+        </span>
+        ,
+        <span>
+            Theme - <a target="_blank" rel="noopener" href="https://github.com/nameoverflow/hexo-theme-icalm">Icalm</a>
+        </span>
+    </div>
+</footer>
+
+        </div>
+    </div>
+</div>
+
+<script src="/js/pager/dist/singlepager.js"></script>
+
+<script>
+var sp = new Pager('data-pager-shell')
+
+</script>
+</body>
+</html>

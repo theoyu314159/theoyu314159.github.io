@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>矩陣轉換 | yuyoru的程式小窩</title>
+  
+    <link rel="icon" href="https://i.meee.com.tw/X0gxuzy.jpg">
+  
+  
+  
+  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body>
+<div class="Shell">
+    <aside class='SideBar'>
+    <section class='avatar' style="background-image: url(https://i.meee.com.tw/4oLJHjZ.jpg)">
+        <div class='av-pic' style="background-image: url(https://i.meee.com.tw/X0gxuzy.jpg)">
+        </div>
+    </section>
+    <section class='menu'>
+        <div>yuyoru的程式小窩</div>
+        
+            <div>yuyoru</div>
+        
+        <ul>
+          
+            <a href="/" class="Btn">
+              <li>主頁</li>
+            </a>  
+          
+            <a href="/archives/" class="Btn">
+              <li>文章</li>
+            </a>  
+          
+            <a href="/friends/" class="Btn">
+              <li>友鏈</li>
+            </a>  
+          
+            <a href="/about/" class="Btn">
+              <li>關於我</li>
+            </a>  
+          
+        </ul>
+    </section>
+    <section class="media">
+        
+    </section>
+</aside>
+
+    <div class="container">
+        <div data-pager-shell>
+            <div>
+  <article class='ContentView'>
+    <header class='PageTitle'>
+        <h1>矩陣轉換</h1>
+    </header>
+
+    <section>
+      <h1 id="矩陣轉換"><a href="#矩陣轉換" class="headerlink" title="矩陣轉換"></a>矩陣轉換</h1><p>APCS歷屆</p>
+<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><a target="_blank" rel="noopener" href="https://apcs.csie.ntnu.edu.tw/wp-content/uploads/2018/12/1050305APCSImplementation.pdf">PDF</a><br>來看一下第二題，簡單來說我們就是有兩種選擇，一種是旋轉一個是翻轉，不過要特別注意的是他是請我們推回來並不是推過去喔~</p>
+<h2 id="解題"><a href="#解題" class="headerlink" title="解題"></a>解題</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"># 3次</span><br><span class="line"># 寫兩個function 再去做</span><br><span class="line">def fan(): #翻轉 傳出arr</span><br><span class="line">    row = len(list1) #3</span><br><span class="line">    colu = len(list1[0]) #2</span><br><span class="line">    list2 = [[]for i in range(row)]</span><br><span class="line">    #n = 0</span><br><span class="line">    for i in range(colu):</span><br><span class="line">        n = 0</span><br><span class="line">        for j in range(row - 1, -1, -1):</span><br><span class="line">            list2[n].append(list1[j][i])</span><br><span class="line">            n += 1</span><br><span class="line">    #print(list2)</span><br><span class="line"></span><br><span class="line">    return list2</span><br><span class="line"></span><br><span class="line">def shan(): #做旋轉 傳出arr</span><br><span class="line">    row = len(list1) #2</span><br><span class="line">    colu = len(list1[0]) #3</span><br><span class="line">    list2 = [[]for i in range(colu)]</span><br><span class="line">    n = 0</span><br><span class="line">    for i in range(colu - 1, -1, -1):</span><br><span class="line">        for j in range(row):</span><br><span class="line">            list2[n].append(list1[j][i])</span><br><span class="line">        n += 1</span><br><span class="line">    #print(list2)</span><br><span class="line"></span><br><span class="line">    return list2</span><br><span class="line"></span><br><span class="line">#list1 = [[3, 6,], [2, 5], [1, 4]]</span><br><span class="line">#print(fan())</span><br><span class="line">#list1 = [[1, 2, 3], [4, 5, 6]]</span><br><span class="line">#print(shan())</span><br><span class="line">r, c, m = 3, 2, 2</span><br><span class="line">r, c, m = map(int, input().split())</span><br><span class="line">list1 = [[3, 3], [2, 1], [1, 2]]</span><br><span class="line">list1 = []</span><br><span class="line">for i in range(r):</span><br><span class="line">    list1.append(list(map(int, input().split())))</span><br><span class="line">list3 = [0, 1]</span><br><span class="line">list3 = list(map(int, input().split()))</span><br><span class="line">for i in range(len(list3) - 1, -1, -1):</span><br><span class="line">    if list3[i] == 0:</span><br><span class="line">        list1 = shan()</span><br><span class="line">    else:</span><br><span class="line">        list1 = fan()</span><br><span class="line">print(len(list1), len(list1[0]))</span><br><span class="line">for i in list1:</span><br><span class="line">    print(*i, sep = &quot; &quot;)</span><br><span class="line">&#x27;&#x27;&#x27;list1 = [[3, 3], [2, 1], [1, 2]]</span><br><span class="line">#list1 = shan()</span><br><span class="line">list1 = fan()</span><br><span class="line">list1 = shan()&#x27;&#x27;&#x27;</span><br></pre></td></tr></table></figure>
+<p>我的想法就是寫兩個function，一個是旋轉，右下會跑到右上(反著推)，所以我們就依序寫迴圈去排，另外上下顛倒就直接給定另一個list2，反著移進去就好了，最後再測試0 or 1去決定跑哪個function。</p>
+
+
+      
+
+    </section>
+    
+      <section class='ArticleMeta'>
+          <div>
+            发布于&nbsp;
+            <time datetime="2026-08-30T14:00:01.000Z" itemprop="datePublished">
+              2026-08-30
+            </time>
+          </div>
+          
+      </section>
+    
+    
+</article>
+
+  
+</div>
+
+            <footer>
+    <div>© 2026 - yuyoru </div>
+    <div>
+        <span>
+            Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
+        </span>
+        ,
+        <span>
+            Theme - <a target="_blank" rel="noopener" href="https://github.com/nameoverflow/hexo-theme-icalm">Icalm</a>
+        </span>
+    </div>
+</footer>
+
+        </div>
+    </div>
+</div>
+
+<script src="/js/pager/dist/singlepager.js"></script>
+
+<script>
+var sp = new Pager('data-pager-shell')
+
+</script>
+</body>
+</html>

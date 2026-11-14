@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>dp | yuyoru的程式小窩</title>
+  
+    <link rel="icon" href="https://i.meee.com.tw/X0gxuzy.jpg">
+  
+  
+  
+  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body>
+<div class="Shell">
+    <aside class='SideBar'>
+    <section class='avatar' style="background-image: url(https://i.meee.com.tw/4oLJHjZ.jpg)">
+        <div class='av-pic' style="background-image: url(https://i.meee.com.tw/X0gxuzy.jpg)">
+        </div>
+    </section>
+    <section class='menu'>
+        <div>yuyoru的程式小窩</div>
+        
+            <div>yuyoru</div>
+        
+        <ul>
+          
+            <a href="/" class="Btn">
+              <li>主頁</li>
+            </a>  
+          
+            <a href="/archives/" class="Btn">
+              <li>文章</li>
+            </a>  
+          
+            <a href="/friends/" class="Btn">
+              <li>友鏈</li>
+            </a>  
+          
+            <a href="/about/" class="Btn">
+              <li>關於我</li>
+            </a>  
+          
+        </ul>
+    </section>
+    <section class="media">
+        
+    </section>
+</aside>
+
+    <div class="container">
+        <div data-pager-shell>
+            <div>
+  <article class='ContentView'>
+    <header class='PageTitle'>
+        <h1>dp</h1>
+    </header>
+
+    <section>
+      <h1 id="dp"><a href="#dp" class="headerlink" title="dp"></a>dp</h1><p>python</p>
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>簡單來說，就是把問題分成很多的子問題再去做處理，還有將算到很多變的東西存下來，然後再將它結合起來，而重點就是，在解題過程中，不用到遞迴，來增加我們的速度。</p>
+<h2 id="範例"><a href="#範例" class="headerlink" title="範例"></a>範例</h2><p>我們先以一個簡單的費氏數列來說就好了，他會直接將當前算到的東西存下來，並且用前兩位去做加減，不用像遞迴每次重算:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">def DP(n):</span><br><span class="line">    dp = [0] * (n+1)</span><br><span class="line">    dp[1] = 1</span><br><span class="line"></span><br><span class="line">    for i in range(2, n+1):</span><br><span class="line">        dp[i] = dp[i-1] + dp[i-2]</span><br><span class="line"></span><br><span class="line">    return dp[n]</span><br><span class="line">print(DP(10))</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-tw/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0">費氏數列</a></p>
+<h2 id="例題"><a href="#例題" class="headerlink" title="例題"></a>例題</h2><p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/climbing-stairs/description/">題目</a><br>題目規定我們一次只能走1或2階，所以我們可以考慮，如果n&#x3D;1的話，就直接回傳1，這是我們知道的，接著，如果不等於，我們就給他定一個地方存放資料，前兩項也是我們所知的，1和2，接著開始從3來算:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def climbStairs(self, n: int) -&gt; int:</span><br><span class="line">        if n==1:</span><br><span class="line">            return 1</span><br><span class="line">        dp = [0]*(n+1)</span><br><span class="line">        dp[1], dp[2] = 1, 2</span><br><span class="line">        for i in range(3, n+1):</span><br><span class="line">            dp[i] = dp[i-1]+dp[i-2]</span><br><span class="line">        return dp[n]</span><br></pre></td></tr></table></figure>
+
+      
+
+    </section>
+    
+      <section class='ArticleMeta'>
+          <div>
+            发布于&nbsp;
+            <time datetime="2025-04-03T06:16:14.000Z" itemprop="datePublished">
+              2025-04-03
+            </time>
+          </div>
+          
+      </section>
+    
+    
+</article>
+
+  
+</div>
+
+            <footer>
+    <div>© 2026 - yuyoru </div>
+    <div>
+        <span>
+            Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
+        </span>
+        ,
+        <span>
+            Theme - <a target="_blank" rel="noopener" href="https://github.com/nameoverflow/hexo-theme-icalm">Icalm</a>
+        </span>
+    </div>
+</footer>
+
+        </div>
+    </div>
+</div>
+
+<script src="/js/pager/dist/singlepager.js"></script>
+
+<script>
+var sp = new Pager('data-pager-shell')
+
+</script>
+</body>
+</html>

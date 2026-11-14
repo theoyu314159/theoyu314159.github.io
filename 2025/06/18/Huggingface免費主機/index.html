@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Huggingface免費主機 | yuyoru的程式小窩</title>
+  
+    <link rel="icon" href="https://i.meee.com.tw/X0gxuzy.jpg">
+  
+  
+  
+  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body>
+<div class="Shell">
+    <aside class='SideBar'>
+    <section class='avatar' style="background-image: url(https://i.meee.com.tw/4oLJHjZ.jpg)">
+        <div class='av-pic' style="background-image: url(https://i.meee.com.tw/X0gxuzy.jpg)">
+        </div>
+    </section>
+    <section class='menu'>
+        <div>yuyoru的程式小窩</div>
+        
+            <div>yuyoru</div>
+        
+        <ul>
+          
+            <a href="/" class="Btn">
+              <li>主頁</li>
+            </a>  
+          
+            <a href="/archives/" class="Btn">
+              <li>文章</li>
+            </a>  
+          
+            <a href="/friends/" class="Btn">
+              <li>友鏈</li>
+            </a>  
+          
+            <a href="/about/" class="Btn">
+              <li>關於我</li>
+            </a>  
+          
+        </ul>
+    </section>
+    <section class="media">
+        
+    </section>
+</aside>
+
+    <div class="container">
+        <div data-pager-shell>
+            <div>
+  <article class='ContentView'>
+    <header class='PageTitle'>
+        <h1>Huggingface免費主機</h1>
+    </header>
+
+    <section>
+      <h1 id="Huggingface免費主機"><a href="#Huggingface免費主機" class="headerlink" title="Huggingface免費主機"></a>Huggingface免費主機</h1><p>免費主機</p>
+<h2 id="免費主機"><a href="#免費主機" class="headerlink" title="免費主機"></a>免費主機</h2><p>由於本然前陣子蠻喜歡寫網站的緣故，但又沒有錢，在我接觸到Flask之前我是先使用gradio，而這一個gradio主要可以做一些簡單的小網站，但無法像我們使用Flask依樣可以做出一些更精緻的網站，gradio會有固定的模板，一開始做了一開始做了一些網頁，想要給別人分享，但基於資金考量買不起主機，所以就找了一個較huggingface的免費主機。</p>
+<h2 id="gradio"><a href="#gradio" class="headerlink" title="gradio"></a>gradio</h2><p>他是一個可以提供把python視覺化的程式，並且將它變成網頁，可以讓他分享給他人。<br>那這一次就拿個簡單的搜尋ip網站來當作示範，首先先放上程式(這次重點不再這就不做解說了)，這裡程式檔案必須叫做’app.py’:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import gradio as gr</span><br><span class="line">import socket</span><br><span class="line">def do(url):</span><br><span class="line">  outp=socket.gethostbyname(url)</span><br><span class="line">  return outp</span><br><span class="line">iface=gr.Interface(fn=do,title=&#x27;網站ip找尋工具&#x27;,description=&#x27;輸入一個網址，我們可以幫您找到他的ip.&#x27;,inputs=&#x27;text&#x27;,outputs=&#x27;text&#x27;)</span><br><span class="line">iface.launch(share=True)</span><br></pre></td></tr></table></figure>
+<p>接著還要將我們所使用到的模組放的一個叫做’requirements.txt’的檔案中:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gradio</span><br></pre></td></tr></table></figure>
+
+<h2 id="上架主機"><a href="#上架主機" class="headerlink" title="上架主機"></a>上架主機</h2><p><img src="https://hackmd.io/_uploads/BkV9ANx4ee.png" alt="image"><br>我們從<a target="_blank" rel="noopener" href="https://huggingface.co/">hugging face</a>按下space之後會跳到一個畫面，你可以輸入一些專案名稱介紹等，在’Select the Space SDK’點下’Gradio’，在下面’Space hardware<br>‘選擇’FREE’，當然需求較大付錢也可以，接著進去之後，把電腦檔案上傳上去讓他開始啟動主機，接著就會開始log出來許多東西了，完成後如果剛剛設定公開就可以將網址傳給他人了，如果你點進去<a target="_blank" rel="noopener" href="https://huggingface.co/spaces/theoyu314159/webip">我做的</a>你將會發現要先啟動主機，沒錯，因為是免費主機，所以平時他會休眠，減少使用量，等到需要啟動時再啟動。</p>
+<h2 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h2><p>我後來去看一下它的功能，感覺主要像是拿給一些AI測試使用的，並且依樣可以將我們的HTML放上去使用，所以本人真心滿推薦hugging face的(我好像在講廢話)。</p>
+
+
+      
+
+    </section>
+    
+      <section class='ArticleMeta'>
+          <div>
+            发布于&nbsp;
+            <time datetime="2025-06-18T05:37:52.000Z" itemprop="datePublished">
+              2025-06-18
+            </time>
+          </div>
+          
+      </section>
+    
+    
+</article>
+
+  
+</div>
+
+            <footer>
+    <div>© 2026 - yuyoru </div>
+    <div>
+        <span>
+            Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
+        </span>
+        ,
+        <span>
+            Theme - <a target="_blank" rel="noopener" href="https://github.com/nameoverflow/hexo-theme-icalm">Icalm</a>
+        </span>
+    </div>
+</footer>
+
+        </div>
+    </div>
+</div>
+
+<script src="/js/pager/dist/singlepager.js"></script>
+
+<script>
+var sp = new Pager('data-pager-shell')
+
+</script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>linux外網ssh教學 | yuyoru的程式小窩</title>
+  
+    <link rel="icon" href="https://i.meee.com.tw/X0gxuzy.jpg">
+  
+  
+  
+  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body>
+<div class="Shell">
+    <aside class='SideBar'>
+    <section class='avatar' style="background-image: url(https://i.meee.com.tw/4oLJHjZ.jpg)">
+        <div class='av-pic' style="background-image: url(https://i.meee.com.tw/X0gxuzy.jpg)">
+        </div>
+    </section>
+    <section class='menu'>
+        <div>yuyoru的程式小窩</div>
+        
+            <div>yuyoru</div>
+        
+        <ul>
+          
+            <a href="/" class="Btn">
+              <li>主頁</li>
+            </a>  
+          
+            <a href="/archives/" class="Btn">
+              <li>文章</li>
+            </a>  
+          
+            <a href="/friends/" class="Btn">
+              <li>友鏈</li>
+            </a>  
+          
+            <a href="/about/" class="Btn">
+              <li>關於我</li>
+            </a>  
+          
+        </ul>
+    </section>
+    <section class="media">
+        
+    </section>
+</aside>
+
+    <div class="container">
+        <div data-pager-shell>
+            <div>
+  <article class='ContentView'>
+    <header class='PageTitle'>
+        <h1>linux外網ssh教學</h1>
+    </header>
+
+    <section>
+      <h1 id="linux外網ssh教學"><a href="#linux外網ssh教學" class="headerlink" title="linux外網ssh教學"></a>linux外網ssh教學</h1><p>serveo</p>
+<h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>最近我買了一台zero w想放在家裡自己玩一下，當作小主機，然而如果你在外面想連近來，就得透過vpn，不然是無法適用外網連線的，另外我自己在家主機跟我使用時連的網路也不一樣，真的很不方便，所以我就研究了一下serveo這一個東西。</p>
+<h2 id="教學"><a href="#教學" class="headerlink" title="教學"></a>教學</h2><p><a target="_blank" rel="noopener" href="https://serveo.net/">serveo</a><br><img src="https://i.meee.com.tw/qlKAUAV.png" alt="pic"><br>進去網站候你就會看到這個選項，經典SSH，將那行文字輸入進去你的主機，接著填入一些必備資料即可，申請完成後，到你的powershell:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">autossh -M 0 -f -N  -o&quot;ServerAliveInterval 30&quot; -o &quot;ServerAliveCountMax 3&quot; -R 主機名:22:localhost:22 serveo.n^C</span><br></pre></td></tr></table></figure>
+<p>在autossh前面加上一些參數，就可以讓他在背景跑不會暫停喔~</p>
+
+
+      
+
+    </section>
+    
+      <section class='ArticleMeta'>
+          <div>
+            发布于&nbsp;
+            <time datetime="2026-08-03T04:34:32.000Z" itemprop="datePublished">
+              2026-08-03
+            </time>
+          </div>
+          
+      </section>
+    
+    
+</article>
+
+  
+</div>
+
+            <footer>
+    <div>© 2026 - yuyoru </div>
+    <div>
+        <span>
+            Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
+        </span>
+        ,
+        <span>
+            Theme - <a target="_blank" rel="noopener" href="https://github.com/nameoverflow/hexo-theme-icalm">Icalm</a>
+        </span>
+    </div>
+</footer>
+
+        </div>
+    </div>
+</div>
+
+<script src="/js/pager/dist/singlepager.js"></script>
+
+<script>
+var sp = new Pager('data-pager-shell')
+
+</script>
+</body>
+</html>

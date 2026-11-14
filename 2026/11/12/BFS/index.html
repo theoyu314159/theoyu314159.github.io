@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>BFS | yuyoru的程式小窩</title>
+  
+    <link rel="icon" href="https://i.meee.com.tw/X0gxuzy.jpg">
+  
+  
+  
+  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body>
+<div class="Shell">
+    <aside class='SideBar'>
+    <section class='avatar' style="background-image: url(https://i.meee.com.tw/4oLJHjZ.jpg)">
+        <div class='av-pic' style="background-image: url(https://i.meee.com.tw/X0gxuzy.jpg)">
+        </div>
+    </section>
+    <section class='menu'>
+        <div>yuyoru的程式小窩</div>
+        
+            <div>yuyoru</div>
+        
+        <ul>
+          
+            <a href="/" class="Btn">
+              <li>主頁</li>
+            </a>  
+          
+            <a href="/archives/" class="Btn">
+              <li>文章</li>
+            </a>  
+          
+            <a href="/friends/" class="Btn">
+              <li>友鏈</li>
+            </a>  
+          
+            <a href="/about/" class="Btn">
+              <li>關於我</li>
+            </a>  
+          
+        </ul>
+    </section>
+    <section class="media">
+        
+    </section>
+</aside>
+
+    <div class="container">
+        <div data-pager-shell>
+            <div>
+  <article class='ContentView'>
+    <header class='PageTitle'>
+        <h1>BFS</h1>
+    </header>
+
+    <section>
+      <h1 id="BFS"><a href="#BFS" class="headerlink" title="BFS"></a>BFS</h1><p>演算法</p>
+<h2 id="邏輯"><a href="#邏輯" class="headerlink" title="邏輯"></a>邏輯</h2><p>我們有時候會必須去解決一些路徑問題，而我們會希望可以解決的是最短路徑，如果你直接用人類的眼睛去看的話你應該會覺得還蠻容易的，但如果你想要讓電腦可以做這一件事情的話，勢必要用一些演算法，那就用BFS吧，想像一下如果我們在起點過後，上下左右走訪(小心不要超出範圍)，並且判斷沒走過，那我們就一個一個去算走過去的格子距離(+1)，接著走到終點就好了;然後我們這邊要用一個資料結構叫做queue，將我們想走的路線放進去，要走時pop出來並且記錄我們走過。<br><img src="https://i.meee.com.tw/XNKtYnB.webp" alt="byai"></p>
+<h2 id="練習"><a href="#練習" class="headerlink" title="練習"></a>練習</h2><p>感覺上面說的很抽象，那就拿題目寫寫看吧:<br>[a982]: <a target="_blank" rel="noopener" href="https://zerojudge.tw/ShowProblem?problemid=a982">https://zerojudge.tw/ShowProblem?problemid=a982</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">from sys import stdin</span><br><span class="line">N = int(stdin.readline())</span><br><span class="line">used = [[0 for i in range(N)]for i in range(N)]</span><br><span class="line">#print(Ns)</span><br><span class="line">x = 1</span><br><span class="line">y = 1</span><br><span class="line">q = [[1, 1]]</span><br><span class="line">Ns = []</span><br><span class="line">for i in range(N):</span><br><span class="line">    Ns.append(stdin.readline().rstrip())</span><br><span class="line"></span><br><span class="line">if Ns[N-2][N-2] == &quot;#&quot;:</span><br><span class="line">    print(&quot;No solution!&quot;)</span><br><span class="line">    exit()</span><br><span class="line"></span><br><span class="line">while q:</span><br><span class="line">    a = q.pop(0)</span><br><span class="line">    x = a[0]</span><br><span class="line">    y = a[1]</span><br><span class="line">    if x == N - 2 and y == N - 2 :</span><br><span class="line">        #print(&quot;Yes&quot;)</span><br><span class="line">        print(used[x][y] + 1) #第一步</span><br><span class="line">        exit()</span><br><span class="line">    if x + 1 &lt; N:</span><br><span class="line">        if Ns[x+1][y] == &quot;.&quot; and used[x+1][y] == 0:</span><br><span class="line">            used[x+1][y] = used[x][y] + 1</span><br><span class="line">            q.append([x+1, y])</span><br><span class="line">    if x - 1 &gt; 0:</span><br><span class="line">        if Ns[x-1][y] == &quot;.&quot; and used[x-1][y] == 0:</span><br><span class="line">            used[x-1][y] = used[x][y] + 1</span><br><span class="line">            q.append([x-1, y])</span><br><span class="line">    if y + 1 &lt; N:</span><br><span class="line">        if Ns[x][y+1] == &quot;.&quot; and used[x][y+1] == 0:</span><br><span class="line">            used[x][y+1] = used[x][y] + 1</span><br><span class="line">            q.append([x, y+1])</span><br><span class="line">    if y - 1 &gt; 0:</span><br><span class="line">        if Ns[x][y-1] == &quot;.&quot; and used[x][y-1] == 0:</span><br><span class="line">            used[x][y-1] = used[x][y] + 1</span><br><span class="line">            q.append([x, y-1])</span><br><span class="line">print(&quot;No solution!&quot;)</span><br></pre></td></tr></table></figure>
+<p>簡單來說我就是先設好起點，並且上下左右去走訪，如果最後queue裡面是空的還沒有到終點，那就代表我們出不去了。</p>
+
+
+      
+
+    </section>
+    
+      <section class='ArticleMeta'>
+          <div>
+            发布于&nbsp;
+            <time datetime="2026-11-12T08:30:18.000Z" itemprop="datePublished">
+              2026-11-12
+            </time>
+          </div>
+          
+      </section>
+    
+    
+</article>
+
+  
+</div>
+
+            <footer>
+    <div>© 2026 - yuyoru </div>
+    <div>
+        <span>
+            Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
+        </span>
+        ,
+        <span>
+            Theme - <a target="_blank" rel="noopener" href="https://github.com/nameoverflow/hexo-theme-icalm">Icalm</a>
+        </span>
+    </div>
+</footer>
+
+        </div>
+    </div>
+</div>
+
+<script src="/js/pager/dist/singlepager.js"></script>
+
+<script>
+var sp = new Pager('data-pager-shell')
+
+</script>
+</body>
+</html>

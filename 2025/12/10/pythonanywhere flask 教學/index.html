@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>pythonanywhere flask 教學 | yuyoru的程式小窩</title>
+  
+    <link rel="icon" href="https://i.meee.com.tw/X0gxuzy.jpg">
+  
+  
+  
+  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body>
+<div class="Shell">
+    <aside class='SideBar'>
+    <section class='avatar' style="background-image: url(https://i.meee.com.tw/4oLJHjZ.jpg)">
+        <div class='av-pic' style="background-image: url(https://i.meee.com.tw/X0gxuzy.jpg)">
+        </div>
+    </section>
+    <section class='menu'>
+        <div>yuyoru的程式小窩</div>
+        
+            <div>yuyoru</div>
+        
+        <ul>
+          
+            <a href="/" class="Btn">
+              <li>主頁</li>
+            </a>  
+          
+            <a href="/archives/" class="Btn">
+              <li>文章</li>
+            </a>  
+          
+            <a href="/friends/" class="Btn">
+              <li>友鏈</li>
+            </a>  
+          
+            <a href="/about/" class="Btn">
+              <li>關於我</li>
+            </a>  
+          
+        </ul>
+    </section>
+    <section class="media">
+        
+    </section>
+</aside>
+
+    <div class="container">
+        <div data-pager-shell>
+            <div>
+  <article class='ContentView'>
+    <header class='PageTitle'>
+        <h1>pythonanywhere flask 教學</h1>
+    </header>
+
+    <section>
+      <h1 id="pythonanywhere-flask-教學"><a href="#pythonanywhere-flask-教學" class="headerlink" title="pythonanywhere flask 教學"></a>pythonanywhere flask 教學</h1><p>免費主機</p>
+<h2 id="flask"><a href="#flask" class="headerlink" title="flask"></a>flask</h2><p>我經常使用flask模組來結合html完成我的網頁，但網頁需要上架，身為學生的我又沒什麼金錢，這時候，pythonanywhere就是一個好選擇，他支援flask，也自帶網域，缺點就是不能用cname，並且後面還有自己的consoles。</p>
+<h2 id="pythonanywhere"><a href="#pythonanywhere" class="headerlink" title="pythonanywhere"></a>pythonanywhere</h2><p><a target="_blank" rel="noopener" href="https://www.pythonanywhere.com/">pythonanywhere</a>，進去網站後右上方即可註冊，接著openweb:<br><img src="https://i.meee.com.tw/eAaMVU5.png" alt="web"><br>接著因為我們沒有付費所以不能自訂domain name，下一步後選擇flask(當然別的也可)，接著進去後他應該就會跳到管理頁面，點擊files來編輯檔案，’flask_app.py’，假設我們程式是:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">from flask import Flask</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line">@app.route(&#x27;/&#x27;)</span><br><span class="line">def hello_world():</span><br><span class="line">    return &#x27;theoyu314159&#x27;</span><br></pre></td></tr></table></figure>
+<p>注意，不用放’run(debug &#x3D; True)’之類的，接著就可以去我們製作好的網頁看看囉!</p>
+
+
+      
+
+    </section>
+    
+      <section class='ArticleMeta'>
+          <div>
+            发布于&nbsp;
+            <time datetime="2025-12-09T18:33:56.000Z" itemprop="datePublished">
+              2025-12-10
+            </time>
+          </div>
+          
+      </section>
+    
+    
+</article>
+
+  
+</div>
+
+            <footer>
+    <div>© 2026 - yuyoru </div>
+    <div>
+        <span>
+            Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
+        </span>
+        ,
+        <span>
+            Theme - <a target="_blank" rel="noopener" href="https://github.com/nameoverflow/hexo-theme-icalm">Icalm</a>
+        </span>
+    </div>
+</footer>
+
+        </div>
+    </div>
+</div>
+
+<script src="/js/pager/dist/singlepager.js"></script>
+
+<script>
+var sp = new Pager('data-pager-shell')
+
+</script>
+</body>
+</html>

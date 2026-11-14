@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>e294.APCS 類似題 - 小崴的新發現 | yuyoru的程式小窩</title>
+  
+    <link rel="icon" href="https://i.meee.com.tw/X0gxuzy.jpg">
+  
+  
+  
+  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body>
+<div class="Shell">
+    <aside class='SideBar'>
+    <section class='avatar' style="background-image: url(https://i.meee.com.tw/4oLJHjZ.jpg)">
+        <div class='av-pic' style="background-image: url(https://i.meee.com.tw/X0gxuzy.jpg)">
+        </div>
+    </section>
+    <section class='menu'>
+        <div>yuyoru的程式小窩</div>
+        
+            <div>yuyoru</div>
+        
+        <ul>
+          
+            <a href="/" class="Btn">
+              <li>主頁</li>
+            </a>  
+          
+            <a href="/archives/" class="Btn">
+              <li>文章</li>
+            </a>  
+          
+            <a href="/friends/" class="Btn">
+              <li>友鏈</li>
+            </a>  
+          
+            <a href="/about/" class="Btn">
+              <li>關於我</li>
+            </a>  
+          
+        </ul>
+    </section>
+    <section class="media">
+        
+    </section>
+</aside>
+
+    <div class="container">
+        <div data-pager-shell>
+            <div>
+  <article class='ContentView'>
+    <header class='PageTitle'>
+        <h1>e294.APCS 類似題 - 小崴的新發現</h1>
+    </header>
+
+    <section>
+      <h1 id="e294-APCS-類似題-小崴的新發現"><a href="#e294-APCS-類似題-小崴的新發現" class="headerlink" title="e294.APCS 類似題 - 小崴的新發現"></a>e294.APCS 類似題 - 小崴的新發現</h1><p>apcs歷屆</p>
+<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><a target="_blank" rel="noopener" href="https://zerojudge.tw/ShowProblem?problemid=e294">pic</a><br>先看一下題目，題目要我們把一個數字變成完全奇數再去看跟原本的差多少，甚麼是完全奇數呢?像135, 777, 9753就是，每一位都是奇數就是。</p>
+<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"># 1001 -&gt; upper:1111, lower:999 10開頭的話大的補1, 小的10變9</span><br><span class="line"># 13256 -&gt; upp34:13311, lower:13199</span><br><span class="line"># 35001 -&gt; upper:35111, lower:33999  小的要借位0, upper必然解</span><br><span class="line"># 從頭開始看遇到偶數就留, 遇到奇數就找lower或upper, 看誰比較</span><br><span class="line"># 靠近找lower:若10開頭10-&gt;&gt;9補9，若非10開頭，0就不用做了, 其他偶數-1</span><br><span class="line">#找upper:遇到偶數+=1，後面補1。</span><br><span class="line">#abs() = 絕對值</span><br><span class="line"># 去模擬多個範例, 用實例去推</span><br><span class="line">def check(n):</span><br><span class="line">    n = str(n)</span><br><span class="line">    Len = len(n)</span><br><span class="line">    if n[0:2] == &quot;10&quot;:</span><br><span class="line">        lower = &quot;9&quot; * (Len-1)</span><br><span class="line">        upper = &quot;1&quot; * Len</span><br><span class="line">        #print(lower, upper)</span><br><span class="line">        #a1 = abs(int(n) - int(upper))</span><br><span class="line">        #a2 = abs(int(n) - int(lower))</span><br><span class="line">        #return min(a1, a2)</span><br><span class="line">    else:</span><br><span class="line">        upper = &quot;&quot;</span><br><span class="line">        lower = &quot;&quot;</span><br><span class="line">        for i in range(Len):</span><br><span class="line">            if int(n[i]) % 2 == 1:</span><br><span class="line">                upper += n[i]</span><br><span class="line">                lower += n[i]</span><br><span class="line">                #a1 = abs(int(n) - int(upper))</span><br><span class="line">                #a2 = abs(int(n) - int(lower))</span><br><span class="line">                #return min(a1, a2)</span><br><span class="line">            else:</span><br><span class="line">                if n[i] == &quot;0&quot;:</span><br><span class="line">                    upper += &quot;1&quot; * (Len - i)</span><br><span class="line">                    #print(upper)</span><br><span class="line">                    ans = abs(int(n) - int(upper))</span><br><span class="line">                    return ans</span><br><span class="line">                else:</span><br><span class="line">                    lower += str(int(n[i]) - 1)</span><br><span class="line">                    lower += &quot;9&quot; * (Len - i - 1)</span><br><span class="line">                    #print(lower)</span><br><span class="line">                    #break</span><br><span class="line">                    upper += str(int(n[i])+1)</span><br><span class="line">                    upper += &quot;1&quot; * (Len - i - 1)</span><br><span class="line">                    #print(upper)</span><br><span class="line">                    break</span><br><span class="line">    a1 = abs(int(n) - int(upper))</span><br><span class="line">    a2 = abs(int(n) - int(lower))</span><br><span class="line">    return min(a1, a2)</span><br><span class="line">    #return n</span><br><span class="line"></span><br><span class="line">#data = [135, 13256, 35001, 1001, 1, 2, 10, 11, 21]</span><br><span class="line">#for i in data:</span><br><span class="line">#    print(check(i))</span><br><span class="line">from sys import stdin</span><br><span class="line">for line in stdin:</span><br><span class="line">    print(check(int(line)))</span><br></pre></td></tr></table></figure>
+<p>我個人的想法呢?就是將他們判斷一下，如果前面開頭是10開始就將後面大的後面替補成1，小的就掉一位補9，那其他的呢，我們就從左到右去判斷偶數奇數，如果奇數不用動，偶數的話我們就看是不是0，如果0我們其實只要動變大的，因為小的會借位一定差很多，那不是0的話我們就將他後面都放1小的就都放9，接著去做計算哪個差比較小。</p>
+<p>ps:怎麼樣解題比較快呢?我個人寫了一段時間發現，多舉例，用例子一定要推過，推多個，找規律，列出來，一步一步寫架構好邏輯或是找到題目上的線索。</p>
+
+
+      
+
+    </section>
+    
+      <section class='ArticleMeta'>
+          <div>
+            发布于&nbsp;
+            <time datetime="2026-09-05T11:37:09.000Z" itemprop="datePublished">
+              2026-09-05
+            </time>
+          </div>
+          
+      </section>
+    
+    
+</article>
+
+  
+</div>
+
+            <footer>
+    <div>© 2026 - yuyoru </div>
+    <div>
+        <span>
+            Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
+        </span>
+        ,
+        <span>
+            Theme - <a target="_blank" rel="noopener" href="https://github.com/nameoverflow/hexo-theme-icalm">Icalm</a>
+        </span>
+    </div>
+</footer>
+
+        </div>
+    </div>
+</div>
+
+<script src="/js/pager/dist/singlepager.js"></script>
+
+<script>
+var sp = new Pager('data-pager-shell')
+
+</script>
+</body>
+</html>

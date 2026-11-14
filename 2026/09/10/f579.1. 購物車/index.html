@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>f579.1. 購物車 | yuyoru的程式小窩</title>
+  
+    <link rel="icon" href="https://i.meee.com.tw/X0gxuzy.jpg">
+  
+  
+  
+  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body>
+<div class="Shell">
+    <aside class='SideBar'>
+    <section class='avatar' style="background-image: url(https://i.meee.com.tw/4oLJHjZ.jpg)">
+        <div class='av-pic' style="background-image: url(https://i.meee.com.tw/X0gxuzy.jpg)">
+        </div>
+    </section>
+    <section class='menu'>
+        <div>yuyoru的程式小窩</div>
+        
+            <div>yuyoru</div>
+        
+        <ul>
+          
+            <a href="/" class="Btn">
+              <li>主頁</li>
+            </a>  
+          
+            <a href="/archives/" class="Btn">
+              <li>文章</li>
+            </a>  
+          
+            <a href="/friends/" class="Btn">
+              <li>友鏈</li>
+            </a>  
+          
+            <a href="/about/" class="Btn">
+              <li>關於我</li>
+            </a>  
+          
+        </ul>
+    </section>
+    <section class="media">
+        
+    </section>
+</aside>
+
+    <div class="container">
+        <div data-pager-shell>
+            <div>
+  <article class='ContentView'>
+    <header class='PageTitle'>
+        <h1>f579.1. 購物車</h1>
+    </header>
+
+    <section>
+      <h1 id="f579-1-購物車"><a href="#f579-1-購物車" class="headerlink" title="f579.1. 購物車"></a>f579.1. 購物車</h1><p>APCS歷屆</p>
+<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p>大家先來看一下題目吧:<br><a target="_blank" rel="noopener" href="https://zerojudge.tw/ShowProblem?problemid=f579">題目</a><br>可以稍微看一下，意思就是如果每個人當中都有買a, b兩項東西都有買我們就+&#x3D;1。</p>
+<h2 id="解題"><a href="#解題" class="headerlink" title="解題"></a>解題</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"># 用list抓會好嗎 分次計算 if in &amp; not in -&gt; how about -</span><br><span class="line"># 我記得可以delete list中的東西 我們檢測到&lt;0就從list刪掉 -&gt; .remove()</span><br><span class="line">from sys import stdin</span><br><span class="line">def fun(person): #here ass, bss +=  每次用完看有幾一次for取min</span><br><span class="line">    global ans</span><br><span class="line">    ai = 0</span><br><span class="line">    bi = 0</span><br><span class="line">    for item in person:</span><br><span class="line">        if item == a:</span><br><span class="line">            ai += 1</span><br><span class="line">        if item == b:</span><br><span class="line">            bi += 1</span><br><span class="line">        if item == -a:</span><br><span class="line">            ai -= 1</span><br><span class="line">        if item == -b:</span><br><span class="line">            bi -= 1</span><br><span class="line">    if min(ai, bi) &gt; 0:</span><br><span class="line">        ans += 1</span><br><span class="line"></span><br><span class="line">#a, b = 3, 9</span><br><span class="line">#n = 2</span><br><span class="line">#list1 = [[1, 8, 0], [5, 6, 0], [2, 7, 0], [8, 1, 0], [33, 22, 0]]</span><br><span class="line">#list1 = [[3, 12, 9, -3, 3, 9, 0], [17, 3, 25, 3, -3, -3, 9, 0]]</span><br><span class="line">a, b = map(int, stdin.readline().split())</span><br><span class="line">n = int(stdin.readline())</span><br><span class="line">list1 = []</span><br><span class="line">for i in range(n):</span><br><span class="line">    list1.append(list(map(int, stdin.readline().split())))</span><br><span class="line">ans = 0</span><br><span class="line">for i in list1:</span><br><span class="line">    fun(i)</span><br><span class="line">print(ans)</span><br></pre></td></tr></table></figure>
+<p>我個人想法是用for走進list裡面，看一下是否兩個都有再ans+&#x3D;1。</p>
+
+
+      
+
+    </section>
+    
+      <section class='ArticleMeta'>
+          <div>
+            发布于&nbsp;
+            <time datetime="2026-09-10T13:29:53.000Z" itemprop="datePublished">
+              2026-09-10
+            </time>
+          </div>
+          
+      </section>
+    
+    
+</article>
+
+  
+</div>
+
+            <footer>
+    <div>© 2026 - yuyoru </div>
+    <div>
+        <span>
+            Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
+        </span>
+        ,
+        <span>
+            Theme - <a target="_blank" rel="noopener" href="https://github.com/nameoverflow/hexo-theme-icalm">Icalm</a>
+        </span>
+    </div>
+</footer>
+
+        </div>
+    </div>
+</div>
+
+<script src="/js/pager/dist/singlepager.js"></script>
+
+<script>
+var sp = new Pager('data-pager-shell')
+
+</script>
+</body>
+</html>

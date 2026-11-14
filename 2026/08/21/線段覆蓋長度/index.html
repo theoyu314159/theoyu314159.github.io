@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>線段覆蓋長度 | yuyoru的程式小窩</title>
+  
+    <link rel="icon" href="https://i.meee.com.tw/X0gxuzy.jpg">
+  
+  
+  
+  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body>
+<div class="Shell">
+    <aside class='SideBar'>
+    <section class='avatar' style="background-image: url(https://i.meee.com.tw/4oLJHjZ.jpg)">
+        <div class='av-pic' style="background-image: url(https://i.meee.com.tw/X0gxuzy.jpg)">
+        </div>
+    </section>
+    <section class='menu'>
+        <div>yuyoru的程式小窩</div>
+        
+            <div>yuyoru</div>
+        
+        <ul>
+          
+            <a href="/" class="Btn">
+              <li>主頁</li>
+            </a>  
+          
+            <a href="/archives/" class="Btn">
+              <li>文章</li>
+            </a>  
+          
+            <a href="/friends/" class="Btn">
+              <li>友鏈</li>
+            </a>  
+          
+            <a href="/about/" class="Btn">
+              <li>關於我</li>
+            </a>  
+          
+        </ul>
+    </section>
+    <section class="media">
+        
+    </section>
+</aside>
+
+    <div class="container">
+        <div data-pager-shell>
+            <div>
+  <article class='ContentView'>
+    <header class='PageTitle'>
+        <h1>線段覆蓋長度</h1>
+    </header>
+
+    <section>
+      <h1 id="線段覆蓋長度"><a href="#線段覆蓋長度" class="headerlink" title="線段覆蓋長度"></a>線段覆蓋長度</h1><p>APCS歷屆</p>
+<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p>來看看題目吧:<br><img src="https://i.meee.com.tw/sGrw4a7.png" alt="pic"><br>簡單來說就是變一排，然後看總共包到了幾個格子。</p>
+<h2 id="解題"><a href="#解題" class="headerlink" title="解題"></a>解題</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">def merge():</span><br><span class="line">    global list2</span><br><span class="line">    list2.append(list1[0])</span><br><span class="line">    for i in range(1, len(list1)):</span><br><span class="line">        first = list1[i]</span><br><span class="line">        last = list2[-1]</span><br><span class="line">        if first[0] &lt;= last[1]:</span><br><span class="line">            last[1] = max(last[1], first[1])</span><br><span class="line">        else:</span><br><span class="line">            list2.append(first)</span><br><span class="line"></span><br><span class="line">list1 = []</span><br><span class="line">n = int(input())</span><br><span class="line">#list1 = [[160, 180], [150, 200], [280, 300], [300, 330], [190, 210]] # - &gt;[[150, 200], [160, 180], [190, 210], [280, 300], [300, 330]]</span><br><span class="line">for i in range(n):</span><br><span class="line">    #a, b = list1[i][0], list1[i][1]</span><br><span class="line">    list1.append(list(map(int, input().split())))</span><br><span class="line">list1.sort(key = lambda x:x[0])</span><br><span class="line">#print(list1)</span><br><span class="line">list2 = []</span><br><span class="line">merge()</span><br><span class="line">ans = 0</span><br><span class="line">for i in range(len(list2)):</span><br><span class="line">    ans += list2[i][1] - list2[i][0]</span><br><span class="line">print(ans)</span><br></pre></td></tr></table></figure>
+<p>我的解法呢就是先將他們的第零位的東西都排序，然後將他們合併，怎麼合併呢?我們先用list2當暫存，接著我們把list1的第一個值存進去，然後依序算出list1的第i個值和list2的最後一個如果他的第零個&lt;&#x3D; 他的最後一個，那麼我們就判斷哪一個的最後一個比較大，意思就…要合併要先看頭有沒有對到，啊如果不符合我們就list2加上first(list1[i])。</p>
+
+
+      
+
+    </section>
+    
+      <section class='ArticleMeta'>
+          <div>
+            发布于&nbsp;
+            <time datetime="2026-08-21T14:13:22.000Z" itemprop="datePublished">
+              2026-08-21
+            </time>
+          </div>
+          
+      </section>
+    
+    
+</article>
+
+  
+</div>
+
+            <footer>
+    <div>© 2026 - yuyoru </div>
+    <div>
+        <span>
+            Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
+        </span>
+        ,
+        <span>
+            Theme - <a target="_blank" rel="noopener" href="https://github.com/nameoverflow/hexo-theme-icalm">Icalm</a>
+        </span>
+    </div>
+</footer>
+
+        </div>
+    </div>
+</div>
+
+<script src="/js/pager/dist/singlepager.js"></script>
+
+<script>
+var sp = new Pager('data-pager-shell')
+
+</script>
+</body>
+</html>

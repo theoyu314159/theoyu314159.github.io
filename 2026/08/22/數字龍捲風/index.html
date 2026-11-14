@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>數字龍捲風 | yuyoru的程式小窩</title>
+  
+    <link rel="icon" href="https://i.meee.com.tw/X0gxuzy.jpg">
+  
+  
+  
+  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body>
+<div class="Shell">
+    <aside class='SideBar'>
+    <section class='avatar' style="background-image: url(https://i.meee.com.tw/4oLJHjZ.jpg)">
+        <div class='av-pic' style="background-image: url(https://i.meee.com.tw/X0gxuzy.jpg)">
+        </div>
+    </section>
+    <section class='menu'>
+        <div>yuyoru的程式小窩</div>
+        
+            <div>yuyoru</div>
+        
+        <ul>
+          
+            <a href="/" class="Btn">
+              <li>主頁</li>
+            </a>  
+          
+            <a href="/archives/" class="Btn">
+              <li>文章</li>
+            </a>  
+          
+            <a href="/friends/" class="Btn">
+              <li>友鏈</li>
+            </a>  
+          
+            <a href="/about/" class="Btn">
+              <li>關於我</li>
+            </a>  
+          
+        </ul>
+    </section>
+    <section class="media">
+        
+    </section>
+</aside>
+
+    <div class="container">
+        <div data-pager-shell>
+            <div>
+  <article class='ContentView'>
+    <header class='PageTitle'>
+        <h1>數字龍捲風</h1>
+    </header>
+
+    <section>
+      <h1 id="數字龍捲風"><a href="#數字龍捲風" class="headerlink" title="數字龍捲風"></a>數字龍捲風</h1><p>APCS歷屆</p>
+<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p>又來寫APCS歷屆了，看一下題目吧?<br><img src="https://i.meee.com.tw/2avbqqo.png" alt="pic"><br>簡單來說就是他給你一張地圖，然後會順時針跑，他會告訴你第一步怎麼走，然後你要將走過的都印出來。</p>
+<h2 id="解題"><a href="#解題" class="headerlink" title="解題"></a>解題</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"># 規律0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2 ,3</span><br><span class="line">def move(p):#移動</span><br><span class="line">    global nexts</span><br><span class="line">    ans = []</span><br><span class="line">    ans.append(list1[p[0]][p[1]])</span><br><span class="line">    before = [[p[0], p[1]]]</span><br><span class="line">    #before.append(p)</span><br><span class="line">    while p != endp:</span><br><span class="line">        #print(p, before)</span><br><span class="line">        if nexts == 1 and [p[0]-1, p[1]] not in before:</span><br><span class="line">           p[0] -= 1</span><br><span class="line">           nexts = 2</span><br><span class="line">           ans.append(list1[p[0]][p[1]])</span><br><span class="line">           before.append([p[0], p[1]])</span><br><span class="line">        elif nexts == 0 and [p[0], p[1]-1] not in before:</span><br><span class="line">            p[1] -= 1</span><br><span class="line">            nexts = 1</span><br><span class="line">            ans.append(list1[p[0]][p[1]])</span><br><span class="line">            before.append([p[0], p[1]])</span><br><span class="line">        elif nexts == 3 and [p[0]+1, p[1]] not in before:</span><br><span class="line">            p[0] += 1</span><br><span class="line">            nexts = 0</span><br><span class="line">            ans.append(list1[p[0]][p[1]])</span><br><span class="line">            before.append([p[0], p[1]])</span><br><span class="line">        elif nexts == 2 and [p[0], p[1]+1] not in before:</span><br><span class="line">            p[1] += 1</span><br><span class="line">            nexts = 3</span><br><span class="line">            ans.append(list1[p[0]][p[1]])</span><br><span class="line">            before.append([p[0], p[1]])</span><br><span class="line">        else:</span><br><span class="line">            if nexts == 0:</span><br><span class="line">                nexts = 3</span><br><span class="line">            elif nexts == 1:</span><br><span class="line">                nexts = 0</span><br><span class="line">            elif nexts == 3:</span><br><span class="line">                nexts = 2</span><br><span class="line">            else:</span><br><span class="line">                nexts = 1</span><br><span class="line">    return ans</span><br><span class="line"></span><br><span class="line">n = int(input())</span><br><span class="line">#n = 5</span><br><span class="line">nexts = int(input()) #紀錄下一</span><br><span class="line">#list1 = [[3, 4, 2, 1, 4], [4, 2, 3, 8, 9], [2, 1, 9, 5, 6], [4, 2, 3, 7, 8], [1, 2, 6, 4, 3]]</span><br><span class="line">list1 = []</span><br><span class="line">for i in range(n):</span><br><span class="line">    list1.append(list(map(int, input().split())))</span><br><span class="line">p = [n // 2, n // 2]</span><br><span class="line">#print([p[0], p[1]])</span><br><span class="line">endp = [0, 0]# 紀錄最後的地方</span><br><span class="line">if nexts == 0:</span><br><span class="line">    endp = [n-1, 0]</span><br><span class="line">elif nexts == 1:</span><br><span class="line">    endp = [0, 0]</span><br><span class="line">elif nexts == 2:</span><br><span class="line">    endp = [0, n-1]</span><br><span class="line">else:</span><br><span class="line">    endp = [n-1, n-1]</span><br><span class="line">ans = move(p)</span><br><span class="line">print(*ans, sep = &quot;&quot;)</span><br></pre></td></tr></table></figure>
+<p>我的解法就是先看一下下一步要怎麼走，就開始移動，改座標，並將數字存進ans，但要注意就是它有可能開始遶第二圈的時候會走兩次一樣的下一步，所以我們就用before來記錄有沒有走過以及另外做判斷如果走過就把他的下一步改去上一步。</p>
+
+
+      
+
+    </section>
+    
+      <section class='ArticleMeta'>
+          <div>
+            发布于&nbsp;
+            <time datetime="2026-08-22T14:14:33.000Z" itemprop="datePublished">
+              2026-08-22
+            </time>
+          </div>
+          
+      </section>
+    
+    
+</article>
+
+  
+</div>
+
+            <footer>
+    <div>© 2026 - yuyoru </div>
+    <div>
+        <span>
+            Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
+        </span>
+        ,
+        <span>
+            Theme - <a target="_blank" rel="noopener" href="https://github.com/nameoverflow/hexo-theme-icalm">Icalm</a>
+        </span>
+    </div>
+</footer>
+
+        </div>
+    </div>
+</div>
+
+<script src="/js/pager/dist/singlepager.js"></script>
+
+<script>
+var sp = new Pager('data-pager-shell')
+
+</script>
+</body>
+</html>

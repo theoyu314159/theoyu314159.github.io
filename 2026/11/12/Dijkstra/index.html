@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Dijkstra | yuyoru的程式小窩</title>
+  
+    <link rel="icon" href="https://i.meee.com.tw/X0gxuzy.jpg">
+  
+  
+  
+  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body>
+<div class="Shell">
+    <aside class='SideBar'>
+    <section class='avatar' style="background-image: url(https://i.meee.com.tw/4oLJHjZ.jpg)">
+        <div class='av-pic' style="background-image: url(https://i.meee.com.tw/X0gxuzy.jpg)">
+        </div>
+    </section>
+    <section class='menu'>
+        <div>yuyoru的程式小窩</div>
+        
+            <div>yuyoru</div>
+        
+        <ul>
+          
+            <a href="/" class="Btn">
+              <li>主頁</li>
+            </a>  
+          
+            <a href="/archives/" class="Btn">
+              <li>文章</li>
+            </a>  
+          
+            <a href="/friends/" class="Btn">
+              <li>友鏈</li>
+            </a>  
+          
+            <a href="/about/" class="Btn">
+              <li>關於我</li>
+            </a>  
+          
+        </ul>
+    </section>
+    <section class="media">
+        
+    </section>
+</aside>
+
+    <div class="container">
+        <div data-pager-shell>
+            <div>
+  <article class='ContentView'>
+    <header class='PageTitle'>
+        <h1>Dijkstra</h1>
+    </header>
+
+    <section>
+      <h1 id="Dijkstra"><a href="#Dijkstra" class="headerlink" title="Dijkstra"></a>Dijkstra</h1><p>演算法</p>
+<h2 id="邏輯"><a href="#邏輯" class="headerlink" title="邏輯"></a>邏輯</h2><p>上一篇我寫了<a target="_blank" rel="noopener" href="https://hackmd.io/@theoyu314159/BFS">BFS</a>，但是不是每一次點到點的距離都是1，有時候可能會有過路費的問題，所以我們必須將他考量進去，這事後我們就要用dijkstra，痾…如果你想問我怎麼唸的話，我也不知道哈哈，你可以去問問看資訊老師?好廢話不多說，簡單來說他就是跟BFS很像的東西，一樣會一格去走訪，只是我們要注意，有時候繞路可能會比較省過路費，所以我們如果找到比他還便宜的路線我們就會加進去我們的queue裡面;講到queue，我們這次不用queue，用priority queue，不一樣的就是他會自動將最小的東西排到最前面。<br><img src="https://i.meee.com.tw/uVtf8Hy.webp" alt="byai"></p>
+<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p>實際上做一下應該比較有感覺:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">from sys import stdin</span><br><span class="line">import heapq</span><br><span class="line"></span><br><span class="line">n = int(stdin.readline())</span><br><span class="line">for i in range(n):</span><br><span class="line">    N = int(stdin.readline())</span><br><span class="line">    M = int(stdin.readline())</span><br><span class="line">    mapp = []</span><br><span class="line">    for k in range(N):</span><br><span class="line">        mapp.append(list(map(int, stdin.readline().split())))</span><br><span class="line">    #pq = [[0, 0, 0]] #雖然用一般arr 但之後取min?</span><br><span class="line">    pq = []</span><br><span class="line">    heapq.heappush(pq, [mapp[0][0], 0, 0])</span><br><span class="line">    used = [[0 for i in range(M)]for i in range(N)] #red</span><br><span class="line">    ans = [[999 for i in range(M)]for i in range(N)]</span><br><span class="line">    ans[0][0] = mapp[0][0]</span><br><span class="line">    while pq:</span><br><span class="line">        cost, x, y = heapq.heappop(pq)</span><br><span class="line">        #used[x][y] = 1</span><br><span class="line">        if used[x][y] == 1:</span><br><span class="line">            continue</span><br><span class="line">        used[x][y] = 1</span><br><span class="line">        if x == N - 1 and y == M - 1:</span><br><span class="line">            print(ans[x][y])</span><br><span class="line">            break</span><br><span class="line">        if x + 1 &lt; N and used[x+1][y] == 0:</span><br><span class="line">            if cost + mapp[x+1][y] &lt; ans[x+1][y] and used[x+1][y] == 0:</span><br><span class="line">                heapq.heappush(pq, [cost+mapp[x+1][y], x+1, y])</span><br><span class="line">                ans[x+1][y] = cost + mapp[x+1][y]</span><br><span class="line">        if x - 1 &gt;= 0 and used[x-1][y] == 0 :</span><br><span class="line">            if cost + mapp[x-1][y] &lt; ans[x-1][y] and used[x-1][y] == 0:</span><br><span class="line">                heapq.heappush(pq, [cost+mapp[x-1][y], x-1, y])</span><br><span class="line">                ans[x-1][y] = cost + mapp[x-1][y]</span><br><span class="line">        if y + 1 &lt; M and used[x][y+1] == 0 :</span><br><span class="line">            if cost + mapp[x][y+1] &lt; ans[x][y+1] and used[x][y+1] == 0:</span><br><span class="line">                heapq.heappush(pq, [cost+mapp[x][y+1], x, y+1])</span><br><span class="line">                ans[x][y+1]  = cost + mapp[x][y+1]</span><br><span class="line">        if y - 1 &gt;= 0 and used[x][y-1] == 0:</span><br><span class="line">            if cost + mapp[x][y-1] &lt; ans[x][y-1] and used[x][y-1] == 0:</span><br><span class="line">                heapq.heappush(pq, [cost+mapp[x][y-1], x, y-1])</span><br><span class="line">                ans[x][y-1] = cost + mapp[x][y-1]</span><br></pre></td></tr></table></figure>
+<p>大概就像這樣，如果不知道heapq怎麼用可以去查一下，因為我一開始也不知道哈哈。</p>
+
+
+      
+
+    </section>
+    
+      <section class='ArticleMeta'>
+          <div>
+            发布于&nbsp;
+            <time datetime="2026-11-12T08:42:12.000Z" itemprop="datePublished">
+              2026-11-12
+            </time>
+          </div>
+          
+      </section>
+    
+    
+</article>
+
+  
+</div>
+
+            <footer>
+    <div>© 2026 - yuyoru </div>
+    <div>
+        <span>
+            Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
+        </span>
+        ,
+        <span>
+            Theme - <a target="_blank" rel="noopener" href="https://github.com/nameoverflow/hexo-theme-icalm">Icalm</a>
+        </span>
+    </div>
+</footer>
+
+        </div>
+    </div>
+</div>
+
+<script src="/js/pager/dist/singlepager.js"></script>
+
+<script>
+var sp = new Pager('data-pager-shell')
+
+</script>
+</body>
+</html>

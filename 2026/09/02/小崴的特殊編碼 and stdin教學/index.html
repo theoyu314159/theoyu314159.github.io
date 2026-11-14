@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>小崴的特殊編碼 &amp;&amp; stdin教學 | yuyoru的程式小窩</title>
+  
+    <link rel="icon" href="https://i.meee.com.tw/X0gxuzy.jpg">
+  
+  
+  
+  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body>
+<div class="Shell">
+    <aside class='SideBar'>
+    <section class='avatar' style="background-image: url(https://i.meee.com.tw/4oLJHjZ.jpg)">
+        <div class='av-pic' style="background-image: url(https://i.meee.com.tw/X0gxuzy.jpg)">
+        </div>
+    </section>
+    <section class='menu'>
+        <div>yuyoru的程式小窩</div>
+        
+            <div>yuyoru</div>
+        
+        <ul>
+          
+            <a href="/" class="Btn">
+              <li>主頁</li>
+            </a>  
+          
+            <a href="/archives/" class="Btn">
+              <li>文章</li>
+            </a>  
+          
+            <a href="/friends/" class="Btn">
+              <li>友鏈</li>
+            </a>  
+          
+            <a href="/about/" class="Btn">
+              <li>關於我</li>
+            </a>  
+          
+        </ul>
+    </section>
+    <section class="media">
+        
+    </section>
+</aside>
+
+    <div class="container">
+        <div data-pager-shell>
+            <div>
+  <article class='ContentView'>
+    <header class='PageTitle'>
+        <h1>小崴的特殊編碼 &amp;&amp; stdin教學</h1>
+    </header>
+
+    <section>
+      <h1 id="小崴的特殊編碼-stdin教學"><a href="#小崴的特殊編碼-stdin教學" class="headerlink" title="小崴的特殊編碼 &amp;&amp; stdin教學"></a>小崴的特殊編碼 &amp;&amp; stdin教學</h1><p>APCS歷屆</p>
+<h2 id="小崴的特殊編碼"><a href="#小崴的特殊編碼" class="headerlink" title="小崴的特殊編碼"></a>小崴的特殊編碼</h2><h3 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h3><p><a target="_blank" rel="noopener" href="https://zerojudge.tw/ShowProblem?problemid=e283">url</a><br>這是APCS歷屆的題目，看起來算簡單，判斷二進為然後A-F就好了，但慢慢判斷可能會有超時問題。</p>
+<h3 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">#用stdin</span><br><span class="line">from sys import stdin</span><br><span class="line">def test(): #去做判斷 return english</span><br><span class="line">    #two = [[0, 1, 0, 1], [0, 1, 1, 1], [0, 0, 1, 0], [1, 1, 0, 1], [1, 0, 0, 0], [1, 1, 0, 0, ]]</span><br><span class="line">    #asc = [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;, &quot;E&quot;, &quot;F&quot;]</span><br><span class="line">    #dict1 = &#123;(0, 1, 0, 1):&quot;A&quot;, (0, 1, 1, 1):&quot;B&quot;, (0, 0, 1, 0):&quot;C&quot;, (1, 1, 0, 1):&quot;D&quot;, (1, 0, 0, 0):&quot;E&quot;, (1, 1, 0, 0):&quot;F&quot;&#125;</span><br><span class="line">    return dict1[fakelist]</span><br><span class="line">    &#x27;&#x27;&#x27;for i in range(len(two)):</span><br><span class="line">        #print(i)</span><br><span class="line">        if two[i] == list1:</span><br><span class="line">            return asc[i]</span><br><span class="line">            break&#x27;&#x27;&#x27;</span><br><span class="line"></span><br><span class="line">#n = 1</span><br><span class="line">#list1 = [0, 0, 1, 0]</span><br><span class="line">#print(test())</span><br><span class="line">#j = 0</span><br><span class="line">#ans = &quot;&quot;</span><br><span class="line">dict1 = &#123;&quot;0 1 0 1&quot;:&quot;A&quot;, &quot;0 1 1 1&quot;:&quot;B&quot;, &quot;0 0 1 0&quot;:&quot;C&quot;, &quot;1 1 0 1&quot;:&quot;D&quot;, &quot;1 0 0 0&quot;:&quot;E&quot;, &quot;1 1 0 0&quot;:&quot;F&quot;&#125;</span><br><span class="line">for i in stdin:</span><br><span class="line">    ans = &quot;&quot;</span><br><span class="line">    #if j != 0 :</span><br><span class="line">    #    ans += &quot;\n&quot;</span><br><span class="line">    n = int(i)</span><br><span class="line">    for k in range(n):</span><br><span class="line">        fakelist = stdin.readline().rstrip()</span><br><span class="line">        ans += test()</span><br><span class="line">    print(ans)</span><br><span class="line">    #j += 1</span><br><span class="line">#print(ans)</span><br></pre></td></tr></table></figure>
+<p>我嘗試了很多次不要TLE大家應該看的出來，然後我的想法就是列一個dict，這樣就可以直接去做搜尋，接著未來省時間我們就用了stdin，沒有用list(map(int, input().split()))。</p>
+<h2 id="stdin"><a href="#stdin" class="headerlink" title="stdin"></a>stdin</h2><h3 id="甚麼時候用"><a href="#甚麼時候用" class="headerlink" title="甚麼時候用"></a>甚麼時候用</h3><p>看完上面你就知道是輸入的時候用，他相對input()快很多。</p>
+<h3 id="怎麼用"><a href="#怎麼用" class="headerlink" title="怎麼用"></a>怎麼用</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">from sys import stdin</span><br><span class="line">line = stdin.readline() #讀單行含換行</span><br><span class="line">lines = stdin.readlines() #讀多行含換行</span><br><span class="line">a, b, c = map(int, stdin.readline().split())#一次讀三個數</span><br><span class="line">for n in stdin:</span><br><span class="line">    data=list(map(int, stdin.readline().split())) #可實作EOF</span><br><span class="line">stdin.readline().rstrip()#不保留換行很好用</span><br></pre></td></tr></table></figure>
+
+      
+
+    </section>
+    
+      <section class='ArticleMeta'>
+          <div>
+            发布于&nbsp;
+            <time datetime="2026-09-01T16:20:57.000Z" itemprop="datePublished">
+              2026-09-02
+            </time>
+          </div>
+          
+      </section>
+    
+    
+</article>
+
+  
+</div>
+
+            <footer>
+    <div>© 2026 - yuyoru </div>
+    <div>
+        <span>
+            Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
+        </span>
+        ,
+        <span>
+            Theme - <a target="_blank" rel="noopener" href="https://github.com/nameoverflow/hexo-theme-icalm">Icalm</a>
+        </span>
+    </div>
+</footer>
+
+        </div>
+    </div>
+</div>
+
+<script src="/js/pager/dist/singlepager.js"></script>
+
+<script>
+var sp = new Pager('data-pager-shell')
+
+</script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>二分搜尋法 | yuyoru的程式小窩</title>
+  
+    <link rel="icon" href="https://i.meee.com.tw/X0gxuzy.jpg">
+  
+  
+  
+  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body>
+<div class="Shell">
+    <aside class='SideBar'>
+    <section class='avatar' style="background-image: url(https://i.meee.com.tw/4oLJHjZ.jpg)">
+        <div class='av-pic' style="background-image: url(https://i.meee.com.tw/X0gxuzy.jpg)">
+        </div>
+    </section>
+    <section class='menu'>
+        <div>yuyoru的程式小窩</div>
+        
+            <div>yuyoru</div>
+        
+        <ul>
+          
+            <a href="/" class="Btn">
+              <li>主頁</li>
+            </a>  
+          
+            <a href="/archives/" class="Btn">
+              <li>文章</li>
+            </a>  
+          
+            <a href="/friends/" class="Btn">
+              <li>友鏈</li>
+            </a>  
+          
+            <a href="/about/" class="Btn">
+              <li>關於我</li>
+            </a>  
+          
+        </ul>
+    </section>
+    <section class="media">
+        
+    </section>
+</aside>
+
+    <div class="container">
+        <div data-pager-shell>
+            <div>
+  <article class='ContentView'>
+    <header class='PageTitle'>
+        <h1>二分搜尋法</h1>
+    </header>
+
+    <section>
+      <h1 id="二分搜尋法"><a href="#二分搜尋法" class="headerlink" title="二分搜尋法"></a>二分搜尋法</h1><p>python</p>
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>簡單來說就是一直把東西切一半切一半去尋找，如果中間比較小就去找上半部，中間比較大就去找下半部，這可以比我們循序搜尋快多了。</p>
+<h2 id="範例"><a href="#範例" class="headerlink" title="範例"></a>範例</h2><p>最簡單的例子就是跑去玩終極密碼，一開始猜50，如果比較大就猜25，比較小就猜75:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">def search(target):</span><br><span class="line">    low = 0</span><br><span class="line">    high = 100</span><br><span class="line">    while low &lt;= high:</span><br><span class="line">        mid = (low+high)//2</span><br><span class="line">        print(mid) ## test</span><br><span class="line">        if mid &lt; target:</span><br><span class="line">            low = mid+1</span><br><span class="line">        elif mid &gt; target:</span><br><span class="line">            high = mid-1</span><br><span class="line">        else:</span><br><span class="line">            return mid</span><br><span class="line">print(&#x27;ans:&#x27;,search(60))</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-tw/%E7%B5%82%E6%A5%B5%E5%AF%86%E7%A2%BC">終極密碼</a></p>
+<h2 id="例題"><a href="#例題" class="headerlink" title="例題"></a>例題</h2><p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/search-insert-position/?envType=problem-list-v2&envId=binary-search">題目</a><br>我們可以考慮到直接使用二分搜尋法來執行，去找到他的對應位置，但問題出在於，如果找不到對應的值怎麼辦，那麼我們可以直接使用最接近它並且比她小的位置，為甚麼呢，因為這樣一來我們就可以回傳它應該插入的位置:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def searchInsert(self, nums: List[int], target: int) -&gt; int:</span><br><span class="line">        def search(arr, target):</span><br><span class="line">            low = 0</span><br><span class="line">            high = len(arr)-1</span><br><span class="line">            while low &lt;= high:</span><br><span class="line">                mid = (low+high)//2</span><br><span class="line">                if arr[mid] == target:</span><br><span class="line">                    return mid</span><br><span class="line">                elif arr[mid] &lt; target:</span><br><span class="line">                    low = mid + 1</span><br><span class="line">                else: </span><br><span class="line">                    high = mid -1 </span><br><span class="line">            return low</span><br><span class="line">        nums.sort()</span><br><span class="line">        return search(nums, target)</span><br></pre></td></tr></table></figure>
+
+      
+
+    </section>
+    
+      <section class='ArticleMeta'>
+          <div>
+            发布于&nbsp;
+            <time datetime="2025-04-02T22:10:32.000Z" itemprop="datePublished">
+              2025-04-03
+            </time>
+          </div>
+          
+      </section>
+    
+    
+</article>
+
+  
+</div>
+
+            <footer>
+    <div>© 2026 - yuyoru </div>
+    <div>
+        <span>
+            Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
+        </span>
+        ,
+        <span>
+            Theme - <a target="_blank" rel="noopener" href="https://github.com/nameoverflow/hexo-theme-icalm">Icalm</a>
+        </span>
+    </div>
+</footer>
+
+        </div>
+    </div>
+</div>
+
+<script src="/js/pager/dist/singlepager.js"></script>
+
+<script>
+var sp = new Pager('data-pager-shell')
+
+</script>
+</body>
+</html>

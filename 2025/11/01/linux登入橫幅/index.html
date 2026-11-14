@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>linux登入橫幅 | yuyoru的程式小窩</title>
+  
+    <link rel="icon" href="https://i.meee.com.tw/X0gxuzy.jpg">
+  
+  
+  
+  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body>
+<div class="Shell">
+    <aside class='SideBar'>
+    <section class='avatar' style="background-image: url(https://i.meee.com.tw/4oLJHjZ.jpg)">
+        <div class='av-pic' style="background-image: url(https://i.meee.com.tw/X0gxuzy.jpg)">
+        </div>
+    </section>
+    <section class='menu'>
+        <div>yuyoru的程式小窩</div>
+        
+            <div>yuyoru</div>
+        
+        <ul>
+          
+            <a href="/" class="Btn">
+              <li>主頁</li>
+            </a>  
+          
+            <a href="/archives/" class="Btn">
+              <li>文章</li>
+            </a>  
+          
+            <a href="/friends/" class="Btn">
+              <li>友鏈</li>
+            </a>  
+          
+            <a href="/about/" class="Btn">
+              <li>關於我</li>
+            </a>  
+          
+        </ul>
+    </section>
+    <section class="media">
+        
+    </section>
+</aside>
+
+    <div class="container">
+        <div data-pager-shell>
+            <div>
+  <article class='ContentView'>
+    <header class='PageTitle'>
+        <h1>linux登入橫幅</h1>
+    </header>
+
+    <section>
+      <h1 id="linux登入橫幅"><a href="#linux登入橫幅" class="headerlink" title="linux登入橫幅"></a>linux登入橫幅</h1><p>ascii</p>
+<h2 id="登入"><a href="#登入" class="headerlink" title="登入"></a>登入</h2><p>大家是否覺得每次啟用wsl都單調了點，那我們就來做點加工吧!以我的theoyu314159為例:<br><img src="https://i.meee.com.tw/V9A2RPX.png" alt="image alt"><br>成品會長這樣喔!</p>
+<h2 id="ascii"><a href="#ascii" class="headerlink" title="ascii"></a>ascii</h2><p>ascii是一種美國資訊交換標準代碼，它使用7位元來表示128個不同的字元，而我們就稍微運用它來美化我們wsl一下，我習慣用這一個網頁轉換:<br><a target="_blank" rel="noopener" href="https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type+Something+&x=none&v=4&h=4&w=80&we=false">Text to ASCII Art Generator: Create ASCII Art from Text</a><br>可以自行選擇喜歡的樣式。</p>
+<h2 id="wsl設定"><a href="#wsl設定" class="headerlink" title="wsl設定"></a>wsl設定</h2><p>首先，先開啟檔案設定:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.bashrc</span><br></pre></td></tr></table></figure>
+<p>去到最底下，換個一兩行，接著:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cat &lt;&lt; &quot;EOF&quot;</span><br><span class="line"></span><br><span class="line">將ascii貼上</span><br><span class="line"></span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+
+<p>接著保存，並從新啟動就能完成了。</p>
+
+
+      
+
+    </section>
+    
+      <section class='ArticleMeta'>
+          <div>
+            发布于&nbsp;
+            <time datetime="2025-11-01T08:38:46.000Z" itemprop="datePublished">
+              2025-11-01
+            </time>
+          </div>
+          
+      </section>
+    
+    
+</article>
+
+  
+</div>
+
+            <footer>
+    <div>© 2026 - yuyoru </div>
+    <div>
+        <span>
+            Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
+        </span>
+        ,
+        <span>
+            Theme - <a target="_blank" rel="noopener" href="https://github.com/nameoverflow/hexo-theme-icalm">Icalm</a>
+        </span>
+    </div>
+</footer>
+
+        </div>
+    </div>
+</div>
+
+<script src="/js/pager/dist/singlepager.js"></script>
+
+<script>
+var sp = new Pager('data-pager-shell')
+
+</script>
+</body>
+</html>

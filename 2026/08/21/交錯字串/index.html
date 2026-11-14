@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>交錯字串 | yuyoru的程式小窩</title>
+  
+    <link rel="icon" href="https://i.meee.com.tw/X0gxuzy.jpg">
+  
+  
+  
+  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body>
+<div class="Shell">
+    <aside class='SideBar'>
+    <section class='avatar' style="background-image: url(https://i.meee.com.tw/4oLJHjZ.jpg)">
+        <div class='av-pic' style="background-image: url(https://i.meee.com.tw/X0gxuzy.jpg)">
+        </div>
+    </section>
+    <section class='menu'>
+        <div>yuyoru的程式小窩</div>
+        
+            <div>yuyoru</div>
+        
+        <ul>
+          
+            <a href="/" class="Btn">
+              <li>主頁</li>
+            </a>  
+          
+            <a href="/archives/" class="Btn">
+              <li>文章</li>
+            </a>  
+          
+            <a href="/friends/" class="Btn">
+              <li>友鏈</li>
+            </a>  
+          
+            <a href="/about/" class="Btn">
+              <li>關於我</li>
+            </a>  
+          
+        </ul>
+    </section>
+    <section class="media">
+        
+    </section>
+</aside>
+
+    <div class="container">
+        <div data-pager-shell>
+            <div>
+  <article class='ContentView'>
+    <header class='PageTitle'>
+        <h1>交錯字串</h1>
+    </header>
+
+    <section>
+      <h1 id="交錯字串"><a href="#交錯字串" class="headerlink" title="交錯字串"></a>交錯字串</h1><p>apcs歷屆</p>
+<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p>嗨，今天又要來寫APCS的歷屆了，來看一下題目吧~<br><img src="https://i.meee.com.tw/AKGzzPB.png" alt="pic"><br>簡單來說就是要讓他偵測一個字串當中最長的為k的交錯字串。</p>
+<h2 id="解題"><a href="#解題" class="headerlink" title="解題"></a>解題</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"># append到一個list 用for 去對數字 然後如果開始!= k 就print(i) break</span><br><span class="line"># 1 -&gt; 1 2 4 -&gt; 2</span><br><span class="line"># 3 -&gt; 23222 -&gt; 3</span><br><span class="line"># 2 -&gt; 3225  -&gt; 8</span><br><span class="line">def count(string):</span><br><span class="line">    list1 = [] #紀錄幾個</span><br><span class="line">    countbig = 0</span><br><span class="line">    countsmall = 0</span><br><span class="line">    for i in range(len(string)):</span><br><span class="line">        #print(countbig, countsmall)</span><br><span class="line">        if string[i].isupper():</span><br><span class="line">            if countbig == 0 and countsmall != 0:</span><br><span class="line">                list1.append(countsmall)</span><br><span class="line">                countsmall = 0</span><br><span class="line">                countbig += 1</span><br><span class="line">            else:</span><br><span class="line">                countbig += 1</span><br><span class="line">        else:</span><br><span class="line">            if countsmall == 0 and countbig != 0:</span><br><span class="line">                list1.append(countbig)</span><br><span class="line">                countbig = 0</span><br><span class="line">                countsmall += 1</span><br><span class="line">            else:</span><br><span class="line">                countsmall += 1</span><br><span class="line">    if countbig != 0:</span><br><span class="line">        list1.append(countbig)</span><br><span class="line">    elif countsmall != 0:</span><br><span class="line">        list1.append(countsmall)</span><br><span class="line">    return list1</span><br><span class="line"></span><br><span class="line">#[1, 2, 4]</span><br><span class="line">k = int(input())</span><br><span class="line">string  = input()</span><br><span class="line">list1 = count(string)</span><br><span class="line">#print(list1)</span><br><span class="line">now = 0</span><br><span class="line">long = 0</span><br><span class="line">for i in list1:</span><br><span class="line">    if i == k:</span><br><span class="line">        now += k</span><br><span class="line">        if now &gt; long:</span><br><span class="line">            long = now</span><br><span class="line">    elif i &gt; k:</span><br><span class="line">        #now += k</span><br><span class="line">        if now + k &gt; long :</span><br><span class="line">            long = now + k</span><br><span class="line">        now = k</span><br><span class="line">    elif i &lt; k:</span><br><span class="line">        now = 0</span><br><span class="line">print(long)</span><br></pre></td></tr></table></figure>
+<p>簡單來說這個程式就是將大小寫的每一個長度處存出來存到list，假設”aBBccc”就是[1, 2, 3]，接下來回傳出來，我們再去判斷如果K跟他一樣長我們就把現有的加上K，阿如果比較大就先看加上K之後會不會比較長，不過要注意的就是可能他不能延續，所以要重新把now &#x3D; k，再來如果比較小就直接now歸零。</p>
+
+
+      
+
+    </section>
+    
+      <section class='ArticleMeta'>
+          <div>
+            发布于&nbsp;
+            <time datetime="2026-08-21T14:02:50.000Z" itemprop="datePublished">
+              2026-08-21
+            </time>
+          </div>
+          
+      </section>
+    
+    
+</article>
+
+  
+</div>
+
+            <footer>
+    <div>© 2026 - yuyoru </div>
+    <div>
+        <span>
+            Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
+        </span>
+        ,
+        <span>
+            Theme - <a target="_blank" rel="noopener" href="https://github.com/nameoverflow/hexo-theme-icalm">Icalm</a>
+        </span>
+    </div>
+</footer>
+
+        </div>
+    </div>
+</div>
+
+<script src="/js/pager/dist/singlepager.js"></script>
+
+<script>
+var sp = new Pager('data-pager-shell')
+
+</script>
+</body>
+</html>

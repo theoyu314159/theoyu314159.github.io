@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>g276.2. 魔王迷宮 | yuyoru的程式小窩</title>
+  
+    <link rel="icon" href="https://i.meee.com.tw/X0gxuzy.jpg">
+  
+  
+  
+  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body>
+<div class="Shell">
+    <aside class='SideBar'>
+    <section class='avatar' style="background-image: url(https://i.meee.com.tw/4oLJHjZ.jpg)">
+        <div class='av-pic' style="background-image: url(https://i.meee.com.tw/X0gxuzy.jpg)">
+        </div>
+    </section>
+    <section class='menu'>
+        <div>yuyoru的程式小窩</div>
+        
+            <div>yuyoru</div>
+        
+        <ul>
+          
+            <a href="/" class="Btn">
+              <li>主頁</li>
+            </a>  
+          
+            <a href="/archives/" class="Btn">
+              <li>文章</li>
+            </a>  
+          
+            <a href="/friends/" class="Btn">
+              <li>友鏈</li>
+            </a>  
+          
+            <a href="/about/" class="Btn">
+              <li>關於我</li>
+            </a>  
+          
+        </ul>
+    </section>
+    <section class="media">
+        
+    </section>
+</aside>
+
+    <div class="container">
+        <div data-pager-shell>
+            <div>
+  <article class='ContentView'>
+    <header class='PageTitle'>
+        <h1>g276.2. 魔王迷宮</h1>
+    </header>
+
+    <section>
+      <h1 id="g276-2-魔王迷宮"><a href="#g276-2-魔王迷宮" class="headerlink" title="g276.2. 魔王迷宮"></a>g276.2. 魔王迷宮</h1><p>apcs歷屆</p>
+<h2 id="看題目"><a href="#看題目" class="headerlink" title="看題目"></a>看題目</h2><p><img src="https://i.meee.com.tw/g63HSPP.png" alt="pic"><br>簡單來說，每個魔王會在(r, c)的位置，下一回合會移動到(r + c, c + t)，每次移動前會放下炸彈，但是如果超出範圍的話，或是移動到有炸彈的地方魔王就死掉，然後要輸出魔王全部死後還剩多少炸彈，要注意的就是，如果同一回合魔王跳到同一個炸彈，2個魔王死掉。</p>
+<h2 id="實作"><a href="#實作" class="headerlink" title="實作"></a>實作</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"># put bomb -&gt; new bomb</span><br><span class="line"># move daemon -&gt; new daemon</span><br><span class="line"># explode(bomb, daemon) -&gt; new bomb, daemon</span><br><span class="line"># bomb = set() daemon = [[0, 0, 0, 0]]格式</span><br><span class="line">bomb = set()</span><br><span class="line">def put(daemon, bomb):</span><br><span class="line">    for i in daemon:</span><br><span class="line">        bomb.add((i[0], i[1]))</span><br><span class="line">    #return bomb</span><br><span class="line">def move(daemon): #移動到指定地方 先不對炸彈做事情</span><br><span class="line">    new = []</span><br><span class="line">    for i in daemon:</span><br><span class="line">        if 0 &lt;= i[0] + i[2] &lt; n and 0 &lt;= i[1] + i[3] &lt; m: #只有在棋盤內的</span><br><span class="line">            new.append([i[0] + i[2], i[1] + i[3], i[2], i[3]])</span><br><span class="line">    return new</span><br><span class="line">def explode(bomb, daemon):</span><br><span class="line">    rm = set()</span><br><span class="line">    new =[]</span><br><span class="line">    for i in daemon:</span><br><span class="line">        if (i[0], i[1]) in bomb:</span><br><span class="line">            rm.add((i[0], i[1]))</span><br><span class="line">        else:</span><br><span class="line">            new.append(i)</span><br><span class="line">    for i in rm: #炸彈刪掉</span><br><span class="line">        if i in bomb:</span><br><span class="line">            bomb.discard(i)</span><br><span class="line">    return new</span><br><span class="line">n, m, k = map(int, input().split())</span><br><span class="line">daemon = []</span><br><span class="line">for i in range(k):</span><br><span class="line">    daemon.append(list(map(int, input().split())))</span><br><span class="line">while len(daemon) != 0:</span><br><span class="line">    put(daemon, bomb)</span><br><span class="line">    daemon = move(daemon)</span><br><span class="line">    daemon = explode(bomb, daemon)</span><br><span class="line">print(len(bomb))</span><br></pre></td></tr></table></figure>
+<p>有點難理解對吧?我也覺得，這一次我們用到的資料結構是set，我這幾天有寫過那篇文章，大家可以前後翻一下(我的部落格可以前後直接翻)，我們寫了3個def，第一個呢，是放炸彈，就是離開前在位置上放炸彈，啊有重複的保持所以用set，再來，第二個是將牠放到指定的地方，不過這一步沒有要對炸彈做事情喔~我們針對每個魔王的位置照著題目改，順便檢查有沒有超過範圍(提醒一下，我們的輸入格式是[r, c, s, t])，最後一個function，就是爆炸，我們為了避免有第二個魔王要炸，所以創了一個rm的set，也有一個保留下來的list(要注意list才能修改)，再來就是要區分一下有沒有碰到炸彈，最後再用discard炸掉就好囉。</p>
+<p>設定完輸入後，設一個while，如果還有惡魔就開始跑。</p>
+
+
+      
+
+    </section>
+    
+      <section class='ArticleMeta'>
+          <div>
+            发布于&nbsp;
+            <time datetime="2026-08-12T14:06:01.000Z" itemprop="datePublished">
+              2026-08-12
+            </time>
+          </div>
+          
+      </section>
+    
+    
+</article>
+
+  
+</div>
+
+            <footer>
+    <div>© 2026 - yuyoru </div>
+    <div>
+        <span>
+            Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
+        </span>
+        ,
+        <span>
+            Theme - <a target="_blank" rel="noopener" href="https://github.com/nameoverflow/hexo-theme-icalm">Icalm</a>
+        </span>
+    </div>
+</footer>
+
+        </div>
+    </div>
+</div>
+
+<script src="/js/pager/dist/singlepager.js"></script>
+
+<script>
+var sp = new Pager('data-pager-shell')
+
+</script>
+</body>
+</html>

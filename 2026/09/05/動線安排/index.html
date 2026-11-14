@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>動線安排 | yuyoru的程式小窩</title>
+  
+    <link rel="icon" href="https://i.meee.com.tw/X0gxuzy.jpg">
+  
+  
+  
+  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body>
+<div class="Shell">
+    <aside class='SideBar'>
+    <section class='avatar' style="background-image: url(https://i.meee.com.tw/4oLJHjZ.jpg)">
+        <div class='av-pic' style="background-image: url(https://i.meee.com.tw/X0gxuzy.jpg)">
+        </div>
+    </section>
+    <section class='menu'>
+        <div>yuyoru的程式小窩</div>
+        
+            <div>yuyoru</div>
+        
+        <ul>
+          
+            <a href="/" class="Btn">
+              <li>主頁</li>
+            </a>  
+          
+            <a href="/archives/" class="Btn">
+              <li>文章</li>
+            </a>  
+          
+            <a href="/friends/" class="Btn">
+              <li>友鏈</li>
+            </a>  
+          
+            <a href="/about/" class="Btn">
+              <li>關於我</li>
+            </a>  
+          
+        </ul>
+    </section>
+    <section class="media">
+        
+    </section>
+</aside>
+
+    <div class="container">
+        <div data-pager-shell>
+            <div>
+  <article class='ContentView'>
+    <header class='PageTitle'>
+        <h1>動線安排</h1>
+    </header>
+
+    <section>
+      <h1 id="動線安排"><a href="#動線安排" class="headerlink" title="動線安排"></a>動線安排</h1><p>APCS歷屆</p>
+<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p>看一下題目:<br><img src="https://i.meee.com.tw/fzhFxVy.png" alt="pic"><br><a target="_blank" rel="noopener" href="https://zerojudge.tw/ShowProblem?problemid=g596">url</a><br>看起來就是我們會有地圖並且我們要找出木樁的連線以及剩下幾個等等的。</p>
+<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br></pre></td><td class="code"><pre><span class="line"># 學會座標可以多用幾個mark起來</span><br><span class="line"># 模擬法</span><br><span class="line"># 2d list</span><br><span class="line"># 設座標</span><br><span class="line"># 0代表沒東西 -1代表椿 1代表橫線 2代表縱線 3代表都有</span><br><span class="line"># [[0, 0, 0, -1, 0, 0, 0, 0, 0, -1, 0, 0, 0]] #用切片去做把中間的range都改成1</span><br><span class="line"># 看到上下左右查是重點</span><br><span class="line"># todo -&gt; 設1, 2, 3判斷 easy</span><br><span class="line">from sys import stdin</span><br><span class="line"></span><br><span class="line">def match(now):</span><br><span class="line">    global many</span><br><span class="line">    if now[2] == 0:</span><br><span class="line">        add(now)</span><br><span class="line">        many += 1</span><br><span class="line">    else:</span><br><span class="line">        rm(now)</span><br><span class="line">        many += 1</span><br><span class="line"></span><br><span class="line">def add(now):</span><br><span class="line">    global long</span><br><span class="line">    r, c = now[0], now[1]</span><br><span class="line">    list2[r][c] = -1</span><br><span class="line"></span><br><span class="line">    for i in range(c + 1, n):</span><br><span class="line">        if list2[r][i] == -1:</span><br><span class="line">            for k in range(c + 1, i):</span><br><span class="line">                if list2[r][k] == 0:</span><br><span class="line">                    list2[r][k] = 1</span><br><span class="line">                elif list2[r][k] == 2:</span><br><span class="line">                    list2[r][k] = 3</span><br><span class="line">            break</span><br><span class="line"></span><br><span class="line">    for i in range(c - 1, -1, -1):</span><br><span class="line">        if list2[r][i] == -1:</span><br><span class="line">            for k in range(i + 1, c):</span><br><span class="line">                if list2[r][k] == 0:</span><br><span class="line">                    list2[r][k] = 1</span><br><span class="line">                elif list2[r][k] == 2:</span><br><span class="line">                    list2[r][k] = 3</span><br><span class="line">            break</span><br><span class="line"></span><br><span class="line">    for i in range(r - 1, -1, -1):</span><br><span class="line">        if list2[i][c] == -1:</span><br><span class="line">            for k in range(i + 1, r):</span><br><span class="line">                if list2[k][c] == 0:</span><br><span class="line">                    list2[k][c] = 2</span><br><span class="line">                elif list2[k][c] == 1:</span><br><span class="line">                    list2[k][c] = 3</span><br><span class="line">            break</span><br><span class="line"></span><br><span class="line">    for i in range(r + 1, m):</span><br><span class="line">        if list2[i][c] == -1:</span><br><span class="line">            for k in range(r + 1, i):</span><br><span class="line">                if list2[k][c] == 0:</span><br><span class="line">                    list2[k][c] = 2</span><br><span class="line">                elif list2[k][c] == 1:</span><br><span class="line">                    list2[k][c] = 3</span><br><span class="line">            break</span><br><span class="line"></span><br><span class="line">    long = max(long, cou())</span><br><span class="line"></span><br><span class="line">def rm(now):</span><br><span class="line">    global long</span><br><span class="line">    r, c = now[0], now[1]</span><br><span class="line">    list2[r][c] = 0</span><br><span class="line"></span><br><span class="line">    for i in range(c + 1, n):</span><br><span class="line">        if list2[r][i] == -1:</span><br><span class="line">            for k in range(c + 1, i):</span><br><span class="line">                if list2[r][k] == 1:</span><br><span class="line">                    list2[r][k] = 0</span><br><span class="line">                elif list2[r][k] == 3:</span><br><span class="line">                    list2[r][k] = 2</span><br><span class="line">            break</span><br><span class="line"></span><br><span class="line">    for i in range(c - 1, -1, -1):</span><br><span class="line">        if list2[r][i] == -1:</span><br><span class="line">            for k in range(i + 1, c):</span><br><span class="line">                if list2[r][k] == 1:</span><br><span class="line">                    list2[r][k] = 0</span><br><span class="line">                elif list2[r][k] == 3:</span><br><span class="line">                    list2[r][k] = 2</span><br><span class="line">            break</span><br><span class="line"></span><br><span class="line">    for i in range(r - 1, -1, -1):</span><br><span class="line">        if list2[i][c] == -1:</span><br><span class="line">            for k in range(i + 1, r):</span><br><span class="line">                if list2[k][c] == 2:</span><br><span class="line">                    list2[k][c] = 0</span><br><span class="line">                elif list2[k][c] == 3:</span><br><span class="line">                    list2[k][c] = 1</span><br><span class="line">            break</span><br><span class="line"></span><br><span class="line">    for i in range(r + 1, m):</span><br><span class="line">        if list2[i][c] == -1:</span><br><span class="line">            for k in range(r + 1, i):</span><br><span class="line">                if list2[k][c] == 2:</span><br><span class="line">                    list2[k][c] = 0</span><br><span class="line">                elif list2[k][c] == 3:</span><br><span class="line">                    list2[k][c] = 1</span><br><span class="line">            break</span><br><span class="line"></span><br><span class="line">def cou():#計算有幾個被占據</span><br><span class="line">    longz = 0 #站存</span><br><span class="line">    for j in range(len(list2)):</span><br><span class="line">        for i in range(len(list2[0])):</span><br><span class="line">            if list2[j][i] != 0:</span><br><span class="line">                longz += 1</span><br><span class="line">    return longz</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#how about 2d list</span><br><span class="line">#m, n, h = 3, 4, 4</span><br><span class="line">m, n, h = map(int, stdin.readline().split())</span><br><span class="line">#list1 = [[0, 1, 0], [2, 1, 0], [2, 3, 0], [2, 1, 1]] #input()</span><br><span class="line">#list1 = [[0, 3, 0], [0, 9, 0], [0, 4, 0], [0, 4, 1]]</span><br><span class="line">list1 = []</span><br><span class="line">for i in range(h):</span><br><span class="line">    list1.append(list(map(int,stdin.readline().split())))</span><br><span class="line">#list1 = [list(map(int, stdin.readlines().split()))]</span><br><span class="line">list2 = [[0 for i in range(n)]for i in range(m)] #2d map</span><br><span class="line">many = 0</span><br><span class="line">#print(list2)</span><br><span class="line">long = 0</span><br><span class="line">for i in list1:</span><br><span class="line">    match(i)</span><br><span class="line">    #print(list2)</span><br><span class="line">#print(list2)</span><br><span class="line">print(long)</span><br><span class="line">a = 0</span><br><span class="line">#print(list2)</span><br><span class="line">for j in range(len(list2)):</span><br><span class="line">    for i in range(len(list2[0])):</span><br><span class="line">        if list2[j][i] != 0 :</span><br><span class="line">            a += 1</span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure>
+<p>我的想法就是不管在加入木樁時還是刪掉我們都上下左右跑一次，直到我們找到木樁我們在往前推來回去改成1之類的，那為甚麼說之類呢?因為我們會用1, 2, 3來標註，分別是橫線, 直線, 重疊，這樣我們刪掉的同時才不會一次刪到兩條。</p>
+
+
+      
+
+    </section>
+    
+      <section class='ArticleMeta'>
+          <div>
+            发布于&nbsp;
+            <time datetime="2026-09-05T11:23:17.000Z" itemprop="datePublished">
+              2026-09-05
+            </time>
+          </div>
+          
+      </section>
+    
+    
+</article>
+
+  
+</div>
+
+            <footer>
+    <div>© 2026 - yuyoru </div>
+    <div>
+        <span>
+            Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
+        </span>
+        ,
+        <span>
+            Theme - <a target="_blank" rel="noopener" href="https://github.com/nameoverflow/hexo-theme-icalm">Icalm</a>
+        </span>
+    </div>
+</footer>
+
+        </div>
+    </div>
+</div>
+
+<script src="/js/pager/dist/singlepager.js"></script>
+
+<script>
+var sp = new Pager('data-pager-shell')
+
+</script>
+</body>
+</html>

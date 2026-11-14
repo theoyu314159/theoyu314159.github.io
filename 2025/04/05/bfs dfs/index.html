@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>bfs dfs | yuyoru的程式小窩</title>
+  
+    <link rel="icon" href="https://i.meee.com.tw/X0gxuzy.jpg">
+  
+  
+  
+  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body>
+<div class="Shell">
+    <aside class='SideBar'>
+    <section class='avatar' style="background-image: url(https://i.meee.com.tw/4oLJHjZ.jpg)">
+        <div class='av-pic' style="background-image: url(https://i.meee.com.tw/X0gxuzy.jpg)">
+        </div>
+    </section>
+    <section class='menu'>
+        <div>yuyoru的程式小窩</div>
+        
+            <div>yuyoru</div>
+        
+        <ul>
+          
+            <a href="/" class="Btn">
+              <li>主頁</li>
+            </a>  
+          
+            <a href="/archives/" class="Btn">
+              <li>文章</li>
+            </a>  
+          
+            <a href="/friends/" class="Btn">
+              <li>友鏈</li>
+            </a>  
+          
+            <a href="/about/" class="Btn">
+              <li>關於我</li>
+            </a>  
+          
+        </ul>
+    </section>
+    <section class="media">
+        
+    </section>
+</aside>
+
+    <div class="container">
+        <div data-pager-shell>
+            <div>
+  <article class='ContentView'>
+    <header class='PageTitle'>
+        <h1>bfs dfs</h1>
+    </header>
+
+    <section>
+      <h1 id="bfs-dfs"><a href="#bfs-dfs" class="headerlink" title="bfs dfs"></a>bfs dfs</h1><p>python</p>
+<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>bfs是用queue來存放鄰近的節點，並將每一層的節點走完再去走下一層這樣子去走訪，而dfs則是用stack來儲存，再從上面取出，也就是說他是走到底再返回。</p>
+<h2 id="範例"><a href="#範例" class="headerlink" title="範例"></a>範例</h2><p>如果想要走訪0 1, 0 2, 1 2, 1 3, 2 3, 2 4, 3 4, 3 5的圖形的話我們可以用bfs或dfs，那麼我們這邊先示範一下，而如我們所說的會用到queue所以要import deque，還有另外dfs會用到遞迴:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">from collections import deque</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def graph():</span><br><span class="line">    n = int(input())</span><br><span class="line">    e = int(input())</span><br><span class="line">    graph = [[] for i in range(n)]</span><br><span class="line">    for i in range(e):</span><br><span class="line">        k = list(map(int, input().split()))</span><br><span class="line">        graph[k[0]].append(k[1])</span><br><span class="line">        graph[k[1]].append(k[0])</span><br><span class="line">    return graph</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def bfs(graph, s):</span><br><span class="line">    dq = deque([])</span><br><span class="line">    dq.append(s)</span><br><span class="line">    seen = set()</span><br><span class="line">    seen.add(s)</span><br><span class="line"></span><br><span class="line">    while len(dq) &gt; 0:</span><br><span class="line">        v = dq.popleft()</span><br><span class="line">        for i in graph[v]:</span><br><span class="line">            if i not in seen:</span><br><span class="line">                dq.append(i)</span><br><span class="line">                seen.add(i)</span><br><span class="line">        print(v)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">bfs(graph(), 0)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">def graph():</span><br><span class="line">    n = int(input())</span><br><span class="line">    e = int(input())</span><br><span class="line">    graph = [[] for i in range(n)]</span><br><span class="line">    for i in range(e):</span><br><span class="line">        k = list(map(int, input().split()))</span><br><span class="line">        graph[k[0]].append(k[1])</span><br><span class="line">        graph[k[1]].append(k[0])</span><br><span class="line">    return graph</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def dfs(graph, s):</span><br><span class="line">    global seen</span><br><span class="line">    seen.add(s)</span><br><span class="line">    print(s)</span><br><span class="line">    for i in graph[s]:</span><br><span class="line">        if i not in seen:</span><br><span class="line">            seen.add(i)</span><br><span class="line">            dfs(graph, i)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">seen = set()</span><br><span class="line">dfs(graph(), 0)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://web.ntnu.edu.tw/~algo/Graph.html">上面的graph()是圖形的輸入</a></p>
+<h2 id="例題"><a href="#例題" class="headerlink" title="例題"></a>例題</h2><p><a target="_blank" rel="noopener" href="https://cses.fi/problemset/task/1192/">題目</a><br>沒有意外的話我們用python寫應該會超時，但沒關係，我們可以試試用dfs來寫，讓他每一次遇到一個.，如果是沒有遇過的狀況下，就進行dfs搜尋:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">import sys</span><br><span class="line">sys.setrecursionlimit(10**6)</span><br><span class="line"> </span><br><span class="line">def inp():</span><br><span class="line">    n, m = map(int, input().split())</span><br><span class="line">    graph = []</span><br><span class="line">    for i in range(n):</span><br><span class="line">        graph.append(input())</span><br><span class="line"> </span><br><span class="line">    return graph</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">def dfs(graph, v):</span><br><span class="line">    global seen</span><br><span class="line">    seen.add(v)</span><br><span class="line">    if (</span><br><span class="line">        v[0] - 1 &gt;= 0</span><br><span class="line">        and graph[v[0] - 1][v[1]] == &quot;.&quot;</span><br><span class="line">        and (v[0] - 1, v[1]) not in seen</span><br><span class="line">    ):</span><br><span class="line">        dfs(graph, (v[0]-1, v[1]))</span><br><span class="line"> </span><br><span class="line">    if (</span><br><span class="line">        v[0] + 1 &lt; len(graph)</span><br><span class="line">        and graph[v[0] + 1][v[1]] == &quot;.&quot;</span><br><span class="line">        and (v[0] + 1, v[1]) not in seen</span><br><span class="line">    ):</span><br><span class="line">        dfs(graph, (v[0]+1, v[1]))   </span><br><span class="line"> </span><br><span class="line">    if (</span><br><span class="line">        v[1] + 1 &lt; len(graph[0])</span><br><span class="line">        and graph[v[0]][v[1] + 1] == &quot;.&quot;</span><br><span class="line">        and (v[0], v[1] + 1) not in seen</span><br><span class="line">    ):</span><br><span class="line">        dfs(graph, (v[0], v[1] + 1))</span><br><span class="line"> </span><br><span class="line">    if (</span><br><span class="line">        v[1] - 1 &gt;= 0</span><br><span class="line">        and graph[v[0]][v[1] - 1] == &quot;.&quot;</span><br><span class="line">        and (v[0], v[1] - 1) not in seen</span><br><span class="line">    ):</span><br><span class="line">        dfs(graph, (v[0], v[1] - 1))</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">def main(graph):</span><br><span class="line">    global rooms</span><br><span class="line">    for i in range(len(graph)):</span><br><span class="line">        for j in range(len(graph[0])):</span><br><span class="line">            if graph[i][j] == &quot;.&quot; and (i, j) not in seen:</span><br><span class="line">                dfs(graph, (i, j))</span><br><span class="line">                rooms+=1</span><br><span class="line"> </span><br><span class="line">seen = set()</span><br><span class="line">rooms = 0</span><br><span class="line"> </span><br><span class="line">main(inp())</span><br><span class="line">print(rooms)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+
+    </section>
+    
+      <section class='ArticleMeta'>
+          <div>
+            发布于&nbsp;
+            <time datetime="2025-04-04T21:37:20.000Z" itemprop="datePublished">
+              2025-04-05
+            </time>
+          </div>
+          
+      </section>
+    
+    
+</article>
+
+  
+</div>
+
+            <footer>
+    <div>© 2026 - yuyoru </div>
+    <div>
+        <span>
+            Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
+        </span>
+        ,
+        <span>
+            Theme - <a target="_blank" rel="noopener" href="https://github.com/nameoverflow/hexo-theme-icalm">Icalm</a>
+        </span>
+    </div>
+</footer>
+
+        </div>
+    </div>
+</div>
+
+<script src="/js/pager/dist/singlepager.js"></script>
+
+<script>
+var sp = new Pager('data-pager-shell')
+
+</script>
+</body>
+</html>

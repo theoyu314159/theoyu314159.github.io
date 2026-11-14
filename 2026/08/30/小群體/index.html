@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>小群體 | yuyoru的程式小窩</title>
+  
+    <link rel="icon" href="https://i.meee.com.tw/X0gxuzy.jpg">
+  
+  
+  
+  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body>
+<div class="Shell">
+    <aside class='SideBar'>
+    <section class='avatar' style="background-image: url(https://i.meee.com.tw/4oLJHjZ.jpg)">
+        <div class='av-pic' style="background-image: url(https://i.meee.com.tw/X0gxuzy.jpg)">
+        </div>
+    </section>
+    <section class='menu'>
+        <div>yuyoru的程式小窩</div>
+        
+            <div>yuyoru</div>
+        
+        <ul>
+          
+            <a href="/" class="Btn">
+              <li>主頁</li>
+            </a>  
+          
+            <a href="/archives/" class="Btn">
+              <li>文章</li>
+            </a>  
+          
+            <a href="/friends/" class="Btn">
+              <li>友鏈</li>
+            </a>  
+          
+            <a href="/about/" class="Btn">
+              <li>關於我</li>
+            </a>  
+          
+        </ul>
+    </section>
+    <section class="media">
+        
+    </section>
+</aside>
+
+    <div class="container">
+        <div data-pager-shell>
+            <div>
+  <article class='ContentView'>
+    <header class='PageTitle'>
+        <h1>小群體</h1>
+    </header>
+
+    <section>
+      <h1 id="小群體"><a href="#小群體" class="headerlink" title="小群體"></a>小群體</h1><p>APCS歷屆</p>
+<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><a target="_blank" rel="noopener" href="https://apcs.csie.ntnu.edu.tw/wp-content/uploads/2018/12/1060304APCSImplementation.pdf">PDF</a><br>大家可以看一下第二題，原則上就是朋友之間會連到另一個朋友，如果可以連成一圈，最後回到一開始那個人，那就是群體，而我們要的就是計算有幾個群體。</p>
+<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"># 登記每個人是否都走過</span><br><span class="line">def walk(): #main code</span><br><span class="line">    list3 = [False for i in range(len(list1))]</span><br><span class="line">    #print(list3)</span><br><span class="line">    #now = 0</span><br><span class="line">    count = 0</span><br><span class="line">    for i in range(len(list1)):</span><br><span class="line">        if list3[i] == False:</span><br><span class="line">            list3[i] = True</span><br><span class="line">            count += 1</span><br><span class="line">            now = i</span><br><span class="line">            #first = list3[now]</span><br><span class="line">            while True:</span><br><span class="line">                #k = 2</span><br><span class="line">                if list3[list2[now]] == False:</span><br><span class="line">                    list3[list2[now]] = True</span><br><span class="line">                    now = list2[now]</span><br><span class="line">                elif list3[list2[now]] == True:</span><br><span class="line">                    break</span><br><span class="line">    #print(count)</span><br><span class="line">    return count</span><br><span class="line"></span><br><span class="line">list1 = [i for i in range(3)]</span><br><span class="line">list2 = [0, 2, 1]</span><br><span class="line">list1 = [i for i in range(int(input()))]</span><br><span class="line">list2 = list(map(int, input().split()))</span><br><span class="line">print(walk(), end = &quot;\n&quot;)</span><br></pre></td></tr></table></figure>
+<p>我的想法就是紀錄是否每個人都走過，用True or False來判斷，如果沒被走過我們就把count +&#x3D; 1並且開始走他的朋友直到走完那一個群體再繼續。</p>
+
+
+      
+
+    </section>
+    
+      <section class='ArticleMeta'>
+          <div>
+            发布于&nbsp;
+            <time datetime="2026-08-30T13:55:17.000Z" itemprop="datePublished">
+              2026-08-30
+            </time>
+          </div>
+          
+      </section>
+    
+    
+</article>
+
+  
+</div>
+
+            <footer>
+    <div>© 2026 - yuyoru </div>
+    <div>
+        <span>
+            Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
+        </span>
+        ,
+        <span>
+            Theme - <a target="_blank" rel="noopener" href="https://github.com/nameoverflow/hexo-theme-icalm">Icalm</a>
+        </span>
+    </div>
+</footer>
+
+        </div>
+    </div>
+</div>
+
+<script src="/js/pager/dist/singlepager.js"></script>
+
+<script>
+var sp = new Pager('data-pager-shell')
+
+</script>
+</body>
+</html>

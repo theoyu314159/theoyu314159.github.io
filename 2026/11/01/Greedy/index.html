@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Greedy | yuyoru的程式小窩</title>
+  
+    <link rel="icon" href="https://i.meee.com.tw/X0gxuzy.jpg">
+  
+  
+  
+  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body>
+<div class="Shell">
+    <aside class='SideBar'>
+    <section class='avatar' style="background-image: url(https://i.meee.com.tw/4oLJHjZ.jpg)">
+        <div class='av-pic' style="background-image: url(https://i.meee.com.tw/X0gxuzy.jpg)">
+        </div>
+    </section>
+    <section class='menu'>
+        <div>yuyoru的程式小窩</div>
+        
+            <div>yuyoru</div>
+        
+        <ul>
+          
+            <a href="/" class="Btn">
+              <li>主頁</li>
+            </a>  
+          
+            <a href="/archives/" class="Btn">
+              <li>文章</li>
+            </a>  
+          
+            <a href="/friends/" class="Btn">
+              <li>友鏈</li>
+            </a>  
+          
+            <a href="/about/" class="Btn">
+              <li>關於我</li>
+            </a>  
+          
+        </ul>
+    </section>
+    <section class="media">
+        
+    </section>
+</aside>
+
+    <div class="container">
+        <div data-pager-shell>
+            <div>
+  <article class='ContentView'>
+    <header class='PageTitle'>
+        <h1>Greedy</h1>
+    </header>
+
+    <section>
+      <h1 id="Greedy"><a href="#Greedy" class="headerlink" title="Greedy"></a>Greedy</h1><p>貪婪演算法</p>
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>簡單來說就是看到甚麼就取甚麼，能拿甚麼就拿最多，有時候在我們計算的時候可以達到效果。<br>!!!看到甚麼就拿甚麼</p>
+<h2 id="實作"><a href="#實作" class="headerlink" title="實作"></a>實作</h2><p>我們來時做這題e801:<br><a target="_blank" rel="noopener" href="https://zerojudge.tw/ShowProblem?problemid=e801">題目</a><br>簡單來講就是排課表看我們一天最多能上幾堂。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"># 紀錄最大值 and 最小值?</span><br><span class="line"># greedy</span><br><span class="line">#N = int(input())</span><br><span class="line">from sys import stdin</span><br><span class="line">#N = 5</span><br><span class="line">#Ns = [[1, 1, 10], [2, 3, 4], [2, 4, 5], [3, 7, 8], [3, 8, 9]]</span><br><span class="line">#[[1, 1, 10], [2, 3, 4], [2, 4, 5], [3, 7, 8], [3, 8, 9]]</span><br><span class="line">N = int(stdin.readline().rstrip())</span><br><span class="line">Ns = []</span><br><span class="line">for i in range(N):</span><br><span class="line">    Ns.append(list(map(int, stdin.readline().split())))</span><br><span class="line">Ns.sort(key=lambda x: (x[0], x[2], x[1])) #語法記一下</span><br><span class="line">#print(Ns)</span><br><span class="line">ans = 0</span><br><span class="line">for i in range(5):</span><br><span class="line">    mini = 1</span><br><span class="line">    for j in Ns:</span><br><span class="line">        #print(i)</span><br><span class="line">        if j[0] == i + 1:</span><br><span class="line">            #print(True)</span><br><span class="line">            pass</span><br><span class="line">        elif j[0] &gt; i + 1:</span><br><span class="line">            break</span><br><span class="line">        else:</span><br><span class="line">            #print(True, i+1)</span><br><span class="line">            continue</span><br><span class="line">        #print(mini &lt; j[1] and j[2] &lt; big)</span><br><span class="line">        if mini &lt;= j[1] :</span><br><span class="line">            #print(True, i + 1)</span><br><span class="line">            #print(j)</span><br><span class="line">            ans += 1</span><br><span class="line">            mini = j[2]</span><br><span class="line"></span><br><span class="line">print(ans)</span><br></pre></td></tr></table></figure>
+<p>我的解法就是先將課程sort好，但是要記住因為我們要看的是最早結束的課程(這樣才可以排最多)，所以我們要排序的時候要請他根據星期和最早結束來排，接著就依序下去就好了喔~</p>
+
+
+      
+
+    </section>
+    
+      <section class='ArticleMeta'>
+          <div>
+            发布于&nbsp;
+            <time datetime="2026-11-01T06:02:21.000Z" itemprop="datePublished">
+              2026-11-01
+            </time>
+          </div>
+          
+      </section>
+    
+    
+</article>
+
+  
+</div>
+
+            <footer>
+    <div>© 2026 - yuyoru </div>
+    <div>
+        <span>
+            Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
+        </span>
+        ,
+        <span>
+            Theme - <a target="_blank" rel="noopener" href="https://github.com/nameoverflow/hexo-theme-icalm">Icalm</a>
+        </span>
+    </div>
+</footer>
+
+        </div>
+    </div>
+</div>
+
+<script src="/js/pager/dist/singlepager.js"></script>
+
+<script>
+var sp = new Pager('data-pager-shell')
+
+</script>
+</body>
+</html>

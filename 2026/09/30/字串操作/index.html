@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>字串操作 | yuyoru的程式小窩</title>
+  
+    <link rel="icon" href="https://i.meee.com.tw/X0gxuzy.jpg">
+  
+  
+  
+  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body>
+<div class="Shell">
+    <aside class='SideBar'>
+    <section class='avatar' style="background-image: url(https://i.meee.com.tw/4oLJHjZ.jpg)">
+        <div class='av-pic' style="background-image: url(https://i.meee.com.tw/X0gxuzy.jpg)">
+        </div>
+    </section>
+    <section class='menu'>
+        <div>yuyoru的程式小窩</div>
+        
+            <div>yuyoru</div>
+        
+        <ul>
+          
+            <a href="/" class="Btn">
+              <li>主頁</li>
+            </a>  
+          
+            <a href="/archives/" class="Btn">
+              <li>文章</li>
+            </a>  
+          
+            <a href="/friends/" class="Btn">
+              <li>友鏈</li>
+            </a>  
+          
+            <a href="/about/" class="Btn">
+              <li>關於我</li>
+            </a>  
+          
+        </ul>
+    </section>
+    <section class="media">
+        
+    </section>
+</aside>
+
+    <div class="container">
+        <div data-pager-shell>
+            <div>
+  <article class='ContentView'>
+    <header class='PageTitle'>
+        <h1>字串操作</h1>
+    </header>
+
+    <section>
+      <h1 id="字串操作"><a href="#字串操作" class="headerlink" title="字串操作"></a>字串操作</h1><p>APCS歷屆</p>
+<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p>來看一下題目吧~這是一個APCS的歷屆:<br><img src="https://i.meee.com.tw/SAAqn8L.png" alt="pic"><br>簡單來說就是像題目所說的偵測我們輸入的為0, 1, 2，並執行他所規定的操作。</p>
+<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"># 用sorted() or .join</span><br><span class="line"># 先將他用成array</span><br><span class="line">from sys import stdin</span><br><span class="line">def zero(inparr):</span><br><span class="line">    for i in range(len(inparr)):</span><br><span class="line">        if i % 2 == 0:</span><br><span class="line">            inparr[i], inparr[i + 1] = inparr[i + 1], inparr[i]</span><br><span class="line">        #i += 1</span><br><span class="line">    return inparr</span><br><span class="line"></span><br><span class="line">def one(inparr):</span><br><span class="line">    #print(inparr)</span><br><span class="line">    for i in range(len(inparr)):</span><br><span class="line">        if i % 2 == 0 :</span><br><span class="line">            newarr = sorted([inparr[i], inparr[i + 1]])</span><br><span class="line">            inparr[i] = newarr[0]</span><br><span class="line">            inparr[i + 1] = newarr[1]</span><br><span class="line">    #print(inparr)</span><br><span class="line">    return inparr</span><br><span class="line"></span><br><span class="line">def two(inparr):</span><br><span class="line">    fistarr = inparr[0:len(inparr) // 2 ]</span><br><span class="line">    lastarr = inparr[len(inparr) // 2 : len(inparr)]</span><br><span class="line">    newarr = []</span><br><span class="line">    for i in range(len(fistarr)):</span><br><span class="line">        newarr.append(fistarr[i])</span><br><span class="line">        newarr.append(lastarr[i])</span><br><span class="line">    return newarr</span><br><span class="line"></span><br><span class="line">&#x27;&#x27;&#x27;inp = &quot;bofcokae&quot;</span><br><span class="line">inparr = list(inp)</span><br><span class="line">inparr = one(inparr)</span><br><span class="line">print(inparr)&#x27;&#x27;&#x27;</span><br><span class="line">&#x27;&#x27;&#x27;inp = &quot;facebook&quot;</span><br><span class="line">inparr = list(inp)</span><br><span class="line">two()</span><br><span class="line">zero()</span><br><span class="line">two()</span><br><span class="line">one()</span><br><span class="line">print(inparr)&#x27;&#x27;&#x27;</span><br><span class="line">inp = input()</span><br><span class="line">inparr = list(inp)</span><br><span class="line">k = int(stdin.readline())</span><br><span class="line">for i in range(k):</span><br><span class="line">    inpt = int(stdin.readline())</span><br><span class="line">    #print(inpt)</span><br><span class="line">    if inpt == 0:</span><br><span class="line">        inparr = zero(inparr)</span><br><span class="line">    elif inpt == 1:</span><br><span class="line">        #print(inparr)</span><br><span class="line">        inparr = one(inparr)</span><br><span class="line">        #print(inparr)</span><br><span class="line">    elif inpt == 2:</span><br><span class="line">        inparr = two(inparr)</span><br><span class="line">    #inparr = new</span><br><span class="line">    #print(inparr)</span><br><span class="line">print(&quot;&quot;.join(inparr))</span><br></pre></td></tr></table></figure>
+<p>我的想法就是可以於下面的for迴圈中偵測，再跳到上面的3個function去做，第一個是將他兩個兩個對調，另外一個我是直接用sort來讓他來字母排序，最後一個就用切片變成兩個陣列可以直接戶插。</p>
+
+
+      
+
+    </section>
+    
+      <section class='ArticleMeta'>
+          <div>
+            发布于&nbsp;
+            <time datetime="2026-09-30T13:07:51.000Z" itemprop="datePublished">
+              2026-09-30
+            </time>
+          </div>
+          
+      </section>
+    
+    
+</article>
+
+  
+</div>
+
+            <footer>
+    <div>© 2026 - yuyoru </div>
+    <div>
+        <span>
+            Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
+        </span>
+        ,
+        <span>
+            Theme - <a target="_blank" rel="noopener" href="https://github.com/nameoverflow/hexo-theme-icalm">Icalm</a>
+        </span>
+    </div>
+</footer>
+
+        </div>
+    </div>
+</div>
+
+<script src="/js/pager/dist/singlepager.js"></script>
+
+<script>
+var sp = new Pager('data-pager-shell')
+
+</script>
+</body>
+</html>
