@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>yuyoru的程式小窩</title>
+  <meta name="google-site-verification" content="tuPIUHQplTSZv9ieOhRhxrxKMQulHP-ExdFdceG-8TU" />
+  
+    <link rel="icon" href="https://i.meee.com.tw/X0gxuzy.jpg">
+  
+  
+  
+  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body>
+<div class="Shell">
+    <aside class='SideBar'>
+    <section class='avatar' style="background-image: url(https://i.meee.com.tw/4oLJHjZ.jpg)">
+        <div class='av-pic' style="background-image: url(https://i.meee.com.tw/X0gxuzy.jpg)">
+        </div>
+    </section>
+    <section class='menu'>
+        <div>yuyoru的程式小窩</div>
+        
+            <div>yuyoru</div>
+        
+        <ul>
+          
+            <a href="/" class="Btn">
+              <li>主頁</li>
+            </a>  
+          
+            <a href="/archives/" class="Btn">
+              <li>文章</li>
+            </a>  
+          
+            <a href="/friends/" class="Btn">
+              <li>友鏈</li>
+            </a>  
+          
+            <a href="/about/" class="Btn">
+              <li>關於我</li>
+            </a>  
+          
+        </ul>
+    </section>
+    <section class="media">
+        
+    </section>
+</aside>
+
+    <div class="container">
+        <div data-pager-shell>
+            <div>
+  <article class='ContentView'>
+    <header class='PageTitle'>
+        <h1></h1>
+    </header>
+
+    <section>
+      <h3 id="APCS-1月檢定-Python-中級衝刺講義與-ZeroJudge-對應題庫"><a href="#APCS-1月檢定-Python-中級衝刺講義與-ZeroJudge-對應題庫" class="headerlink" title="APCS 1月檢定 Python 中級衝刺講義與 ZeroJudge 對應題庫"></a>APCS 1月檢定 Python 中級衝刺講義與 ZeroJudge 對應題庫</h3><h4 id="1-前言與-APCS-檢定目標設定"><a href="#1-前言與-APCS-檢定目標設定" class="headerlink" title="1. 前言與 APCS 檢定目標設定"></a>1. 前言與 APCS 檢定目標設定</h4><p>本講義專為準備參加 1 月 APCS（大學程式設計先修檢定）之考生設計，由資深特訓講師與演算法競賽教練共同編撰。核心目標為協助學員在短時間內精準定位考點，達成以下級分指標：</p>
+<ul>
+<li><p><strong>觀念題目標：4 級分</strong> （徹底解構語法陷阱、變數作用域、遞迴 Call Stack 追蹤與  $Big-O$  時間複雜度分析）。</p>
+</li>
+<li><p><strong>實作題目標：3~4 級分</strong> （穩拿下前兩題基礎陣列與模擬題全額分數，並掌握雙指標、二分搜尋、BFS&#x2F;DFS 圖論走訪及基礎動態規劃，搶攻中級難度分水嶺）。</p>
+</li>
+</ul>
+<h5 id="APCS-成績與演算法基礎對資工系申請之重要性"><a href="#APCS-成績與演算法基礎對資工系申請之重要性" class="headerlink" title="APCS 成績與演算法基礎對資工系申請之重要性"></a>APCS 成績與演算法基礎對資工系申請之重要性</h5><p>參照「國立中央大學 115 學年度學士班特殊選才入學招生簡章」，資訊工程學系（包含一般組與資安組）均將 APCS 檢定成績與演算法競賽經歷列為重點審查項目。此外，包含清大資工 B 組、交大資工資安組、台科大資工系&#x2F;資安組與台師大資工系等頂尖校系，在二階段面試或實作審查中，皆極高度關注考生的演算法思維。</p>
+<p>許多專攻專案開發或資訊安全（CTF）的考生常有重專案、輕演算法的迷思。參考《114資工系特殊選才心得》真實經驗，有資安組考生雖然具備豐富的資安競賽與社群經驗，但在台科大二階段面試時卻被考官直接追問演算法與競程題目，事後發出**「要是當初練選手的時候沒有那麼排斥演算法就好了」**的感嘆。這充分證明： <strong>即便目標是資安組或專案型管道，演算法與競程基礎依然是頂大面試官評估考生邏輯思維與Coding基本功的致命關鍵。</strong></p>
+<h5 id="重點應考心態與戰術分配"><a href="#重點應考心態與戰術分配" class="headerlink" title="重點應考心態與戰術分配"></a>重點應考心態與戰術分配</h5><ul>
+<li><p><strong>觀念題零失誤：</strong>  觀念題是級分基本盤。必須透過「變數狀態追蹤表」與「遞迴 Call Stack 樹狀圖」實作手寫模擬，絕不憑感覺心算。</p>
+</li>
+<li><p><strong>實作題「先求有、再求好」：</strong>  嚴格評估題目限制（時間上限 1.0 秒約可執行  $10^8$  次基本運算）。若第一時間無法寫出最優解，先以暴搜（Brute Force）拿下配分子任務（Subtasks）的 40%~60% 分數，再進行優化。</p>
+</li>
+<li><p><strong>演算法思維導向：</strong>  拒絕死記程式碼，聚焦於題型特徵、資料規模與  $Big-O$  之間的映射關係。</p>
+</li>
+</ul>
+<h4 id="2-Python-基礎語法與考題陷阱"><a href="#2-Python-基礎語法與考題陷阱" class="headerlink" title="2. Python 基礎語法與考題陷阱"></a>2. Python 基礎語法與考題陷阱</h4><h5 id="2-1-快速輸入輸出-Fast-I-O"><a href="#2-1-快速輸入輸出-Fast-I-O" class="headerlink" title="2.1 快速輸入輸出 (Fast I&#x2F;O)"></a>2.1 快速輸入輸出 (Fast I&#x2F;O)</h5><p>在 APCS 實作題中，當測資筆數達到  $10^5$  級別時，傳統 input() 因包含過多的逐行開銷與 I&#x2F;O 緩衝區處理，極易引發超時（Time Limit Exceeded, TLE）。競程標準實作必須改用 sys.stdin。</p>
+<h6 id="標準實作樣板-Code-Template"><a href="#標準實作樣板-Code-Template" class="headerlink" title="標準實作樣板 (Code Template)"></a><em>標準實作樣板 (Code Template)</em></h6><pre><code>import sys
+</code></pre>
+<!---->
+
+<pre><code>def solve():
+    # 方法 A：一次性讀取所有資料並以空白/換行分割（最推薦，適合資料量極大時）
+    input_data = sys.stdin.read().split()
+    if not input_data:
+        return
+    
+    # 範例：第一個數字為 N，接續 N 個整數
+    N = int(input_data[0])
+    arr = [int(x) for x in input_data[1:N+1]]
+    
+    # 方法 B：逐行讀取（適合需要保留行結構的模擬題）
+    # line = sys.stdin.readline().strip()
+</code></pre>
+<!---->
+
+<pre><code>if __name__ == &#39;__main__&#39;:
+    solve()
+</code></pre>
+<ul>
+<li><p><strong>語法要點：</strong>  sys.stdin.read().split() 會自動將全數輸入按空白、Tab 與換行符號切割成串列，處理速度比 input() 快 3 到 5 倍。</p>
+</li>
+<li><p><strong>常見陷阱點：</strong></p>
+</li>
+<li><p>混用 input() 與 sys.stdin.read() 導致讀取指標錯位。</p>
+</li>
+<li><p>使用 sys.stdin.readline() 時忘記加上 .strip()，保留了末尾的 \n，在字串比較時產生隱蔽 Bug。</p>
+</li>
+</ul>
+<h5 id="2-2-串列-List-與字典-Dict-高頻操作"><a href="#2-2-串列-List-與字典-Dict-高頻操作" class="headerlink" title="2.2 串列 (List) 與字典 (Dict) 高頻操作"></a>2.2 串列 (List) 與字典 (Dict) 高頻操作</h5><ul>
+<li><p><strong>語法要點：</strong></p>
+</li>
+<li><p><strong>切片 (Slicing)：</strong>  arrstart:end:step。倒序切片 arr::-1 建立新串列。</p>
+</li>
+<li><p><strong>串列生成式 (List Comprehension)：</strong>  x * 2 for x in data if x % 2 &#x3D;&#x3D; 0 比單純 for 迴圈更簡潔且執行速度更佳。</p>
+</li>
+<li><p><strong>字典&#x2F;集合查表：</strong>  dict 與 set 底層基於 Hash Table 實現，內部查詢 x in my_set 平均時間複雜度為  $O(1)$ 。</p>
+</li>
+<li><p><strong>常見陷阱點：</strong></p>
+</li>
+<li><p><strong>在迴圈中修改串列：</strong>  遍歷串列的同時執行 remove() 或 pop()，會導致串列索引即時重排，漏掉接續元素。</p>
+</li>
+<li><p><strong>時間複雜度誤判：</strong>  誤以為 x in list 的時間複雜度為  $O(1)$ （實際為  $O(N)$  線性搜尋）。在迴圈內執行 x in list 會直接將演算法惡化至  $O(N^2)$ 。快速查找務必先轉為 set 或 dict。</p>
+</li>
+<li><p><strong>未處理字典缺鍵：</strong>  直接存取 dictkey 引發 KeyError，應改用 dict.get(key, default)。</p>
+</li>
+</ul>
+<h5 id="2-3-字串處理與二維陣列-矩陣模擬"><a href="#2-3-字串處理與二維陣列-矩陣模擬" class="headerlink" title="2.3 字串處理與二維陣列&#x2F;矩陣模擬"></a>2.3 字串處理與二維陣列&#x2F;矩陣模擬</h5><ul>
+<li><p><strong>字串不可變性 (Immutability)：</strong>  Python 字串無法透過 s0 &#x3D; ‘a’ 直接修改。頻繁變更字串應先轉為 List：s_list &#x3D; list(s)，修改後再使用 “”.join(s_list) 合併，避免產生大量的暫存字串垃圾回收（GC）開銷。</p>
+</li>
+<li><p><strong>二維陣列初始化陷阱與矩陣旋轉樣板：</strong></p>
+</li>
+</ul>
+<!---->
+
+<pre><code># ❌ 錯誤寫法：淺拷貝 (Shallow Copy) 陷阱！
+# 這會讓 3 列完全指向記憶體中同一矩陣位址，修改 grid[0][0] 會導致所有列的第 0 格同時改變！
+grid_wrong = [[0] * 4] * 3 
+</code></pre>
+<!---->
+
+<pre><code># ✅ 正確寫法：使用串列生成式獨立建立每一個 Row
+rows, cols = 3, 4
+grid = [[0] * cols for _ in range(rows)]
+</code></pre>
+<!---->
+
+<pre><code># 矩陣旋轉常用單行技巧 (觀念題與實作題高頻考點)
+# 順時針旋轉 90 度：先上下翻轉 ([::-1]) 再轉置 (*zip)
+grid_cw90 = [list(row) for row in zip(*grid[::-1])]
+</code></pre>
+<!---->
+
+<pre><code># 逆時針旋轉 90 度：先轉置 (*zip) 再上下翻轉 (註：或轉置後每行反轉)
+grid_ccw90 = [list(row) for row in zip(*grid)][::-1]
+</code></pre>
+<ul>
+<li><strong>常見陷阱點：</strong>  走訪二維網格地圖（如上下左右移動 dr &#x3D; -1, 1, 0, 0, dc &#x3D; 0, 0, -1, 1）時，未先檢查邊界條件 0 &lt;&#x3D; nr &lt; rows and 0 &lt;&#x3D; nc &lt; cols 即存取 gridnr，引發 IndexError。</li>
+</ul>
+<h5 id="2-4-遞迴語法與時間複雜度-Big-O"><a href="#2-4-遞迴語法與時間複雜度-Big-O" class="headerlink" title="2.4 遞迴語法與時間複雜度 ( $Big-O$ )"></a>2.4 遞迴語法與時間複雜度 ( $Big-O$ )</h5><ul>
+<li><p><strong>語法要點：</strong>  遞迴函式必須具備「終止條件 (Base Case)」與「遞迴推展 (Recursive Step)」。</p>
+</li>
+<li><p><strong>常用</strong>  <strong>$Big-O</strong>$  <strong>複雜度評估：</strong></p>
+</li>
+<li><p>$O(1)$ ：常數時間（如 Hash Table 存取、陣列索引讀取）。</p>
+</li>
+<li><p>$O(\log N)$ ：二分搜尋法。</p>
+</li>
+<li><p>$O(N)$ ：單層迴圈走訪。</p>
+</li>
+<li><p>$O(N \log N)$ ：高效排序算法（如 Python 内建 Timsort .sort()）。</p>
+</li>
+<li><p>$O(N^2)$ ：雙層巢狀迴圈（如簡單模擬、暴搜所有數對）。</p>
+</li>
+<li><p>$O(2^N)$ ：未進行記憶化的指數級遞迴（如樹狀分支探勘）。</p>
+</li>
+<li><p><strong>常見陷阱點：</strong>  Python 預設最大遞迴深度為 1000。若實作 DFS 深度過深，會引發 RecursionError。競程中可用 sys.setrecursionlimit(200000) 提高限制。</p>
+</li>
+</ul>
+<h4 id="3-觀念題語法追蹤與解題技巧-Code-Tracing"><a href="#3-觀念題語法追蹤與解題技巧-Code-Tracing" class="headerlink" title="3. 觀念題語法追蹤與解題技巧 (Code Tracing)"></a>3. 觀念題語法追蹤與解題技巧 (Code Tracing)</h4><h5 id="3-1-手動追蹤-Code-Tracing-步驟拆解"><a href="#3-1-手動追蹤-Code-Tracing-步驟拆解" class="headerlink" title="3.1 手動追蹤 (Code Tracing) 步驟拆解"></a>3.1 手動追蹤 (Code Tracing) 步驟拆解</h5><p>APCS 觀念題考驗的是「人肉編譯器」的精密程度。請嚴格執行以下三步驟：</p>
+<ol>
+<li><p><strong>標示控制區塊：</strong>  用筆圈出 for &#x2F; while 的起止條件與 if&#x2F;else 的分支走向。</p>
+</li>
+<li><p><strong>建立變數狀態追蹤表（Variable State Table）：</strong>  欄位需包含「執行行號」、「主控制變數」、「陣列&#x2F;變數狀態」與「條件判斷結果（True&#x2F;False）」。</p>
+</li>
+<li><p><strong>單步模擬：</strong>  變數每變更一次，立刻劃掉舊值更新為新值。</p>
+</li>
+</ol>
+<h6 id="APCS-風格實戰追蹤範例"><a href="#APCS-風格實戰追蹤範例" class="headerlink" title="APCS 風格實戰追蹤範例"></a><em>APCS 風格實戰追蹤範例</em></h6><p>追蹤以下程式碼片段之輸出結果：</p>
+<pre><code>line 1: arr = [4, 1, 3]
+line 2: total = 0
+line 3: for i in range(len(arr)):
+line 4:     if arr[i] % 2 != 0:
+line 5:         total += arr[i] * i
+line 6:     else:
+line 7:         total -= arr[i]
+line 8: print(total)
+</code></pre>
+<h6 id="變數狀態追蹤表-Variable-State-Table"><a href="#變數狀態追蹤表-Variable-State-Table" class="headerlink" title="變數狀態追蹤表 (Variable State Table)"></a><em>變數狀態追蹤表 (Variable State Table)</em></h6><p>步驟 (Step),行號 (Line),迴圈 i,陣列 arri,條件判斷 arri % 2 !&#x3D; 0,變數 total 變更過程,說明 &#x2F; 輸出</p>
+<p>1,1-2,-,-,-,0,初始狀態：total &#x3D; 0</p>
+<p>2,3-4,0,4,False (4%2&#x3D;&#x3D;0),0 - 4 &#x3D; -4,走 else 支線 (Line 7)</p>
+<p>3,3-4,1,1,True (1%2!&#x3D;0),-4 + (1 * 1) &#x3D; -3,走 if 支線 (Line 5)</p>
+<p>4,3-4,2,3,True (3%2!&#x3D;0),-3 + (3 * 2) &#x3D; 3,走 if 支線 (Line 5)</p>
+<p>5,8,-,-,-,3,迴圈結束，印出  3</p>
+<h5 id="3-2-變數作用域-Variable-Scope-陷阱"><a href="#3-2-變數作用域-Variable-Scope-陷阱" class="headerlink" title="3.2 變數作用域 (Variable Scope) 陷阱"></a>3.2 變數作用域 (Variable Scope) 陷阱</h5><ul>
+<li><p><strong>全域 (Global) 與區域 (Local) 覆蓋：</strong>  在函式內部若對變數進行賦值（如 x &#x3D; 5），Python 會自動將 x 宣告為該函式的區域變數。若未預先宣告 global x 卻在賦值前讀取它，會引發 UnboundLocalError。</p>
+</li>
+<li><p><strong>物件傳遞機制 (Pass-by-assignment)：</strong></p>
+</li>
+<li><p><strong>不可變物件 (Immutable)：</strong>  整數、字串、Tuple。傳入函式內修改時會建立新物件，不影響外部變數。</p>
+</li>
+<li><p><strong>可變物件 (Mutable)：</strong>  List、Dict。傳入函式內若透過 arr.append() 或 arr0 &#x3D; k 修改， <strong>會直接變更外部原始物件的內容</strong> ！</p>
+</li>
+</ul>
+<h5 id="3-3-遞迴呼叫堆疊-Call-Stack-與邊界條件"><a href="#3-3-遞迴呼叫堆疊-Call-Stack-與邊界條件" class="headerlink" title="3.3 遞迴呼叫堆疊 (Call Stack) 與邊界條件"></a>3.3 遞迴呼叫堆疊 (Call Stack) 與邊界條件</h5><p>觀念題常考遞迴呼叫順序與回傳值的累加過程。必須在草稿紙上繪製 Call Stack 的  <strong>Push（壓入）與 Pop（彈出）</strong>  歷程。</p>
+<h6 id="範例程式碼"><a href="#範例程式碼" class="headerlink" title="範例程式碼"></a><em>範例程式碼</em></h6><pre><code>def f(n):
+    if n &lt;= 1:
+        return 1
+    return n + f(n - 2)
+</code></pre>
+<!---->
+
+<pre><code>print(f(3))
+</code></pre>
+<h6 id="Call-Stack-執行歷程拆解-ASCII-堆疊演示"><a href="#Call-Stack-執行歷程拆解-ASCII-堆疊演示" class="headerlink" title="Call Stack 執行歷程拆解 (ASCII 堆疊演示)"></a><em>Call Stack 執行歷程拆解 (ASCII 堆疊演示)</em></h6><pre><code>【階段一：遞迴向下壓入 (Push)】
+1. 呼叫 f(3)：
+   - 非 Base Case (3 &gt; 1)
+   - 需計算 3 + f(1)，暫停並壓入 Stack
+   
+2. 呼叫 f(1)：
+   - 觸發 Base Case (1 &lt;= 1)
+   - 準備回傳 1
+</code></pre>
+<!---->
+
+<pre><code>Stack 狀態 (由頂至底):
+|  f(1)  | -&gt; 抵達 Base Case，開始 Pop
+|  f(3)  | -&gt; 等待 f(1) 的結果 (3 + f(1))
++--------+
+</code></pre>
+<!---->
+
+<pre><code>【階段二：觸發 Base Case 向上彈出 (Pop)】
+1. f(1) 回傳 1 彈出 Stack。
+2. 回到 f(3)：計算 3 + 1 = 4，回傳 4 並彈出 Stack。
+3. 最終 print(4) 輸出結果為 4。
+</code></pre>
+<h4 id="4-實作題核心演算法與資料結構"><a href="#4-實作題核心演算法與資料結構" class="headerlink" title="4. 實作題核心演算法與資料結構"></a>4. 實作題核心演算法與資料結構</h4><h5 id="4-1-模擬題與陣列邏輯-Simulation-Array-Logic"><a href="#4-1-模擬題與陣列邏輯-Simulation-Array-Logic" class="headerlink" title="4.1 模擬題與陣列邏輯 (Simulation &amp; Array Logic)"></a>4.1 模擬題與陣列邏輯 (Simulation &amp; Array Logic)</h5><ol>
+<li><p><strong>解題核心觀念：</strong>  抽象化題目敘述，轉化為一維或二維陣列的狀態變更。重點在於邊界條件判斷與指標移動規範。</p>
+</li>
+<li><p><strong>適用題型特徵：</strong>  地圖走訪、規則計分、矩陣翻轉、字串解析。</p>
+</li>
+<li><p><strong>關鍵邏輯步驟：</strong></p>
+</li>
+<li><p>初始化陣列與變數，定義地圖尺寸與邊界。</p>
+</li>
+<li><p>設計主迴圈（依時間推移或指令序列更新）。</p>
+</li>
+<li><p>每一步檢查合法性（如邊界、障礙物），更新狀態陣列。</p>
+</li>
+</ol>
+<p>👉  <strong>對應 ZeroJudge 練習題：</strong>  <strong>c290</strong>  <strong>APCS 數字差、</strong>  <strong>f605</strong>  <strong>APCS 購買力、</strong>  <strong>f606</strong>  <strong>APCS 流量統計</strong></p>
+<h5 id="4-2-雙指標-Two-Pointers-與-貪婪演算法-Greedy"><a href="#4-2-雙指標-Two-Pointers-與-貪婪演算法-Greedy" class="headerlink" title="4.2 雙指標 (Two Pointers) 與 貪婪演算法 (Greedy)"></a>4.2 雙指標 (Two Pointers) 與 貪婪演算法 (Greedy)</h5><ol>
+<li><p><strong>解題核心觀念：</strong></p>
+</li>
+<li><p><strong>雙指標：</strong>  利用左右指標 L, R 從陣列兩端向中間逼近（或快慢指標），將  $O(N^2)$  的列舉優化至  $O(N)$ 。</p>
+</li>
+<li><p><strong>貪婪演算法：</strong>  證明題目具備「貪婪選擇性質 (Greedy Choice Property)」，每一步均做出當前區域最佳選擇，累積為全域最佳解。</p>
+</li>
+<li><p><strong>適用題型特徵：</strong>  已排序陣列求雙數和、區間重疊覆蓋、資源最佳化分配。</p>
+</li>
+<li><p><strong>關鍵邏輯步驟：</strong></p>
+</li>
+<li><p>雙指標：先將資料排序（ $O(N \log N)$ ），設定 L &#x3D; 0, R &#x3D; N - 1，根據 arrL + arrR 與目標值的關係移動指標。</p>
+</li>
+<li><p>貪婪演算法：自訂排序規則（如依區間結束時間 key&#x3D;lambda x: x1 排序），依序處理並維護當前合法狀態。</p>
+</li>
+</ol>
+<p>👉  <strong>對應 ZeroJudge 練習題：</strong>  <strong>c295</strong>  <strong>APCS 最大和</strong></p>
+<h5 id="4-3-二分搜尋法-Binary-Search"><a href="#4-3-二分搜尋法-Binary-Search" class="headerlink" title="4.3 二分搜尋法 (Binary Search)"></a>4.3 二分搜尋法 (Binary Search)</h5><ul>
+<li><p><strong>解題核心觀念：</strong>  在具備「單調性（Monotonicity）」的單維資料或答案空間中，每次將搜尋範圍縮減一半。對於極值優化問題，採用「答案二分法（Binary Search on Answer）」。</p>
+</li>
+<li><p><strong>適用題型特徵：</strong>  已排序資料查找、求「滿足條件的最大最小值 &#x2F; 最小最大值」（如切木頭、基地台覆蓋）。</p>
+</li>
+</ul>
+<h6 id="答案二分法標準實作樣板-Code-Template"><a href="#答案二分法標準實作樣板-Code-Template" class="headerlink" title="答案二分法標準實作樣板 (Code Template)"></a><em>答案二分法標準實作樣板 (Code Template)</em></h6><pre><code>def check(mid, data, K):
+    # 驗證當前答案 mid 是否合法（根據題目條件撰寫 $O(N)$ 檢查邏輯）
+    count = 0
+    # ... 檢查邏輯 ...
+    return count &lt;= K
+</code></pre>
+<!---->
+
+<pre><code>def binary_search_on_answer(data, K):
+    low = 1                  # 搜尋下界
+    high = max(data)         # 搜尋上界
+    ans = high
+    
+    while low &lt;= high:
+        mid = (low + high) // 2
+        if check(mid, data, K):
+            ans = mid        # 當前 mid 可行，記錄答案並嘗試找更小/更大值
+            high = mid - 1   # 縮減搜尋範圍
+        else:
+            low = mid + 1
+            
+    return ans
+</code></pre>
+<ol>
+<li><p><strong>關鍵邏輯步驟：</strong></p>
+</li>
+<li><p>確定答案可能開區間 low, high。</p>
+</li>
+<li><p>撰寫單調性驗證函式 check(mid)。</p>
+</li>
+<li><p>執行 while low &lt;&#x3D; high 迴圈收斂邊界。</p>
+</li>
+</ol>
+<p>👉  <strong>對應 ZeroJudge 練習題：</strong>  <strong>f607</strong>  <strong>APCS 切木頭</strong></p>
+<h5 id="4-4-基礎搜尋與圖論-DFS-與-BFS"><a href="#4-4-基礎搜尋與圖論-DFS-與-BFS" class="headerlink" title="4.4 基礎搜尋與圖論 (DFS 與 BFS)"></a>4.4 基礎搜尋與圖論 (DFS 與 BFS)</h5><ul>
+<li><p><strong>解題核心觀念：</strong></p>
+</li>
+<li><p><strong>DFS (深度優先搜尋)：</strong>  沿路徑深入探勘，配合回溯（Backtracking）尋找所有可能解或連通塊。</p>
+</li>
+<li><p><strong>BFS (廣度優先搜尋)：</strong>  利用佇列（Queue）由近至遠逐層擴展，保證首次到達目標點時為 <strong>最短路徑</strong> 。</p>
+</li>
+<li><p><strong>適用題型特徵：</strong>  網格地圖探勘（島嶼數量）、迷宮離去最短步數、圖形連通性分析。</p>
+</li>
+</ul>
+<h6 id="網格地圖-BFS-標準實作樣板-Code-Template"><a href="#網格地圖-BFS-標準實作樣板-Code-Template" class="headerlink" title="網格地圖 BFS 標準實作樣板 (Code Template)"></a><em>網格地圖 BFS 標準實作樣板 (Code Template)</em></h6><pre><code>from collections import deque
+</code></pre>
+<!---->
+
+<pre><code>def bfs_grid(grid, start_r, start_c):
+    rows, cols = len(grid), len(grid[0])
+    queue = deque([(start_r, start_c, 0)])  # (r, c, dist)
+    visited = set([(start_r, start_c)])
+    
+    # 上下左右四方向向量
+    dr = [-1, 1, 0, 0]
+    dc = [0, 0, -1, 1]
+    
+    while queue:
+        r, c, dist = queue.popleft()
+        
+        # 抵達終點條件判斷（假設右下角為終點）
+        if r == rows - 1 and c == cols - 1:
+            return dist
+            
+        for i in range(4):
+            nr, nc = r + dr[i], c + dc[i]
+            # 邊界檢查與障礙物/已存取判斷
+            if 0 &lt;= nr &lt; rows and 0 &lt;= nc &lt; cols:
+                if grid[nr][nc] != 1 and (nr, nc) not in visited:  # 1 代表牆壁
+                    visited.add((nr, nc))
+                    queue.append((nr, nc, dist + 1))
+                    
+    return -1  # 無法到達
+</code></pre>
+<p>👉  <strong>對應 ZeroJudge 練習題：</strong>  <strong>c296</strong>  <strong>APCS 報數彈珠 (約瑟夫環)</strong></p>
+<h5 id="4-5-基礎動態規劃-Dynamic-Programming"><a href="#4-5-基礎動態規劃-Dynamic-Programming" class="headerlink" title="4.5 基礎動態規劃 (Dynamic Programming)"></a>4.5 基礎動態規劃 (Dynamic Programming)</h5><ol>
+<li><p><strong>解題核心觀念：</strong>  將大問題拆解為重疊的子問題，利用表格記憶化（Memoization）已計算的結果，將指數級複雜度降至多項式級別。</p>
+</li>
+<li><p><strong>適用題型特徵：</strong>  遞迴優化、求方案總數、最大獲利&#x2F;最小成本、無權值路徑計數、背包問題變體。</p>
+</li>
+<li><p><strong>關鍵邏輯步驟：</strong></p>
+</li>
+<li><p><strong>定義 DP 狀態：</strong>  明確 dpi 或 dpi 代表的物理意義。</p>
+</li>
+<li><p><strong>推導轉移方程式 (Transition Equation)：</strong>  建立當前狀態與前序狀態的遞迴關係（例如 dpi &#x3D; max(dpi-1, dpi-2 + vali)）。</p>
+</li>
+<li><p><strong>邊界初始化 (Base Cases)：</strong>  設定初始已知條件（如 dp0 &#x3D; 0），並確定填表順序。</p>
+</li>
+</ol>
+<p>👉  <strong>對應 ZeroJudge 練習題：</strong>  <strong>o084</strong>  <strong>APCS 物品堆疊</strong></p>
+<h4 id="5-ZeroJudge-對應題庫對照表"><a href="#5-ZeroJudge-對應題庫對照表" class="headerlink" title="5. ZeroJudge 對應題庫對照表"></a>5. ZeroJudge 對應題庫對照表</h4><p>本對照表將 APCS 歷屆經典試題與競程基礎題精確分類，學員應依目標級分安排演練進度：</p>
+<p>單元分類,ZeroJudge 題號,題目名稱,建議目標級分&#x2F;難度</p>
+<p>語法基礎與 I&#x2F;O,a001,哈囉,1 級分 (基礎測試)</p>
+<p>語法基礎與 I&#x2F;O,g275,APCS 邏輯運算子,2 級分 (基礎邏輯)</p>
+<p>陣列與邏輯模擬,c290,APCS 數字差,2~3 級分 (基礎字串與陣列)</p>
+<p>陣列與邏輯模擬,f605,APCS 購買力,2~3 級分 (陣列統計模擬)</p>
+<p>陣列與邏輯模擬,c294,APCS 三角形辨別,3 級分 (排序與幾何邏輯)</p>
+<p>貪婪與陣列應用,c295,APCS 最大和,3 級分 (貪婪選擇與矩陣)</p>
+<p>二維陣列與模擬,f606,APCS 流量統計,3 級分 (二維矩陣轉置與模擬)</p>
+<p>雙指標與二分搜尋,f607,APCS 切木頭,3~4 級分 (二分搜尋&#x2F;資料結構)</p>
+<p>圖論走訪 (DFS&#x2F;BFS),c296,APCS 報數彈珠,3~4 級分 (遞迴模擬&#x2F;圖論搜尋)</p>
+<p>基礎動態規劃 (DP),o084,APCS 物品堆疊,4 級分 (自訂排序&#x2F;DP 優化)</p>
+<h4 id="6-1-月檢定考前衝刺與應考策略"><a href="#6-1-月檢定考前衝刺與應考策略" class="headerlink" title="6. 1 月檢定考前衝刺與應考策略"></a>6. 1 月檢定考前衝刺與應考策略</h4><h5 id="考前-7-天戰術衝刺清單"><a href="#考前-7-天戰術衝刺清單" class="headerlink" title="考前 7 天戰術衝刺清單"></a>考前 7 天戰術衝刺清單</h5><ul>
+<li><p>  <strong>Fast I&#x2F;O 模板默寫：</strong>  熟練默寫 sys.stdin.read().split() 與 sys.stdin.readline().strip()，確保實作題不因 I&#x2F;O 超時。</p>
+</li>
+<li><p>  <strong>二維陣列與矩陣防錯：</strong>  手寫確認 [0*cols for _ in range(rows)] 初始化語法與矩陣旋轉 zip(*grid::-1) 操作。</p>
+</li>
+<li><p>  <strong>歷屆考題限時重測：</strong>  將 ZeroJudge 表格中 c294, c295, f605, f606 四題進行不看解答限時實作，目標單題 20 分鐘內 AC。</p>
+</li>
+<li><p>  <strong>觀念題手動 Trace 訓練：</strong>  拿白紙練習繪製「變數狀態追蹤表」與遞迴 Call Stack 堆疊圖，徹底消除變數覆蓋與邊界誤判。</p>
+</li>
+</ul>
+<h5 id="考試當天實戰應試心法"><a href="#考試當天實戰應試心法" class="headerlink" title="考試當天實戰應試心法"></a>考試當天實戰應試心法</h5><h6 id="觀念題戰術（測驗時間：60-分鐘）"><a href="#觀念題戰術（測驗時間：60-分鐘）" class="headerlink" title="觀念題戰術（測驗時間：60 分鐘）"></a><em>觀念題戰術（測驗時間：60 分鐘）</em></h6><ol>
+<li><p><strong>時間嚴格控管：</strong>  共 25 題，每題平均分配  <strong>2.4 分鐘</strong> 。前 15 題語法與簡單追蹤需迅速拿下，保留時間給後段複雜遞迴題。</p>
+</li>
+<li><p><strong>落實白紙模擬：</strong>  遇到遞迴呼叫必畫 Call Stack 堆疊圖（標註 Push&#x2F;Pop），遇到迴圈變數必畫「變數狀態追蹤表」。 <strong>切忌憑感覺心算！</strong></p>
+</li>
+<li><p><strong>選項極端值排除法：</strong>  觀察選項邊界（如 0, N-1, -1），將極端狀況帶入程式碼，快速排除不合邏輯的干擾選項。</p>
+</li>
+</ol>
+<h6 id="實作題戰術（測驗時間：150-分鐘）"><a href="#實作題戰術（測驗時間：150-分鐘）" class="headerlink" title="實作題戰術（測驗時間：150 分鐘）"></a><em>實作題戰術（測驗時間：150 分鐘）</em></h6><ul>
+<li><p><strong>審題與</strong>  <strong>$Big-O</strong>$  <strong>倒推解法（前 5 分鐘）：</strong></p>
+</li>
+<li><p>Python 在 APCS 時限通常為 1.0 秒，可執行約  $10^8$  次基本運算。</p>
+</li>
+<li><p>若測資規模  $N \le 1000$ ，允許  $O(N^2)$  解法（雙重迴圈）；若  $N \le 10^5$ ，則必須設計  $O(N)$  或  $O(N \log N)$  演算法。</p>
+</li>
+<li><p>記憶體限制通常為 256MB，二維陣列大小不宜超過  $5000 \times 5000$ 。</p>
+</li>
+<li><p><strong>子任務 (Subtask) 搶分策略（關鍵拿分技巧）：</strong></p>
+</li>
+<li><p>若看到第三題或第四題無法立刻想到最優解（如  $O(N \log N)$  的二分搜或 DP）， <strong>切勿卡關或留白！</strong></p>
+</li>
+<li><p>優先寫出  $O(N^2)$  或  $O(2^N)$  的暴力搜尋（Brute Force）程式碼，確保穩穩吃下 Subtask 第一子任務的 40%~60% 配分。拿滿基本分後，再嘗試優化至滿分。</p>
+</li>
+<li><p><strong>離線自我測試與邊界檢查（交卷前 10 分鐘）：</strong></p>
+</li>
+<li><p>檢查極端測資：N &#x3D; 1、空輸入、全為負數、陣列元素重複等狀況。</p>
+</li>
+<li><p>確認二維陣列走訪時，索引是否會發生 IndexError（驗證 0 &lt;&#x3D; r &lt; rows and 0 &lt;&#x3D; c &lt; cols）。</p>
+</li>
+<li><p>確認全域變數是否在多筆測資間正確重置。</p>
+</li>
+</ul>
+
+
+      
+
+    </section>
+    
+      <section class='ArticleMeta'>
+          <div>
+            发布于&nbsp;
+            <time datetime="2026-11-19T02:54:59.835Z" itemprop="datePublished">
+              2026-11-19
+            </time>
+          </div>
+          
+      </section>
+    
+    
+</article>
+
+  
+</div>
+
+            <footer>
+    <div>© 2026 - yuyoru </div>
+    <div>
+        <span>
+            Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
+        </span>
+        ,
+        <span>
+            Theme - <a target="_blank" rel="noopener" href="https://github.com/nameoverflow/hexo-theme-icalm">Icalm</a>
+        </span>
+    </div>
+</footer>
+
+        </div>
+    </div>
+</div>
+
+<script src="/js/pager/dist/singlepager.js"></script>
+
+<script>
+var sp = new Pager('data-pager-shell')
+
+</script>
+</body>
+</html>
